@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How to Play | Republic City MC</title>
-<meta name="description" content="How to join Republic City MC on Java Edition 1.21.11, get whitelisted, and play your first hour.">
+<meta name="description" content="How to join Republic City MC on Java Edition 1.21.11, get whitelisted, and get started.">
 <meta property="og:title" content="How to Play | Republic City MC">
-<meta property="og:description" content="How to join Republic City MC on Java Edition 1.21.11, get whitelisted, and play your first hour.">
+<meta property="og:description" content="How to join Republic City MC on Java Edition 1.21.11, get whitelisted, and get started.">
 <meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,15 +18,15 @@
 <nav class="topbar"><div class="in">
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span></a>
   <input type="checkbox" id="navtoggle"><label for="navtoggle" class="burger" aria-label="Menu">&#9776;</label>
-  <div class="menu"><a href="index.html">Home</a><a href="how-to-play.html" class="on">How to Play</a><a href="quests.html">Quests</a><a href="systems.html">Systems</a><a href="codex.html">Codex</a><a href="behind-the-build.html">The Build</a><a class="dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a></div>
+  <div class="menu"><a href="index.html">Home</a><a href="how-to-play.html" class="on">How to Play</a><a href="quests.html">Quests</a><a href="systems.html">Systems</a><a href="field-guide.html">Field Guide</a><a class="dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a></div>
 </div></nav>
 <main>
 <header class="head">
   <div class="kicker">New Citizens</div>
   <h1>How to Play</h1>
-  <p class="lead">Everything you need to get in the game and through your first hour.</p>
+  <p class="lead">Get in the game, get your papers, and find your way around.</p>
 </header>
-<nav class="jump"><a href="#connect">Connect</a><a href="#setup">Set up 1.21.11</a><a href="#trouble">Can't connect?</a><a href="#first-hour">First hour</a><a href="#commands">Commands</a><a href="#rules">Rules</a></nav>
+<nav class="jump"><a href="#connect">Connect</a><a href="#getting-started">Getting Started</a><a href="#rules">Rules</a></nav>
 
 <section id="connect">
   <h2>Connect</h2>
@@ -36,61 +36,34 @@
     <button class="copy js-copy" type="button">Copy</button>
     <div class="facts"><span class="pill gold">Java Edition <span class="js-ver">1.21.11</span></span><span class="pill blue">Beta: whitelist only</span><span class="pill status js-status">Checking&hellip;</span></div>
   </div>
-  <div class="note warn" style="margin-top:22px"><b>Beta is whitelist only.</b> DM Hammy on <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> with your exact Minecraft username. You can't join until you're added.</div>
-</section>
-
-<section class="alt" id="setup">
-  <h2>Set Up Minecraft <span class="js-ver">1.21.11</span></h2>
-  <p class="sub">Do this once. After that, just pick the installation and press Play.</p>
-  <div class="steps">
-    <div class="step"><h3>Open the Minecraft Launcher</h3><p>Select <b>Minecraft: Java Edition</b> in the left sidebar.</p></div>
-    <div class="step"><h3>Make a new installation</h3><p>Click the <b>Installations</b> tab at the top, then <b>New installation</b>. Name it <i>Republic City</i>.</p></div>
-    <div class="step"><h3>Pick the version</h3><p>Open the <b>Version</b> dropdown, choose <b>release <span class="js-ver">1.21.11</span></b>, then click <b>Create</b>.</p></div>
-    <div class="step"><h3>Launch it</h3><p>Go back to the <b>Play</b> tab, pick <i>Republic City</i> in the dropdown next to the green Play button, and click <b>Play</b>. The first launch downloads the version and takes a minute.</p></div>
-    <div class="step"><h3>Add the server</h3><p>In game: <b>Multiplayer</b> &rarr; <b>Add Server</b>. Server Name: <i>Republic City MC</i>. Server Address: <code class="js-ip">Address coming soon</code>. Click <b>Done</b>, then double-click the server to join.</p></div>
+  <div class="grid" style="max-width:900px;margin-top:22px">
+    <div class="item"><h3>Get on the Whitelist</h3><p>Beta is whitelist only. DM Hammy on <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> with your exact Minecraft username.</p></div>
+    <div class="item"><h3>Switch to <span class="js-ver">1.21.11</span></h3><p>Make a new installation set to <span class="js-ver">1.21.11</span>: <a href="https://shockbyte.com/help/knowledgebase/articles/how-to-change-your-minecraft-client-version-on-java-edition" target="_blank" rel="noopener">Minecraft Launcher guide</a> or <a href="https://nodecraft.com/support/games/minecraft/mods/how-to-use-the-modrinth-launcher" target="_blank" rel="noopener">Modrinth App guide</a>.</p></div>
+    <div class="item"><h3>Can't Connect?</h3><p>Look up your error message in <a href="https://www.gameserverkings.com/knowledge-base/minecraft/players-cant-connect/" target="_blank" rel="noopener">this guide</a>, or ask in the Discord with a screenshot.</p></div>
   </div>
 </section>
 
-<section id="trouble">
-  <h2>Can't Connect?</h2>
-  <div class="tbl-wrap" style="max-width:900px">
-    <table><thead><tr><th>You see</th><th>Fix</th></tr></thead><tbody>
-      <tr><td data-l="You see">Outdated client / Outdated server</td><td data-l="Fix">You're on the wrong version. Redo <a href="#setup">Set Up</a> and make sure the installation says <span class="js-ver">1.21.11</span>.</td></tr>
-      <tr><td data-l="You see">You are not white-listed on this server</td><td data-l="Fix">You're not on the beta list yet. DM Hammy on Discord with your exact username.</td></tr>
-      <tr><td data-l="You see">Unknown host / Can't resolve hostname</td><td data-l="Fix">Check the address for typos. Use the Copy button above.</td></tr>
-      <tr><td data-l="You see">The server doesn't show up at all</td><td data-l="Fix">You might be on Bedrock Edition. Republic City is Java Edition only.</td></tr>
-      <tr><td data-l="You see">Something else</td><td data-l="Fix">Ask in the <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>. Include a screenshot of the error.</td></tr>
-    </tbody></table>
-  </div>
-</section>
-
-<section class="alt" id="first-hour">
-  <h2>Your First Hour</h2>
+<section class="alt" id="getting-started">
+  <h2>Getting Started</h2>
   <p class="sub">You arrive in the City Hall lobby with no papers.</p>
   <div class="steps">
     <div class="step"><h3>Talk to Registrar Huan</h3><p>He's behind the brass grille. Right-click him and he hands you a blank <b>Citizen Registration Form</b>.</p></div>
-    <div class="step"><h3>Fill out your form</h3><p>Right-click the form in your hand. Pick your <b>Place of Origin</b>, then your <b>Path</b>, then click <b>Sign &amp; File</b>. Your abilities are bound to your hotbar automatically.</p></div>
+    <div class="step"><h3>Fill out your form</h3><p>Right-click the form in your hand. Pick your <b>Place of Origin</b>, then your <b>Path</b>, then click <b>Sign &amp; File</b>. <b>This is permanent</b>; only staff can reset it.</p></div>
+    <div class="step"><h3>Check your abilities</h3><p>Your starting abilities are bound to your hotbar automatically. <code>/b display</code> lists what you can use, <code>/b help &lt;ability&gt;</code> explains one, and <code>/b bind &lt;ability&gt; &lt;slot&gt;</code> moves it.</p></div>
     <div class="step"><h3>Grab your starter kit</h3><p>Talk to Huan again: a training staff and cabbage cookies (Cabbage Corp keeps sending them). Waterbenders also get water bottles.</p></div>
-    <div class="step"><h3>Follow the story</h3><p>The line above your hotbar shows your current task, and your <b>quest compass</b> points the way along the streets. A floating <b>!</b> means someone has a job for you; <b>?</b> means report back.</p></div>
+    <div class="step"><h3>Follow the story</h3><p>The line above your hotbar shows your current task, and your <b>quest compass</b> points the way along the streets. A floating <b>!</b> means someone has a job for you; <b>?</b> means report back. Quest items you can't carry go to <code>/backpack</code>.</p></div>
+    <div class="step"><h3>Your records</h3><p>Right-click your form or papers to open your dossier, or look anyone up with <code>/dossier &lt;name&gt;</code> (or crouch + right-click them). Earn achievements, then wear a title with <code>/titles</code>.</p></div>
+    <div class="step"><h3>Get around</h3><p>Important places unlock as waypoints when you walk by. Type <code>/wp</code> to fast travel back.</p></div>
   </div>
-  <div class="note warn" style="margin-top:28px"><b>Your origin and path are permanent</b> once you sign. Only staff can reset them.</div>
-  <div class="grid" style="margin-top:10px">
+  <div class="grid" style="max-width:900px;margin-top:28px">
     <div class="item"><h3>Origins</h3><p><b>Earth Kingdom:</b> Ba Sing Se, Omashu, Gaoling, Kyoshi Island, Chin Village<br><b>Fire Nation:</b> Capital City, Ember Island, Shu Jing<br><b>Water Tribes:</b> Northern, Southern, Foggy Swamp<br><b>United Republic:</b> Republic City</p></div>
-    <div class="item"><h3>Paths</h3><p><b>Waterbender, Earthbender, Firebender</b>, or two non-bender paths: <b>Chi Blocker</b> and <b>Weapons Master</b>. Any origin can take any path. There are no player airbenders.</p></div>
+    <div class="item"><h3>Paths</h3><p><b>Waterbender, Earthbender, Firebender</b>, or two non-bender paths: <b>Chi Blocker</b> and <b>Weapons Master</b>. Any origin can take any path. No player airbenders.</p></div>
   </div>
 </section>
 
-<section id="commands">
-  <h2>Commands</h2>
-  <p class="sub">The handful you'll actually use.</p>
-  <div class="wrap">
-    <div class="tbl-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody><tr><td data-l="Command"><code>/dossier &lt;name&gt;</code></td><td data-l="What it does">Open a citizen's records. They must be online. <code>/profile</code> works too.</td></tr><tr><td data-l="Command"><code>Crouch + right-click a player</code></td><td data-l="What it does">Open their dossier (empty hand).</td></tr><tr><td data-l="Command"><code>Right-click your form or papers</code></td><td data-l="What it does">Open your own dossier.</td></tr><tr><td data-l="Command"><code>/achievements &lt;name&gt;</code></td><td data-l="What it does">See a citizen's achievements.</td></tr><tr><td data-l="Command"><code>/titles</code></td><td data-l="What it does">Pick which earned title you wear.</td></tr><tr><td data-l="Command"><code>/wp</code></td><td data-l="What it does">Fast travel to any waypoint you've discovered.</td></tr><tr><td data-l="Command"><code>/b bind &lt;ability&gt; [slot]</code></td><td data-l="What it does">Bind an ability to a hotbar slot (1&ndash;9).</td></tr><tr><td data-l="Command"><code>/b display</code></td><td data-l="What it does">List the abilities your tier can use.</td></tr><tr><td data-l="Command"><code>/b help &lt;ability&gt;</code></td><td data-l="What it does">How an ability works.</td></tr><tr><td data-l="Command"><code>/backpack</code></td><td data-l="What it does">Quest items that didn't fit, or would have dropped when you died.</td></tr></tbody></table></div>
-  </div>
-</section>
-
-<section class="alt" id="rules">
+<section id="rules">
   <h2>Rules</h2>
-  <p class="sub">The full server rules are pinned in the <b>#rules</b> channel on our <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>. In game, the city works like this:</p>
+  <p class="sub">The full server rules are pinned in <b>#rules</b> on our <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>. In game, the city works like this:</p>
   <div class="grid">
     <div class="item"><h3>Bend Freely, Build Nothing</h3><p>Bend anywhere in the city, but you can't place or break blocks. Doors and trapdoors still work.</p></div>
     <div class="item"><h3>Quest Items Are Safe</h3><p>They can't be dropped. If you die, they go to your <code>/backpack</code>.</p></div>

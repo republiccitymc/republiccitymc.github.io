@@ -1,0 +1,481 @@
+// Snapshot of the 'RCMC Wiki Data (public)' sheet, shown instantly and used if the live sheet can't be reached.
+// Regenerated whenever Claude rebuilds the site. Snapshot: 2026-10-13.
+window.RC_DATA={
+"Bestiary": [
+{
+"Name": "Spider-Rat",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Mei-Lin's apartment (Unity Flats), Civic Sewers",
+"Health": "1",
+"Melee Damage": "2",
+"Abilities": "Fast and swims well. Dangerous in swarms.",
+"Drops": "Spider-Rat Pelt (35%), String (20%)",
+"Spoiler": "No"
+},
+{
+"Name": "Spider-Rat Soldier",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Jian's Tea Shop cellar, Civic Sewers",
+"Health": "12",
+"Melee Damage": "4",
+"Abilities": "Enrages below 30% health, gaining Speed and Strength.",
+"Drops": "Spider-Rat Pelt ×1–2 (80%), String ×1–2 (50%)",
+"Spoiler": "No"
+},
+{
+"Name": "Spider-Rat Queen",
+"Rank": "Boss",
+"Tier": "I",
+"Found In": "The Nest, deepest chamber of the Civic Sewers",
+"Health": "90",
+"Melee Damage": "4",
+"Abilities": "Lunges to knock you back. Summons 4 Spider-Rats every 15 seconds.",
+"Drops": "Spider-Rat Queen Fang (quest item, 100%), Spider-Rat Pelt ×3–5 (100%), Brood Queen Chitin (35%)",
+"Spoiler": "No"
+},
+{
+"Name": "Waterbending Police Recruit",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Sparring Grounds",
+"Health": "35",
+"Melee Damage": "1",
+"Abilities": "Water Whip: a stream of water that slows you and knocks you back. Splash: shoves you back when struck.",
+"Drops": "Sometimes drops their wallet: 2 Yuans (10%)",
+"Spoiler": "No"
+},
+{
+"Name": "Earthbending Police Recruit",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Sparring Grounds",
+"Health": "35",
+"Melee Damage": "1",
+"Abilities": "Earth Blast: a telegraphed boulder that hits for 5 and knocks you back.",
+"Drops": "Sometimes drops their wallet: 2 Yuans (10%)",
+"Spoiler": "No"
+},
+{
+"Name": "Firebending Police Recruit",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Sparring Grounds",
+"Health": "35",
+"Melee Damage": "1",
+"Abilities": "Fire Cone: a short flame burst that sets you alight. Fire Dash: leaps toward you.",
+"Drops": "Sometimes drops their wallet: 2 Yuans (10%)",
+"Spoiler": "No"
+},
+{
+"Name": "Weapons Master Police Recruit",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Sparring Grounds",
+"Health": "35",
+"Melee Damage": "2",
+"Abilities": "Fights with an iron sword and lunges at you from close range.",
+"Drops": "Sometimes drops their wallet: 2 Yuans (10%)",
+"Spoiler": "No"
+},
+{
+"Name": "Terra Triad Grunt",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Ging's Backrooms",
+"Health": "6",
+"Melee Damage": "3",
+"Abilities": "Earth Blast. Calls nearby gang members for help.",
+"Drops": "Terra Triad Chit (40%), Street Skewer (15%), 2 Yuans (25%)",
+"Spoiler": "Yes"
+},
+{
+"Name": "Terra Triad Bruiser",
+"Rank": "Mob",
+"Tier": "I",
+"Found In": "Ging's Backrooms",
+"Health": "55",
+"Melee Damage": "6",
+"Abilities": "Earth Blast. Almost impossible to knock back.",
+"Drops": "Terra Triad Chit ×1–2 (100%), Scrap Steel Ingot (30%), Bamboo Smoke Bomb (10%), 4 Yuans (50%)",
+"Spoiler": "Yes"
+},
+{
+"Name": "Pitmaster Jax",
+"Rank": "Boss",
+"Tier": "I",
+"Found In": "Ging's Backrooms, the Sub-Sewer Depot",
+"Health": "175",
+"Melee Damage": "10",
+"Abilities": "Earth Blast. Earth Catapult: the ground under you bursts and launches you into the air (5 damage). Almost impossible to knock back.",
+"Drops": "Terra Triad Chit ×3–5 (100%), 25 Yuans (100%), Terra Triad Vault Seal (25%), Scroll: Catapult (15%), Terra Triad Switchblade (5%). On Quest 9: Marked Syndicate Ring (once)",
+"Spoiler": "Yes"
+}
+],
+"Items": [
+{
+"Item": "FOOD",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Street Skewer",
+"Category": "Food",
+"Tier": "Tier 0",
+"Price": "1 yuan",
+"Where to Get": "Civic Plaza Food Carts",
+"Recipe": "Not craftable",
+"Effect / Notes": "Restores 4 Hunger. Cheapest meal in the district.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Cabbage Cookie",
+"Category": "Food",
+"Tier": "Tier 0",
+"Price": "1 yuan",
+"Where to Get": "The Cabbage Cart",
+"Recipe": "Not craftable",
+"Effect / Notes": "Restores 2 Hunger and gives Speed I for 5s.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Kwong's Signature Dish",
+"Category": "Food",
+"Tier": "Tier 0",
+"Price": "12 yuan",
+"Where to Get": "Kwong's Cuisine (Downtown District)",
+"Recipe": "Not craftable",
+"Effect / Notes": "Restores 8 Hunger and gives Saturation II.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "MATERIALS & CONSUMABLES",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Bamboo Bundle",
+"Category": "Material",
+"Tier": "Tier 0",
+"Price": "1 yuan",
+"Where to Get": "Weapons Vendor Ten Ten (Civic Market)",
+"Recipe": "4 Bamboo (2×2)",
+"Effect / Notes": "Base material for staffs, bows and arrows.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Scrap Steel Ingot",
+"Category": "Material",
+"Tier": "Tier 0",
+"Price": "3 yuan",
+"Where to Get": "Hoyu's Pawn",
+"Recipe": "4 Iron Nuggets (2×2)",
+"Effect / Notes": "Base material for Tier I blades.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Bundle of Arrows (8)",
+"Category": "Consumable",
+"Tier": "Tier 0",
+"Price": "1 yuan",
+"Where to Get": "Weapons Vendor Ten Ten (Civic Market)",
+"Recipe": "1 Bamboo Bundle + 1 Scrap Steel",
+"Effect / Notes": "Standard arrows.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Bamboo Smoke Bomb",
+"Category": "Consumable",
+"Tier": "Tier 0",
+"Price": "4 yuan",
+"Where to Get": "Weapons Vendor Ten Ten (Civic Market)",
+"Recipe": "1 Bamboo Bundle + 1 Gunpowder",
+"Effect / Notes": "Use it to blind everything within 4 blocks for 5s.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "OPEN MARKET WEAPONS",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Basic Training Staff",
+"Category": "Weapon",
+"Tier": "Tier 0",
+"Price": "6 yuan",
+"Where to Get": "Weapons Vendor Ten Ten (Civic Market)",
+"Recipe": "3 Bamboo Bundles in a column",
+"Effect / Notes": "3 damage, 2.2 attack speed. Usable by every path.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Standard Shield",
+"Category": "Weapon",
+"Tier": "Tier 0",
+"Price": "12 yuan",
+"Where to Get": "Weapons Vendor Ten Ten (Civic Market)",
+"Recipe": "Oak Planks + 1 Scrap Steel",
+"Effect / Notes": "Directional blocking.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Standard Bow",
+"Category": "Weapon",
+"Tier": "Tier 0",
+"Price": "18 yuan",
+"Where to Get": "Weapons Vendor Ten Ten (Civic Market)",
+"Recipe": "3 Bamboo Bundles + 3 String",
+"Effect / Notes": "Legal to carry without a permit.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Concealed Dagger",
+"Category": "Weapon",
+"Tier": "Tier 0",
+"Price": "14 yuan",
+"Where to Get": "Crafting",
+"Recipe": "1 Scrap Steel over 1 Stick",
+"Effect / Notes": "4 damage, 2.0 attack speed. High critical hit chance.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "WEAPONS MASTER I",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Simple Jian",
+"Category": "Weapon",
+"Tier": "Tier I",
+"Price": "40 yuan",
+"Where to Get": "Toto's Armory",
+"Recipe": "2 Scrap Steel + 1 Stick",
+"Effect / Notes": "5 damage, 1.6 attack speed. Balanced sidearm.",
+"Requires": "Weapons Master I",
+"Spoiler": "No"
+},
+{
+"Item": "Simple Dao",
+"Category": "Weapon",
+"Tier": "Tier I",
+"Price": "32 yuan",
+"Where to Get": "Toto's Armory",
+"Recipe": "2 Scrap Steel + 1 Stick (diagonal)",
+"Effect / Notes": "4.6 damage, 1.9 attack speed. Fast close-quarters recovery.",
+"Requires": "Weapons Master I",
+"Spoiler": "No"
+},
+{
+"Item": "Simple Maul",
+"Category": "Weapon",
+"Tier": "Tier I",
+"Price": "38 yuan",
+"Where to Get": "Toto's Armory",
+"Recipe": "3 Scrap Steel + 2 Sticks",
+"Effect / Notes": "5.4 damage, 1.3 attack speed. Disables shields.",
+"Requires": "Weapons Master I",
+"Spoiler": "No"
+},
+{
+"Item": "Simple Gaff Hook",
+"Category": "Weapon",
+"Tier": "Tier I",
+"Price": "26 yuan",
+"Where to Get": "Toto's Armory",
+"Recipe": "2 Scrap Steel + 2 Sticks",
+"Effect / Notes": "4.4 damage, 2.0 attack speed. Pulls a target 2 blocks toward you.",
+"Requires": "Weapons Master I",
+"Spoiler": "No"
+},
+{
+"Item": "Terra Triad Switchblade",
+"Category": "Weapon",
+"Tier": "Tier I",
+"Price": "35 yuan",
+"Where to Get": "Shen's Martial Supplies",
+"Recipe": "Not craftable",
+"Effect / Notes": "4.8 damage, 2.1 attack speed. Carrying it openly costs 1 Order point.",
+"Requires": "Weapons Master I",
+"Spoiler": "No"
+},
+{
+"Item": "Spider Fang Dagger",
+"Category": "Weapon",
+"Tier": "Tier I",
+"Price": "Not sold",
+"Where to Get": "Crafting",
+"Recipe": "Brood Queen Chitin over Spider-Rat Pelt over Stick (one column)",
+"Effect / Notes": "5.5 damage, 1.8 attack speed. Hits apply Poison II for 4s.",
+"Requires": "Weapons Master I",
+"Spoiler": "No"
+},
+{
+"Item": "QUEST ITEMS",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Emergency Inspection Dispatch",
+"Category": "Quest Item",
+"Tier": "Quest",
+"Price": "Not sold",
+"Where to Get": "Registrar Huan, Quest 4",
+"Recipe": "Not craftable",
+"Effect / Notes": "Opens the Public Works sewer gate.",
+"Requires": "None",
+"Spoiler": "Yes"
+},
+{
+"Item": "Spider-Rat Queen Fang",
+"Category": "Quest Item",
+"Tier": "Quest",
+"Price": "Not sold",
+"Where to Get": "Spider-Rat Queen (100%)",
+"Recipe": "Not craftable",
+"Effect / Notes": "Proof of clearance. Turn in to Registrar Huan.",
+"Requires": "None",
+"Spoiler": "Yes"
+},
+{
+"Item": "Citizenship Papers",
+"Category": "Quest Item",
+"Tier": "Quest",
+"Price": "Not sold",
+"Where to Get": "Registrar Huan, end of Quest 4",
+"Recipe": "Not craftable",
+"Effect / Notes": "Right-click to open your dossier.",
+"Requires": "None",
+"Spoiler": "Yes"
+},
+{
+"Item": "Marked Syndicate Ring",
+"Category": "Quest Item",
+"Tier": "Quest",
+"Price": "Not sold",
+"Where to Get": "Defeating Pitmaster Jax on Quest 9 (given once)",
+"Recipe": "Not craftable",
+"Effect / Notes": "An antique signet ring bearing an old crest.",
+"Requires": "None",
+"Spoiler": "Yes"
+},
+{
+"Item": "MOB DROPS",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Spider-Rat Pelt",
+"Category": "Material",
+"Tier": "Tier 0",
+"Price": "Not sold",
+"Where to Get": "Spider-Rats (35%), Spider-Rat Soldiers (80%), Spider-Rat Queen (100%)",
+"Recipe": "Not craftable",
+"Effect / Notes": "Common crafting material from sewer vermin. Used in the Spider Fang Dagger.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Brood Queen Chitin",
+"Category": "Material",
+"Tier": "Tier 0",
+"Price": "Not sold",
+"Where to Get": "Spider-Rat Queen (35%)",
+"Recipe": "Not craftable",
+"Effect / Notes": "Rare trophy needed to forge the Spider Fang Dagger.",
+"Requires": "None",
+"Spoiler": "No"
+},
+{
+"Item": "Terra Triad Chit",
+"Category": "Material",
+"Tier": "Tier 0",
+"Price": "Not sold",
+"Where to Get": "Terra Triad Grunts (40%), Bruisers (100%), Pitmaster Jax (100%)",
+"Recipe": "Not craftable",
+"Effect / Notes": "Underground trade token accepted only by Triad fences.",
+"Requires": "None",
+"Spoiler": "Yes"
+},
+{
+"Item": "Terra Triad Vault Seal",
+"Category": "Material",
+"Tier": "Tier 0",
+"Price": "Not sold",
+"Where to Get": "Pitmaster Jax (25%)",
+"Recipe": "Not craftable",
+"Effect / Notes": "High-grade seal that unlocks Tier II fence inventories.",
+"Requires": "None",
+"Spoiler": "Yes"
+},
+{
+"Item": "TECHNIQUE SCROLLS",
+"Category": "",
+"Tier": "",
+"Price": "",
+"Where to Get": "",
+"Recipe": "",
+"Effect / Notes": "",
+"Requires": "",
+"Spoiler": ""
+},
+{
+"Item": "Scroll: Catapult",
+"Category": "Scroll",
+"Tier": "Special",
+"Price": "Not sold",
+"Where to Get": "Pitmaster Jax (15%)",
+"Recipe": "Not craftable",
+"Effect / Notes": "Right-click to learn Catapult for good, even before Mastery II: bend the earth under your feet and launch yourself into the air. Bind with /b bind Catapult. Other paths can't read it, but can sell it.",
+"Requires": "Earthbender",
+"Spoiler": "Yes"
+}
+]
+};
