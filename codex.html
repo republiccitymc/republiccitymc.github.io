@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Codex | Republic City MC</title>
+<meta name="description" content="Every mob, boss and item in Republic City MC: stats, abilities, drops, prices and recipes.">
+<meta property="og:title" content="Codex | Republic City MC">
+<meta property="og:description" content="Every mob, boss and item in Republic City MC: stats, abilities, drops, prices and recipes.">
+<meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="rc">
+<nav class="topbar"><div class="in">
+  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span></a>
+  <input type="checkbox" id="navtoggle"><label for="navtoggle" class="burger" aria-label="Menu">&#9776;</label>
+  <div class="menu"><a href="index.html">Home</a><a href="how-to-play.html">How to Play</a><a href="quests.html">Quests</a><a href="systems.html">Systems</a><a href="codex.html" class="on">Codex</a><a href="behind-the-build.html">The Build</a><a class="dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a></div>
+</div></nav>
+<main id="rc-codex">
+<header class="head">
+  <div class="kicker">Know Your City</div>
+  <h1>Codex</h1>
+  <p class="lead">Every enemy you'll face and every item you'll carry. Blurred entries are spoilers; click to reveal.</p>
+</header>
+<section>
+  <div class="tabs">
+    <button class="chip on" data-panel="bestiary">Bestiary</button>
+    <button class="chip" data-panel="items">Items</button>
+  </div>
+
+  <div class="panel" id="bestiary">
+    <div class="chips">
+      <button class="chip on" data-f="All">All</button><button class="chip" data-f="Mob">Mobs</button><button class="chip" data-f="Boss">Bosses</button>
+    </div>
+    <div class="grid" id="rc-best-list"><p class="loading">Loading the bestiary&hellip;</p></div>
+  </div>
+
+  <div class="panel" id="items" hidden>
+    <div class="note"><b>Shops open soon.</b> Prices are the planned launch prices.</div>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Item</th><th>Price</th><th>Where to Get</th><th>Recipe</th><th>Effect / Notes</th><th>Requires</th></tr></thead>
+      <tbody id="rc-items-body"><tr><td colspan="6" class="loading">Loading items&hellip;</td></tr></tbody>
+    </table></div>
+  </div>
+</section>
+</main>
+<div class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot; <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Join the Discord</a></div>
+</div>
+<script src="assets/site.js"></script>
+<script src="assets/sheet.js"></script>
+<script>
+(function(){
+  // --- tabs (Bestiary / Items), remembered in the URL hash ---
+  var tabs=document.querySelectorAll('#rc-codex .tabs .chip');
+  function show(id){
+    tabs.forEach(function(t){t.classList.toggle('on',t.dataset.panel===id);});
+    document.querySelectorAll('#rc-codex .panel').forEach(function(p){p.hidden=p.id!==id;});
+  }
+  tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.panel);history.replaceState(null,'','#'+t.dataset.panel);});});
+  if(location.hash==='#items') show('items');
+
+  // --- bestiary ---
+  var box=document.getElementById('rc-best-list'), rows=[], filter='All';
+  function card(m){
+    var boss=(m['Rank']||'').toLowerCase()==='boss', sp=(m['Spoiler']||'').toLowerCase()==='yes';
+    var inner='<h3><span>'+rcEsc(m['Name'])+'</span></h3>'+
+      '<span class="pill '+(boss?'red':'blue')+'">'+rcEsc(m['Rank'])+'</span><span class="pill">Tier '+rcEsc(m['Tier'])+'</span>'+
+      '<div class="stats"><div><b>'+rcEsc(m['Health'])+'</b>Health</div><div><b>'+rcEsc(m['Melee Damage'])+'</b>Melee</div></div>'+
+      '<p class="kv"><b>Found in:</b> '+rcEsc(m['Found In'])+'</p>'+
+      '<p class="kv"><b>Abilities:</b> '+rcEsc(m['Abilities'])+'</p>'+
+      '<p class="kv"><b>Drops:</b> '+rcEsc(m['Drops']||'None')+'</p>';
+    return '<div class="card mob">'+(sp?'<div class="veil">Spoiler &mdash; click to reveal</div><div class="spoil">'+inner+'</div>':inner)+'</div>';
+  }
+  function draw(){
+    var list=rows.filter(function(m){return m['Name'] && (filter==='All'||(m['Rank']||'')===filter);});
+    box.innerHTML=list.length?list.map(card).join(''):'<p class="loading">Nothing here yet.</p>';
+  }
+  box.addEventListener('click',function(e){var v=e.target.closest('.veil'); if(!v) return; v.nextElementSibling.classList.remove('spoil'); v.remove();});
+  document.querySelectorAll('#bestiary .chips .chip').forEach(function(b){
+    b.addEventListener('click',function(){
+      document.querySelectorAll('#bestiary .chips .chip').forEach(function(x){x.classList.remove('on');});
+      b.classList.add('on'); filter=b.dataset.f; draw();
+    });
+  });
+  rcLoadSheet('Bestiary').then(function(r){rows=r;draw();}).catch(function(){rcFail(box);});
+
+  // --- items ---
+  var body=document.getElementById('rc-items-body');
+  var COLS=['Item','Price','Where to Get','Recipe','Effect / Notes','Requires'];
+  rcLoadSheet('Items').then(function(rows){
+    var html='';
+    rows.forEach(function(r){
+      if(!r['Item']) return;
+      if(!r['Category']&&!r['Price']&&!r['Where to Get']){ html+='<tr class="sect"><td colspan="'+COLS.length+'">'+rcEsc(r['Item'])+'</td></tr>'; return; }
+      var sp=(r['Spoiler']||'').toLowerCase()==='yes';
+      html+='<tr'+(sp?' class="hide" title="Spoiler - click to reveal"':'')+'>'+COLS.map(function(c){
+        return '<td data-l="'+c+'">'+rcEsc(r[c])+(c==='Item'&&r['Tier']?' <span class="pill">'+rcEsc(r['Tier'])+'</span>':'')+'</td>';
+      }).join('')+'</tr>';
+    });
+    body.innerHTML=html||'<tr><td colspan="6">Nothing here yet.</td></tr>';
+  }).catch(function(){rcFail(body.closest('.tbl-wrap'));});
+  body.addEventListener('click',function(e){var tr=e.target.closest('tr.hide'); if(tr) tr.classList.remove('hide');});
+})();
+</script>
+</body>
+</html>

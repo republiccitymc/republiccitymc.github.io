@@ -112,3 +112,25 @@ html,body{background:var(--bg)}
   .rc .menu a{padding:10px 12px}
   .rc #navtoggle:checked ~ .menu{display:flex}
 }
+
+/* ---- 2026-10 revamp ---- */
+.rc .menu .dc{margin-left:8px;background:#5865f2;color:#fff}
+.rc .menu .dc:hover{background:#4752c4;color:#fff}
+.rc .jump{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:-10px auto 0;padding:0 16px 10px}
+.rc .jump a{font-size:.85rem;font-weight:600;color:var(--muted);border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:999px}
+.rc .jump a:hover{color:var(--text);text-decoration:none;border-color:var(--gold)}
+.rc .ipbox{max-width:720px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--card);border:1px solid rgba(246,199,104,.35);border-radius:16px;padding:18px 20px}
+.rc .ipbox .lbl{font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.rc .ipbox .ip{font-family:ui-monospace,Consolas,monospace;font-size:clamp(1.1rem,3.5vw,1.5rem);font-weight:700;color:var(--text);word-break:break-all}
+.rc .ipbox .ip.tbd{color:var(--muted);font-family:inherit;font-weight:600}
+.rc .ipbox .facts{grid-column:1/-1;display:flex;gap:8px;flex-wrap:wrap}
+.rc .copy{cursor:pointer;border:none;font:inherit;font-weight:700;padding:12px 20px;border-radius:10px;background:var(--gold);color:#000}
+.rc .copy[disabled]{background:rgba(255,255,255,.08);color:var(--muted);cursor:not-allowed}
+.rc .status{display:inline-flex;align-items:center;gap:6px}
+.rc .status::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--muted)}
+.rc .status.on::before{background:var(--green)}
+.rc .status.off::before{background:var(--red)}
+.rc .tabs{display:flex;gap:8px;justify-content:center;margin-bottom:26px}
+.rc .panel[hidden]{display:none}
+.rc .kbdrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+@media(max-width:560px){.rc .ipbox{grid-template-columns:1fr}.rc .copy{width:100%}}
