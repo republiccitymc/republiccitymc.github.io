@@ -1,13 +1,13 @@
 
 :root{
   /* Palette: "Republic City Press" newsprint with the original gold. Swap these to re-color the whole site.
-     *-rgb are the same colors as "r,g,b" for tints. --gold is gold TEXT (darkened to stay readable on paper);
-     --accent-fill is the original gold used for buttons, bands and the active tab. */
+     *-rgb are the same colors as "r,g,b" for tints. Gold is only used as a FILL (buttons, bands, active tab,
+     underlines) because gold text is unreadable on paper; --gold is the text-accent color and is set to ink. */
   --bg:#e7e8e2;--bg-rgb:231,232,226;--bg2:#dadcd3;--bg2-rgb:218,220,211;--card:#f5f5f0;--card-rgb:245,245,240;
   --text:#1b1f24;--fg-rgb:27,31,36;--muted:#4f5862;--line:rgba(27,31,36,.12);
-  --gold:#7a5809;--accent-fill:#f6c768;--accent-rgb:246,199,104;--gold-light:#6b4c0a;--on-accent:#000;
+  --gold:#1b1f24;--accent-fill:#f6c768;--accent-rgb:246,199,104;--gold-light:#1b1f24;--on-accent:#000;
   --blue:#2862a6;--blue-rgb:40,98,166;--red:#c2552b;--red-rgb:194,85,43;--green:#2c7a52;--green-rgb:44,122,82;
-  --chi:#9a6a10;--chi-rgb:154,106,16;--wm:#6a4fb0;--wm-rgb:106,79,176;--on-el:#fff;
+  --chi:#f6c768;--chi-rgb:246,199,104;--wm:#6a4fb0;--wm-rgb:106,79,176;--on-el:#fff;
   --code-bg:rgba(27,31,36,.07);--hero-rgb:0,0,0;--hero-accent:#f6c768;
   color-scheme:light;
 }
@@ -175,3 +175,12 @@ html,body{background:var(--bg)}
 .rc .roadmap li b{color:var(--text)}
 .rc .tblh{max-width:1100px;margin:34px auto 12px;color:var(--gold);font-size:1.2rem}
 .rc .tgrid .wmnote{margin-top:10px;font-size:.78rem;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:8px}
+
+/* ---- newsprint: gold as fills only ---- */
+.rc .brand span{background:var(--accent-fill);color:var(--on-accent);padding:1px 7px;border-radius:5px;margin-left:2px}
+.rc p a,.rc li a,.rc td a,.rc .note a,.rc .foot a,.rc .sub a{color:var(--text);text-decoration:underline;text-decoration-color:var(--accent-fill);text-decoration-thickness:3px;text-underline-offset:3px;font-weight:600}
+.rc .tgrid .tband{background:rgba(var(--accent-rgb),.5);color:var(--text)}
+.rc .item{border-left-color:var(--accent-fill)}
+.rc .ipbox{border-color:var(--accent-fill)}
+.rc .kicker{color:var(--muted)}
+.rc .eh.e-chi{color:#000}
