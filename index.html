@@ -22,13 +22,14 @@
 </div></nav>
 <style>
 .rc .hero{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 16px;position:relative;
-  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85)),url('https://i.imgur.com/pTQClVA.jpg') center/cover}
+  background:linear-gradient(rgba(var(--hero-rgb),.6),rgba(var(--hero-rgb),.85)),url('https://i.imgur.com/pTQClVA.jpg') center/cover}
 .rc .hero-content{max-width:860px;position:relative;z-index:2}
 .rc .logo{font-size:clamp(2.8rem,10vw,6.4rem);font-weight:900;line-height:.95;margin-bottom:22px;letter-spacing:1px;text-shadow:0 0 30px rgba(0,0,0,.6)}
-.rc .logo .g{text-shadow:0 0 24px rgba(246,199,104,.45)}
+.rc .hero .kicker,.rc .logo .g{color:var(--hero-accent)}
+.rc .logo .g{text-shadow:0 0 24px rgba(var(--accent-rgb),.45)}
 .rc .hero p{max-width:680px;margin:0 auto 34px;font-size:1.12rem;line-height:1.7;color:#dbe4f0}
 .rc .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.rc .btn.ghost{background:transparent;color:var(--gold) !important;border:1px solid var(--gold)}
+.rc .btn.ghost{background:transparent;color:var(--hero-accent) !important;border:1px solid var(--hero-accent)}
 .rc .slider{max-width:1000px;margin:0 auto;overflow:hidden;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
 .rc .track{display:flex;width:500%;animation:slide 20s infinite}
 .rc .track img{width:20.0%;height:460px;object-fit:cover}
