@@ -3,90 +3,103 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home | Republic City MC</title>
-<meta name="description" content="Republic City MC: an ATLA and Legend of Korra roleplay server set in 130 AG Republic City.">
-<meta property="og:title" content="Home | Republic City MC">
-<meta property="og:description" content="Republic City MC: an ATLA and Legend of Korra roleplay server set in 130 AG Republic City.">
+<title>Main Page | Republic City MC Wiki</title>
+<meta name="description" content="The Republic City MC wiki: an ATLA and Legend of Korra roleplay server set in 130 AG Republic City.">
+<meta property="og:title" content="Main Page | Republic City MC Wiki">
+<meta property="og:description" content="The Republic City MC wiki: an ATLA and Legend of Korra roleplay server set in 130 AG Republic City.">
 <meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
-<div class="rc">
-<nav class="topbar"><div class="in">
-  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span></a>
-  <input type="checkbox" id="navtoggle"><label for="navtoggle" class="burger" aria-label="Menu">&#9776;</label>
-  <div class="menu"><a href="index.html" class="on">Home</a><a href="how-to-play.html">How to Play</a><a href="quests.html">Quests</a><a href="systems.html">Systems</a><a href="field-guide.html">Field Guide</a><a class="dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a></div>
-</div></nav>
-<style>
-.rc .hero{min-height:78vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 16px;position:relative;
-  background:linear-gradient(rgba(var(--hero-rgb),.6),rgba(var(--hero-rgb),.85)),url('https://i.imgur.com/pTQClVA.jpg') center/cover}
-.rc .hero-content{max-width:860px;position:relative;z-index:2}
-.rc .logo{font-size:clamp(2.8rem,10vw,6.4rem);font-weight:900;line-height:.95;margin-bottom:22px;letter-spacing:1px;text-shadow:0 0 30px rgba(0,0,0,.6)}
-.rc .hero .kicker,.rc .logo .g{color:var(--hero-accent)}
-.rc .logo .g{text-shadow:0 0 24px rgba(var(--accent-rgb),.45)}
-.rc .hero p{max-width:680px;margin:0 auto 34px;font-size:1.12rem;line-height:1.7;color:#dbe4f0}
-.rc .cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.rc .btn.ghost{background:transparent;color:var(--hero-accent) !important;border:1px solid var(--hero-accent)}
-.rc .slider{max-width:1000px;margin:0 auto;overflow:hidden;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.rc .track{display:flex;width:500%;animation:slide 20s infinite}
-.rc .track img{width:20.0%;height:460px;object-fit:cover}
-@keyframes slide{0%,15%{transform:translateX(0)}20%,35%{transform:translateX(-20%)}40%,55%{transform:translateX(-40%)}60%,75%{transform:translateX(-60%)}80%,95%{transform:translateX(-80%)}100%{transform:translateX(0)}}
-@media(max-width:768px){.rc .track img{height:260px}}
-@media(prefers-reduced-motion:reduce){.rc .track{animation:none}}
-</style>
-<main>
-<section class="hero">
-  <div class="hero-content">
-    <div class="kicker">ATLA &amp; LOK Roleplay &middot; 130 AG</div>
-    <div class="logo"><span class="w">REPUBLIC CITY</span> <span class="g">MC</span></div>
-    <p>Explore Republic City in 130 AG. Register as a citizen, unlock your bending path, rank up to learn new moves, and help the Avatar through the city's quests.</p>
-    <div class="cta">
-      <a href="how-to-play.html" class="btn">How to Play</a>
-      <a href="https://discord.gg/sDV3UeRgCH" class="btn ghost" target="_blank" rel="noopener">Join the Discord</a>
-    </div>
-  </div>
-</section>
+<div class="rc wiki">
+<header class="topbar"><div class="in">
+  <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
+  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
+</div></header>
+<input type="checkbox" id="sidetoggle">
+<div class="layout">
+<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<div class="grp"><div class="gh">Republic City MC</div>
+<a href="index.html" class="on">Main Page</a>
+</div>
+<div class="grp"><div class="gh">New Players</div>
+<a href="how-to-play.html">Getting Started</a>
+<a href="rules.html">Rules</a>
+<a href="commands.html">Commands</a>
+</div>
+<div class="grp"><div class="gh">Bending</div>
+<a href="bending.html">Bending &amp; Tiers</a>
+<a href="earthbending.html">Earthbending</a>
+<a href="waterbending.html">Waterbending</a>
+<a href="firebending.html">Firebending</a>
+<a href="chi-blocking.html">Chi Blocking</a>
+<a href="weapons-master.html">Weapons Master</a>
+</div>
+<div class="grp"><div class="gh">Story</div>
+<a href="quests.html">Main Story</a>
+<a href="side-quests.html">Side Quests</a>
+<a href="dossier.html">Dossier &amp; Titles</a>
+</div>
+<div class="grp"><div class="gh">Society</div>
+<a href="alignment.html">Order &amp; Chaos</a>
+<a href="roleplay-ranks.html">Roleplay Ranks</a>
+</div>
+<div class="grp"><div class="gh">Economy</div>
+<a href="economy.html">Money &amp; Shops</a>
+<a href="crafting.html">Crafting</a>
+<a href="housing.html">Housing</a>
+</div>
+<div class="grp"><div class="gh">Field Guide</div>
+<a href="field-guide.html">Mobs, Bosses &amp; Items</a>
+</div>
+<div class="grp"><div class="gh">Community</div><a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></div></aside>
+<main class="article">
 
-<section class="alt">
-  <div class="ipbox">
-    <div><div class="lbl">Server address</div><div class="ip js-ip">Address coming soon</div></div>
-    <button class="copy js-copy" type="button">Copy</button>
-    <div class="facts"><span class="pill gold">Java Edition <span class="js-ver">1.21.11</span></span><span class="pill blue">Beta: whitelist only</span><span class="pill status js-status">Checking&hellip;</span></div>
-  </div>
-  <p class="sub" style="margin:18px auto 0">Beta testing is whitelist only. <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">DM Hammy on Discord</a> to get on the list.</p>
-</section>
+<div class="banner">
+  <h1>Republic City <span>MC</span> Wiki</h1>
+  <p>Republic City, 130 AG. Register as a citizen, choose your path, master your element and help the Avatar with the city's troubles. Everything you need to know is here.</p>
+</div>
 
-<section class="new">
-  <h2>What's New</h2>
-  <p class="sub">October 2026 beta update.</p>
-  <div class="grid">
-    <div class="card"><span class="pill gold">Bending</span><h3>Tiers v2</h3><p>Every tier hits a little harder, earthbenders master purer earth first, and Tier III opens a path: Metal, Lava, Lightning, Combustion, Equalist or Kyoshi Warrior.</p><a class="more" href="systems.html#bending">See the tiers &rarr;</a></div>
-    <div class="card"><span class="pill green">Quests</span><h3>Side Quests</h3><p>The first ones are live: learn to craft with Old Man Shen, and help Lady Shijimi find her runaway cat-owl.</p><a class="more" href="quests.html#side">Side quests &rarr;</a></div>
-    <div class="card"><span class="pill blue">City</span><h3>Shops Are Open</h3><p>Weapons, ramen, materials, and Jian's Tea House, open again once the Spider-Rats are gone.</p><a class="more" href="field-guide.html#items">Prices &rarr;</a></div>
-  </div>
-</section>
+<div class="ipbox">
+  <div><div class="lbl">Server address</div><div class="ip js-ip">Address coming soon</div></div>
+  <button class="copy js-copy" type="button">Copy</button>
+  <div class="facts"><span class="pill gold">Java Edition <span class="js-ver">1.21.11</span></span><span class="pill blue">Beta: whitelist only</span><span class="pill status js-status">Checking&hellip;</span></div>
+</div>
+<p class="hint">New here? Start with <a href="how-to-play.html">Getting Started</a>. To join the beta, <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">DM Hammy on Discord</a>.</p>
 
-<section class="alt">
-  <h2>Explore the City</h2>
-  <div class="slider"><div class="track">
-    <img src="https://i.imgur.com/pTQClVA.jpg" alt="City Hall"><img src="https://i.imgur.com/qaiJOQm.jpg" alt="City streets"><img src="https://i.imgur.com/SGD0F5S.jpg" alt="Four Elements Hotel"><img src="https://i.imgur.com/fraGd4R.jpg" alt="The Civic Sewers"><img src="https://i.imgur.com/vE7cSsD.jpg" alt="Police headquarters">
-  </div></div>
-</section>
+<h2 id="paths">Choose Your Path</h2>
+<div class="elements">
+  <a class="bg-earth" href="earthbending.html">Earthbending<span>Metal or Lava</span></a>
+  <a class="bg-water" href="waterbending.html">Waterbending<span>Ice, Healing and Plants</span></a>
+  <a class="bg-fire" href="firebending.html">Firebending<span>Lightning or Combustion</span></a>
+  <a class="bg-chi" href="chi-blocking.html">Chi Blocking<span>Equalist or Kyoshi Warrior</span></a>
+  <a class="bg-wm" href="weapons-master.html">Weapons Master<span>Any blade, no bending</span></a>
+</div>
+<p class="hint">No player airbenders. How tiers and paths work: <a href="bending.html">Bending &amp; Tiers</a>.</p>
 
-<section id="roadmap">
-  <h2>On the Roadmap</h2>
-  <p class="sub">The Civic District is open. Here's what we're building next.</p>
-  <div class="roadmap">
-    <div class="item"><h3>Districts in the Works</h3><ul><li><b>Downtown:</b> Metal Bending Police HQ, Kwong's Cuisine, Future Industries, Cabbage Corp HQ, Four Nations Hall, the Great Tea Market</li><li><b>Yue Bay:</b> Pro-bending Arena, Air Temple Island, Aang Memorial Island, the Port, United Forces barracks</li><li><b>Harmony Park:</b> Harmony Tower, Songbird Theater, Stoneriver Auction House</li><li><b>Dragon Flats Borough:</b> Bi Mi Tang Dumplings, Platinum Pool Hall, Dragon Flats School</li><li><b>Roku Plaza:</b> Republic City University, Roku Park, Fire Lord Zuko Library</li><li><b>Green Meadows:</b> Republic City Power Plant, Green Meadow Towers, Whale Dolphin Dining Hall</li></ul></div>
-    <div class="item"><h3>Coming Next</h3><ul><li><b>Promotion exams:</b> trainer quests to rank up past Tier I</li><li><b>More side quests:</b> five more for Arc 1</li><li><b>Stat points:</b> small, earned bonuses from each promotion</li><li><b>Roleplay ranks:</b> join the police, the White Lotus, a gang and more</li><li><b>Arc 2:</b> the next chapter of the story</li></ul></div>
-  </div>
-  <p class="sub" style="margin-top:30px">Want to help build it? We're recruiting Architects, Engineers, Historians and Moderators. <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Apply here</a>.</p>
-</section>
+<h2 id="topics">Browse the Wiki</h2>
+<div class="portal">
+  <div class="box"><h3>New Players</h3><ul><li><a href="how-to-play.html">Getting Started</a></li><li><a href="rules.html">Rules</a></li><li><a href="commands.html">Commands</a></li></ul></div>
+  <div class="box"><h3>Story</h3><ul><li><a href="quests.html">Main Story: Arc 1</a></li><li><a href="side-quests.html">Side Quests</a></li><li><a href="dossier.html">Dossier &amp; Titles</a></li></ul></div>
+  <div class="box"><h3>Society</h3><ul><li><a href="alignment.html">Order &amp; Chaos</a></li><li><a href="roleplay-ranks.html">Roleplay Ranks</a></li></ul></div>
+  <div class="box"><h3>Economy</h3><ul><li><a href="economy.html">Money &amp; Shops</a></li><li><a href="crafting.html">Crafting</a></li><li><a href="housing.html">Housing</a></li></ul></div>
+  <div class="box"><h3>Field Guide</h3><ul><li><a href="field-guide.html#mobs">Mobs</a></li><li><a href="field-guide.html#bosses">Bosses</a></li><li><a href="field-guide.html#items">Items</a></li></ul></div>
+</div>
+
+<h2 id="city">The Civic District</h2>
+<p>The game takes place in Republic City's Civic District: City Hall, Unity Flats, the market and Sparring Grounds, Public Works, and the sewers underneath. More districts open with later story arcs.</p>
+<div class="gallery-row">
+  <img src="https://i.imgur.com/pTQClVA.jpg" alt="City Hall"><img src="https://i.imgur.com/qaiJOQm.jpg" alt="City streets"><img src="https://i.imgur.com/SGD0F5S.jpg" alt="Four Elements Hotel"><img src="https://i.imgur.com/fraGd4R.jpg" alt="The Civic Sewers"><img src="https://i.imgur.com/vE7cSsD.jpg" alt="Police headquarters">
+</div>
 </main>
-<div class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot; <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Join the Discord</a></div>
+</div>
+<footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
+<a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
 <script src="assets/site.js"></script>
 </body>

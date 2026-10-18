@@ -29,3 +29,22 @@ var RC_SERVER = { address: '', version: '1.21.11' };
     });
   }).catch(function(){ st.forEach(function(el){ el.textContent = 'Status unavailable'; }); });
 })();
+
+// Wiki sidebar search: typing filters the page links; Enter opens the first match.
+(function(){
+  var box = document.querySelector('.js-find');
+  if(!box) return;
+  var links = Array.prototype.slice.call(document.querySelectorAll('.side .grp a'));
+  box.addEventListener('input', function(){
+    var q = box.value.trim().toLowerCase();
+    links.forEach(function(a){ a.classList.toggle('hidden', q && a.textContent.toLowerCase().indexOf(q) < 0); });
+    document.querySelectorAll('.side .grp').forEach(function(g){
+      g.classList.toggle('hidden', q && !g.querySelector('a:not(.hidden)'));
+    });
+  });
+  box.addEventListener('keydown', function(e){
+    if(e.key !== 'Enter') return;
+    var first = links.filter(function(a){ return !a.classList.contains('hidden'); })[0];
+    if(first) window.location = first.href;
+  });
+})();

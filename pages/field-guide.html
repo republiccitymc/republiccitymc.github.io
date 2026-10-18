@@ -1,0 +1,48 @@
+<!-- title: Mobs, Bosses & Items -->
+<!-- desc: Every enemy, boss and item in Republic City MC: health, drops, prices and recipes. -->
+<div id="rc-fg">
+<p class="lead">Every enemy you'll face and every item you'll carry. Blurred rows are spoilers; click one to reveal it.</p>
+<!-- toc -->
+<h2 id="mobs">Mobs</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-mobs"></tbody></table></div>
+<h2 id="bosses">Bosses</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-bosses"></tbody></table></div>
+<h2 id="items">Items</h2>
+<p>Prices are what the vendors charge, in Yuans. Where they are: <a href="economy.html#shops">Money &amp; Shops</a>.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Item</th><th>Price</th><th>Where to Get</th><th>Recipe</th><th>Effect / Notes</th><th>Requires</th></tr></thead><tbody id="fg-items"></tbody></table></div>
+</div>
+<script src="assets/wiki-data.js"></script>
+<script src="assets/sheet.js"></script>
+<script>
+(function(){
+  var MOBC=['Name','Health','Melee Damage','Found In','Abilities','Drops'], MOBL=['Name','Health','Melee','Found In','Abilities','Drops'];
+  var ITC=['Item','Price','Where to Get','Recipe','Effect / Notes','Requires'];
+  function sp(r){return (r['Spoiler']||'').toLowerCase()==='yes';}
+  function row(r,cols,labels){
+    return '<tr'+(sp(r)?' class="hide" title="Spoiler - click to reveal"':'')+'>'+cols.map(function(c,i){
+      var v=rcEsc(r[c]||(c==='Drops'?'None':''));
+      if(c==='Item'&&r['Tier']) v+=' <span class="pill">'+rcEsc(r['Tier'])+'</span>';
+      return '<td data-l="'+labels[i]+'">'+v+'</td>';}).join('')+'</tr>';
+  }
+  function drawBest(rows){
+    var m=rows.filter(function(r){return r['Name']&&(r['Rank']||'').toLowerCase()!=='boss';});
+    var b=rows.filter(function(r){return r['Name']&&(r['Rank']||'').toLowerCase()==='boss';});
+    document.getElementById('fg-mobs').innerHTML=m.map(function(r){return row(r,MOBC,MOBL);}).join('')||'<tr><td colspan="6">Nothing here yet.</td></tr>';
+    document.getElementById('fg-bosses').innerHTML=b.map(function(r){return row(r,MOBC,MOBL);}).join('')||'<tr><td colspan="6">Nothing here yet.</td></tr>';
+  }
+  function drawItems(rows){
+    var html='';
+    rows.forEach(function(r){
+      if(!r['Item']) return;
+      if(!r['Category']&&!r['Price']&&!r['Where to Get']){html+='<tr class="sect"><td colspan="6">'+rcEsc(r['Item'])+'</td></tr>';return;}
+      html+=row(r,ITC,ITC);
+    });
+    document.getElementById('fg-items').innerHTML=html||'<tr><td colspan="6">Nothing here yet.</td></tr>';
+  }
+  // Show the built-in snapshot right away, then swap in the live sheet if it loads.
+  if(window.RC_DATA){drawBest(RC_DATA.Bestiary);drawItems(RC_DATA.Items);}
+  rcLoadSheet('Bestiary').then(drawBest).catch(function(){});
+  rcLoadSheet('Items').then(drawItems).catch(function(){});
+  document.getElementById('rc-fg').addEventListener('click',function(e){var tr=e.target.closest('tr.hide'); if(tr) tr.classList.remove('hide');});
+})();
+</script>

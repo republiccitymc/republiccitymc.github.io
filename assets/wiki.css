@@ -1,0 +1,87 @@
+/* Wiki layout (2026-10-18), on top of style.css (colors, tables, pills, spoilers, tier grid).
+   Sidebar on the left, article in the middle, infobox floating right inside the article. */
+.wiki .topbar .in{max-width:none;justify-content:flex-start}
+.wiki .brand em{font-style:normal;font-weight:600;color:var(--muted);margin-left:6px;letter-spacing:0}
+.wiki .topbar .dc{margin-left:auto;padding:7px 16px;border-radius:9px;background:#5865f2;color:#fff !important;font-size:.85rem}
+.wiki .topbar .burger{display:none}
+.wiki #sidetoggle{display:none}
+.wiki .layout{display:grid;grid-template-columns:230px minmax(0,1fr);max-width:1240px;margin:0 auto;align-items:start}
+
+/* Sidebar */
+.wiki .side{position:sticky;top:57px;max-height:calc(100vh - 57px);overflow-y:auto;padding:20px 14px 30px;border-right:1px solid var(--line)}
+.wiki .side input{width:100%;padding:8px 11px;border:1px solid var(--line);border-radius:8px;background:var(--card);font:inherit;font-size:.88rem;color:var(--text);margin-bottom:14px}
+.wiki .grp{margin-bottom:16px}
+.wiki .gh{font-size:.7rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:0 0 4px 8px}
+.wiki .side a{display:block;padding:5px 8px;border-radius:7px;font-size:.9rem;color:var(--text)}
+.wiki .side a:hover{background:rgba(var(--fg-rgb),.06);text-decoration:none}
+.wiki .side a.on{background:var(--accent-fill);color:var(--on-accent);font-weight:700}
+.wiki .side a.hidden,.wiki .grp.hidden{display:none}
+
+/* Article */
+.wiki .article{padding:28px 40px 60px;max-width:900px;min-width:0}
+.wiki .crumb{font-size:.78rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.wiki .article h1{font-size:2.3rem;text-shadow:none;margin-bottom:14px;line-height:1.1}
+.wiki .article h2{text-align:left;font-size:1.45rem;margin:34px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line);clear:both}
+.wiki .article h3{margin:20px 0 6px}
+.wiki .article p{margin-bottom:12px}
+.wiki .article ul,.wiki .article ol{margin:0 0 12px 22px;color:var(--muted)}
+.wiki .article li{margin-bottom:4px}
+.wiki .article li b,.wiki .article p b{color:var(--text)}
+.wiki .article a{text-decoration:underline;text-decoration-color:rgba(var(--accent-rgb),.9);text-underline-offset:3px;text-decoration-thickness:2px}
+.wiki .article a:hover{background:rgba(var(--accent-rgb),.25)}
+.wiki .lead{margin:0 0 16px;max-width:none;font-size:1.05rem;color:var(--text)}
+.wiki .tbl-wrap{margin:8px 0 18px;max-width:none}
+.wiki .note{margin:12px 0 18px;max-width:none}
+.wiki details.spoiler{margin:10px 0;max-width:none}
+.wiki .hint{font-size:.85rem;color:var(--muted);margin:6px 0 16px}
+
+/* Infobox */
+.wiki .infobox{float:right;width:290px;margin:0 0 18px 26px;border:1px solid var(--line);border-radius:12px;background:var(--card);overflow:hidden;font-size:.88rem}
+.wiki .infobox .ib-title{padding:10px 14px;font-weight:800;font-size:1.05rem;color:#fff;text-align:center}
+.wiki .infobox .ib-title.plain{color:var(--on-accent);background:var(--accent-fill)}
+.wiki .infobox dl{display:grid;grid-template-columns:96px 1fr}
+.wiki .infobox dt,.wiki .infobox dd{padding:7px 12px;border-top:1px solid var(--line)}
+.wiki .infobox dt{font-weight:700;color:var(--text);background:rgba(var(--fg-rgb),.03)}
+.wiki .infobox dd{color:var(--muted)}
+.wiki .bg-earth{background:var(--green)}.wiki .bg-water{background:var(--blue)}.wiki .bg-fire{background:var(--red)}
+.wiki .bg-chi{background:var(--chi);color:#000 !important}.wiki .bg-wm{background:var(--wm)}
+
+/* Contents box */
+.wiki .toc{display:inline-block;min-width:220px;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 18px 10px;margin:4px 0 10px}
+.wiki .toc .th{font-weight:800;font-size:.85rem;margin-bottom:4px}
+.wiki .toc ol{margin:0 0 0 18px;font-size:.9rem}
+.wiki .toc li{margin:2px 0}
+
+/* Main page portal */
+.wiki .banner{border-radius:14px;overflow:hidden;position:relative;margin-bottom:20px;
+  background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.7)),url('https://i.imgur.com/pTQClVA.jpg') center/cover;padding:46px 30px;color:#fff}
+.wiki .banner h1{color:#fff;font-size:2.4rem;margin-bottom:8px}
+.wiki .banner h1 span{color:var(--hero-accent)}
+.wiki .banner p{color:#e6ebf2;max-width:620px;margin:0}
+.wiki .portal{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:6px 0 18px}
+.wiki .portal .box{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:16px 18px}
+.wiki .portal .box h3{margin:0 0 8px;font-size:1rem}
+.wiki .portal .box ul{list-style:none;margin:0}
+.wiki .portal .box li{margin:3px 0}
+.wiki .elements{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:8px 0 18px}
+.wiki .elements a{display:block;border-radius:10px;padding:14px;color:#fff !important;font-weight:800;text-decoration:none !important}
+.wiki .elements a span{display:block;font-weight:500;font-size:.8rem;opacity:.9}
+.wiki .elements a:hover{filter:brightness(1.08);background-blend-mode:normal}
+.wiki .ipbox{margin:0 0 6px;max-width:none}
+.wiki .gallery-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin:8px 0}
+.wiki .gallery-row img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+
+/* Tier grid fits the article width */
+.wiki .tscroll{margin:8px 0 18px}
+
+/* Phones and small tablets: sidebar becomes a slide-down menu */
+@media(max-width:900px){
+  .wiki .layout{grid-template-columns:1fr}
+  .wiki .topbar .burger{display:block}
+  .wiki .side{display:none;position:static;max-height:none;border-right:none;border-bottom:1px solid var(--line);background:var(--bg2)}
+  .wiki #sidetoggle:checked ~ .layout .side{display:block}
+  .wiki .article{padding:20px 16px 50px}
+  .wiki .infobox{float:none;width:auto;margin:0 0 18px}
+  .wiki .article h1{font-size:1.9rem}
+}
+.wiki .elements a.bg-chi{color:#1b1f24 !important}

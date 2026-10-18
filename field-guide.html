@@ -3,43 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Field Guide | Republic City MC</title>
-<meta name="description" content="Every mob, boss and item in Republic City MC: stats, abilities, drops, prices and recipes.">
-<meta property="og:title" content="Field Guide | Republic City MC">
-<meta property="og:description" content="Every mob, boss and item in Republic City MC: stats, abilities, drops, prices and recipes.">
+<title>Mobs, Bosses &amp; Items | Republic City MC Wiki</title>
+<meta name="description" content="Every enemy, boss and item in Republic City MC: health, drops, prices and recipes.">
+<meta property="og:title" content="Mobs, Bosses &amp; Items | Republic City MC Wiki">
+<meta property="og:description" content="Every enemy, boss and item in Republic City MC: health, drops, prices and recipes.">
 <meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
-<div class="rc">
-<nav class="topbar"><div class="in">
-  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span></a>
-  <input type="checkbox" id="navtoggle"><label for="navtoggle" class="burger" aria-label="Menu">&#9776;</label>
-  <div class="menu"><a href="index.html">Home</a><a href="how-to-play.html">How to Play</a><a href="quests.html">Quests</a><a href="systems.html">Systems</a><a href="field-guide.html" class="on">Field Guide</a><a class="dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a></div>
-</div></nav>
-<main id="rc-fg">
-<header class="head">
-  <div class="kicker">Know Your City</div>
-  <h1>Field Guide</h1>
-  <p class="lead">Every enemy you'll face and every item you'll carry. Blurred rows are spoilers; click one to reveal it.</p>
-</header>
-<nav class="jump"><a href="#mobs">Mobs</a><a href="#bosses">Bosses</a><a href="#items">Items</a></nav>
-<section>
-  <h3 class="tblh" id="mobs">Mobs</h3>
-  <div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-mobs"></tbody></table></div>
-  <h3 class="tblh" id="bosses">Bosses</h3>
-  <div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-bosses"></tbody></table></div>
-  <h3 class="tblh" id="items">Items</h3>
-  <div class="note"><b>Shops are open.</b> Prices are what the vendors charge, in Yuans.</div>
-  <div class="tbl-wrap"><table><thead><tr><th>Item</th><th>Price</th><th>Where to Get</th><th>Recipe</th><th>Effect / Notes</th><th>Requires</th></tr></thead><tbody id="fg-items"></tbody></table></div>
-</section>
-</main>
-<div class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot; <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Join the Discord</a></div>
+<div class="rc wiki">
+<header class="topbar"><div class="in">
+  <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
+  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
+</div></header>
+<input type="checkbox" id="sidetoggle">
+<div class="layout">
+<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<div class="grp"><div class="gh">Republic City MC</div>
+<a href="index.html">Main Page</a>
 </div>
-<script src="assets/site.js"></script>
+<div class="grp"><div class="gh">New Players</div>
+<a href="how-to-play.html">Getting Started</a>
+<a href="rules.html">Rules</a>
+<a href="commands.html">Commands</a>
+</div>
+<div class="grp"><div class="gh">Bending</div>
+<a href="bending.html">Bending &amp; Tiers</a>
+<a href="earthbending.html">Earthbending</a>
+<a href="waterbending.html">Waterbending</a>
+<a href="firebending.html">Firebending</a>
+<a href="chi-blocking.html">Chi Blocking</a>
+<a href="weapons-master.html">Weapons Master</a>
+</div>
+<div class="grp"><div class="gh">Story</div>
+<a href="quests.html">Main Story</a>
+<a href="side-quests.html">Side Quests</a>
+<a href="dossier.html">Dossier &amp; Titles</a>
+</div>
+<div class="grp"><div class="gh">Society</div>
+<a href="alignment.html">Order &amp; Chaos</a>
+<a href="roleplay-ranks.html">Roleplay Ranks</a>
+</div>
+<div class="grp"><div class="gh">Economy</div>
+<a href="economy.html">Money &amp; Shops</a>
+<a href="crafting.html">Crafting</a>
+<a href="housing.html">Housing</a>
+</div>
+<div class="grp"><div class="gh">Field Guide</div>
+<a href="field-guide.html" class="on">Mobs, Bosses &amp; Items</a>
+</div>
+<div class="grp"><div class="gh">Community</div><a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></div></aside>
+<main class="article">
+<div class="crumb">Field Guide</div><h1>Mobs, Bosses &amp; Items</h1>
+<div id="rc-fg">
+<p class="lead">Every enemy you'll face and every item you'll carry. Blurred rows are spoilers; click one to reveal it.</p>
+<nav class="toc"><div class="th">Contents</div><ol><li><a href="#mobs">Mobs</a></li><li><a href="#bosses">Bosses</a></li><li><a href="#items">Items</a></li></ol></nav>
+<h2 id="mobs">Mobs</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-mobs"></tbody></table></div>
+<h2 id="bosses">Bosses</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-bosses"></tbody></table></div>
+<h2 id="items">Items</h2>
+<p>Prices are what the vendors charge, in Yuans. Where they are: <a href="economy.html#shops">Money &amp; Shops</a>.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Item</th><th>Price</th><th>Where to Get</th><th>Recipe</th><th>Effect / Notes</th><th>Requires</th></tr></thead><tbody id="fg-items"></tbody></table></div>
+</div>
 <script src="assets/wiki-data.js"></script>
 <script src="assets/sheet.js"></script>
 <script>
@@ -75,5 +106,11 @@
   document.getElementById('rc-fg').addEventListener('click',function(e){var tr=e.target.closest('tr.hide'); if(tr) tr.classList.remove('hide');});
 })();
 </script>
+</main>
+</div>
+<footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
+<a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
+</div>
+<script src="assets/site.js"></script>
 </body>
 </html>

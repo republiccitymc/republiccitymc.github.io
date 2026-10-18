@@ -3,77 +3,107 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>How to Play | Republic City MC</title>
-<meta name="description" content="How to join Republic City MC on Java Edition 1.21.11, get whitelisted, and get started.">
-<meta property="og:title" content="How to Play | Republic City MC">
-<meta property="og:description" content="How to join Republic City MC on Java Edition 1.21.11, get whitelisted, and get started.">
+<title>Getting Started | Republic City MC Wiki</title>
+<meta name="description" content="How to join Republic City MC and what to do in your first hour.">
+<meta property="og:title" content="Getting Started | Republic City MC Wiki">
+<meta property="og:description" content="How to join Republic City MC and what to do in your first hour.">
 <meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
-<div class="rc">
-<nav class="topbar"><div class="in">
-  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span></a>
-  <input type="checkbox" id="navtoggle"><label for="navtoggle" class="burger" aria-label="Menu">&#9776;</label>
-  <div class="menu"><a href="index.html">Home</a><a href="how-to-play.html" class="on">How to Play</a><a href="quests.html">Quests</a><a href="systems.html">Systems</a><a href="field-guide.html">Field Guide</a><a class="dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a></div>
-</div></nav>
-<main>
-<header class="head">
-  <div class="kicker">New Citizens</div>
-  <h1>How to Play</h1>
-  <p class="lead">Get in the game, get your papers, and find your way around.</p>
-</header>
-<nav class="jump"><a href="#connect">Connect</a><a href="#getting-started">Getting Started</a><a href="#rules">Rules</a></nav>
+<div class="rc wiki">
+<header class="topbar"><div class="in">
+  <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
+  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
+</div></header>
+<input type="checkbox" id="sidetoggle">
+<div class="layout">
+<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<div class="grp"><div class="gh">Republic City MC</div>
+<a href="index.html">Main Page</a>
+</div>
+<div class="grp"><div class="gh">New Players</div>
+<a href="how-to-play.html" class="on">Getting Started</a>
+<a href="rules.html">Rules</a>
+<a href="commands.html">Commands</a>
+</div>
+<div class="grp"><div class="gh">Bending</div>
+<a href="bending.html">Bending &amp; Tiers</a>
+<a href="earthbending.html">Earthbending</a>
+<a href="waterbending.html">Waterbending</a>
+<a href="firebending.html">Firebending</a>
+<a href="chi-blocking.html">Chi Blocking</a>
+<a href="weapons-master.html">Weapons Master</a>
+</div>
+<div class="grp"><div class="gh">Story</div>
+<a href="quests.html">Main Story</a>
+<a href="side-quests.html">Side Quests</a>
+<a href="dossier.html">Dossier &amp; Titles</a>
+</div>
+<div class="grp"><div class="gh">Society</div>
+<a href="alignment.html">Order &amp; Chaos</a>
+<a href="roleplay-ranks.html">Roleplay Ranks</a>
+</div>
+<div class="grp"><div class="gh">Economy</div>
+<a href="economy.html">Money &amp; Shops</a>
+<a href="crafting.html">Crafting</a>
+<a href="housing.html">Housing</a>
+</div>
+<div class="grp"><div class="gh">Field Guide</div>
+<a href="field-guide.html">Mobs, Bosses &amp; Items</a>
+</div>
+<div class="grp"><div class="gh">Community</div><a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></div></aside>
+<main class="article">
+<div class="crumb">New Players</div><h1>Getting Started</h1>
+<p class="lead">You arrive in the City Hall lobby with no papers. Here's how to get in the game and find your feet.</p>
+<nav class="toc"><div class="th">Contents</div><ol><li><a href="#connect">Joining the Server</a></li><li><a href="#first-hour">Your First Hour</a></li><li><a href="#origins">Origins and Paths</a></li><li><a href="#finding-your-way">Finding Your Way</a></li></ol></nav>
 
-<section id="connect">
-  <h2>Connect</h2>
-  <p class="sub">Republic City MC runs on <b>Minecraft: Java Edition <span class="js-ver">1.21.11</span></b>. Bedrock (phone, console, Windows Bedrock) can't join.</p>
-  <div class="ipbox">
-    <div><div class="lbl">Server address</div><div class="ip js-ip">Address coming soon</div></div>
-    <button class="copy js-copy" type="button">Copy</button>
-    <div class="facts"><span class="pill gold">Java Edition <span class="js-ver">1.21.11</span></span><span class="pill blue">Beta: whitelist only</span><span class="pill status js-status">Checking&hellip;</span></div>
-  </div>
-  <div class="grid" style="max-width:900px;margin-top:22px">
-    <div class="item"><h3>Get on the Whitelist</h3><p>Beta is whitelist only. DM Hammy on <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> with your exact Minecraft username.</p></div>
-    <div class="item"><h3>Switch to <span class="js-ver">1.21.11</span></h3><p>Make a new installation set to <span class="js-ver">1.21.11</span>: <a href="https://shockbyte.com/help/knowledgebase/articles/how-to-change-your-minecraft-client-version-on-java-edition" target="_blank" rel="noopener">Minecraft Launcher guide</a> or <a href="https://nodecraft.com/support/games/minecraft/mods/how-to-use-the-modrinth-launcher" target="_blank" rel="noopener">Modrinth App guide</a>.</p></div>
-    <div class="item"><h3>Can't Connect?</h3><p>Look up your error message in <a href="https://www.gameserverkings.com/knowledge-base/minecraft/players-cant-connect/" target="_blank" rel="noopener">this guide</a>, or ask in the Discord with a screenshot.</p></div>
-  </div>
-</section>
+<h2 id="connect">Joining the Server</h2>
+<div class="ipbox">
+  <div><div class="lbl">Server address</div><div class="ip js-ip">Address coming soon</div></div>
+  <button class="copy js-copy" type="button">Copy</button>
+  <div class="facts"><span class="pill gold">Java Edition <span class="js-ver">1.21.11</span></span><span class="pill blue">Beta: whitelist only</span><span class="pill status js-status">Checking&hellip;</span></div>
+</div>
+<ul>
+  <li><b>Java Edition 1.21.11 only.</b> Bedrock (phone, console, Windows Bedrock) can't join. Make an installation set to 1.21.11: <a href="https://shockbyte.com/help/knowledgebase/articles/how-to-change-your-minecraft-client-version-on-java-edition" target="_blank" rel="noopener">Minecraft Launcher</a> or <a href="https://nodecraft.com/support/games/minecraft/mods/how-to-use-the-modrinth-launcher" target="_blank" rel="noopener">Modrinth App</a>.</li>
+  <li><b>Get on the whitelist.</b> The beta is whitelist only: <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">DM Hammy on Discord</a> with your exact Minecraft username.</li>
+  <li><b>Can't connect?</b> Look your error up in <a href="https://www.gameserverkings.com/knowledge-base/minecraft/players-cant-connect/" target="_blank" rel="noopener">this guide</a>, or ask in the Discord with a screenshot.</li>
+</ul>
 
-<section class="alt" id="getting-started">
-  <h2>Getting Started</h2>
-  <p class="sub">You arrive in the City Hall lobby with no papers.</p>
-  <div class="steps">
-    <div class="step"><h3>Talk to Registrar Huan</h3><p>He's behind the brass grille. Right-click him and he hands you a blank <b>Citizen Registration Form</b>.</p></div>
-    <div class="step"><h3>Create your character</h3><p>Right-click the form in your hand. First, type your <b>character's name</b> in chat (one name, or first and last): it's the name everyone sees when you talk. Then pick your <b>Place of Origin</b> and your <b>Path</b>, and click <b>Sign &amp; File</b>. Origin and path are <b>permanent</b>; a name change later costs 100 Yuans at City Hall.</p></div>
-    <div class="step"><h3>Check your abilities</h3><p>Your starting abilities are bound to your hotbar automatically. <code>/b display</code> lists what you can use, <code>/b help &lt;ability&gt;</code> explains one, and <code>/b bind &lt;ability&gt; &lt;slot&gt;</code> moves it.</p></div>
-    <div class="step"><h3>Grab your starter kit</h3><p>Talk to Huan again: a training staff, cabbage cookies (Cabbage Corp keeps sending them) and the <b>Welcome to Republic City</b> pamphlet, a book with every basic command. Waterbenders also get water bottles. Lost the pamphlet? Huan will print you another.</p></div>
-    <div class="step"><h3>Follow the story</h3><p>Hold your <b>quest compass</b> to see your current task above the hotbar; it also points the way along the streets. A floating <b>!</b> means someone has a job for you; <b>?</b> means report back.</p></div>
-    <div class="step"><h3>Your records</h3><p>Right-click your form or papers to open your dossier, or look anyone up with <code>/dossier &lt;name&gt;</code> (or crouch + right-click them). Earn achievements, then wear a title with <code>/titles</code>.</p></div>
-    <div class="step"><h3>Get around</h3><p>Important places unlock as waypoints when you walk by. Type <code>/wp</code> to fast travel back.</p></div>
-  </div>
-  <div class="grid" style="max-width:900px;margin-top:28px">
-    <div class="item"><h3>Origins</h3><p><b>Earth Kingdom:</b> Ba Sing Se, Omashu, Gaoling, Kyoshi Island, Chin Village<br><b>Fire Nation:</b> Capital City, Ember Island, Shu Jing<br><b>Water Tribes:</b> Northern, Southern, Foggy Swamp<br><b>United Republic:</b> Republic City</p></div>
-    <div class="item"><h3>Paths</h3><p><b>Waterbender, Earthbender, Firebender</b>, or two non-bender paths: <b>Chi Blocker</b> and <b>Weapons Master</b>. Any origin can take any path. No player airbenders.</p></div>
-  </div>
-</section>
+<h2 id="first-hour">Your First Hour</h2>
+<ol>
+  <li><b>Talk to Registrar Huan</b> behind the brass grille. He hands you a blank Citizen Registration Form.</li>
+  <li><b>Create your character.</b> Right-click the form: type your character's name in chat (one name, or first and last), pick your <b>Place of Origin</b> and your <b>path</b>, then click <b>Sign &amp; File</b>. Origin and path are permanent; a name change later costs 100 Yuans at City Hall.</li>
+  <li><b>Check your abilities.</b> Your starting moves are already on your hotbar. <code>/b display</code> lists them; see <a href="commands.html">Commands</a> for the rest.</li>
+  <li><b>Collect your starter kit</b> from Huan: a training staff, cabbage cookies and the <i>Welcome to Republic City</i> pamphlet. Waterbenders also get water bottles.</li>
+  <li><b>Follow the story.</b> Huan sends you to your first job. The <a href="quests.html">Main Story</a> page has walkthroughs if you get stuck.</li>
+</ol>
 
-<section id="rules">
-  <h2>Rules</h2>
-  <p class="sub">The full server rules are pinned in <b>#rules</b> on our <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>. In game, the city works like this:</p>
-  <div class="grid">
-    <div class="item"><h3>Bend Freely, Build Nothing</h3><p>Bend anywhere in the city, but you can't place or break blocks, or open doors and trapdoors.</p></div>
-    <div class="item"><h3>Craft Your Own Gear</h3><p>Public crafting tables are all over the Civic District, but you have to learn a recipe before you can craft it. Ask <b>Old Man Shen</b> (market by the Sparring Grounds) about crafting to learn the basics: it's the <a href="quests.html#side">Scrap Lessons</a> side quest. Weapons Masters can buy blade blueprints from <b>TenTen</b>. Every recipe is in the <a href="field-guide.html#items">Field Guide</a>.</p></div>
-    <div class="item"><h3>Hidden Caches</h3><p>Hidden caches around the city restock every day at midnight Eastern. An unopened cache gives off a faint glow: green sparkles are common, blue dust is rare, purple magic is epic. The first person to open one claims it for the day: take what you want out of it, and click the gold Yuan nuggets to pocket the cash. You can claim 3 a day.</p></div>
-    <div class="item"><h3>Quest Items Are Safe</h3><p>They can't be dropped. If you die, they go to your <code>/backpack</code>.</p></div>
-    <div class="item"><h3>No Bloodbending</h3><p>It's outlawed in 130 AG and never unlocks.</p></div>
-  </div>
-</section>
+<h2 id="origins">Origins and Paths</h2>
+<div class="tbl-wrap"><table><thead><tr><th>Nation</th><th>Places of origin</th></tr></thead><tbody>
+<tr><td data-l="Nation">Earth Kingdom</td><td data-l="Places">Ba Sing Se, Omashu, Gaoling, Kyoshi Island, Chin Village</td></tr>
+<tr><td data-l="Nation">Fire Nation</td><td data-l="Places">Capital City, Ember Island, Shu Jing</td></tr>
+<tr><td data-l="Nation">Water Tribes</td><td data-l="Places">Northern, Southern, Foggy Swamp</td></tr>
+<tr><td data-l="Nation">United Republic</td><td data-l="Places">Republic City</td></tr>
+</tbody></table></div>
+<p>Any origin can take any path: <a href="earthbending.html">Earthbender</a>, <a href="waterbending.html">Waterbender</a>, <a href="firebending.html">Firebender</a>, or the two non-bender paths, <a href="chi-blocking.html">Chi Blocker</a> and <a href="weapons-master.html">Weapons Master</a>. There are no player airbenders.</p>
+
+<h2 id="finding-your-way">Finding Your Way</h2>
+<ul>
+  <li><b>Quest compass.</b> Hold it to see your current task above the hotbar. It points along the streets, not through walls.</li>
+  <li><b>Markers.</b> A floating <b>!</b> over someone means they have a job for you; <b>?</b> means go back and report.</li>
+  <li><b>Waypoints.</b> Landmarks unlock as you walk past them. <code>/wp</code> takes you back to any you've found.</li>
+  <li><b>Rewards.</b> Quest Points, Yuans and Order or Chaos show on screen when you earn them.</li>
+</ul>
 </main>
-<div class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot; <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Join the Discord</a></div>
+</div>
+<footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
+<a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
 <script src="assets/site.js"></script>
 </body>
