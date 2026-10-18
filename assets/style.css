@@ -184,3 +184,19 @@ html,body{background:var(--bg)}
 .rc .ipbox{border-color:var(--accent-fill)}
 .rc .kicker{color:var(--muted)}
 .rc .eh.e-chi{color:#000}
+
+/* Bending tiers v2 (2026-10-18): path labels in the tier grid, and the small boost table in a card. */
+.rc .tgrid .path{margin:10px 0 2px;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold)}
+.rc .tgrid .path b{color:var(--gold)}
+.rc .card table.mini{font-size:.88rem;margin:6px 0 12px}
+.rc .card table.mini th,.rc .card table.mini td{padding:6px 8px;background:none}
+.rc .card table.mini td:first-child{font-weight:800}
+@media(max-width:700px){
+  .rc .card table.mini{display:table}.rc .card table.mini thead{display:table-header-group}
+  .rc .card table.mini tbody{display:table-row-group}.rc .card table.mini tr{display:table-row;background:none;border:none;padding:0}
+  .rc .card table.mini td{display:table-cell;width:auto;padding:5px 8px}
+}
+/* "What's new" strip on the home page. */
+.rc .new .card .pill{margin-bottom:10px}
+.rc .new .card a.more{display:inline-block;margin-top:8px;font-weight:700}
+.rc .card p+p{margin-top:10px}
