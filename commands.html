@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -61,6 +62,7 @@
 <main class="article">
 <div class="crumb">New Players</div><h1>Commands</h1>
 <p class="lead">Everything you can type in game. Your <i>Welcome to Republic City</i> pamphlet has the basics too.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>Most used</dt><dd><code>/quests</code> &middot; <code>/dossier</code> &middot; <code>/wp</code> &middot; <code>/b display</code></dd><dt>Going home</dt><dd><code>/apartment</code></dd><dt>Need staff</dt><dd><code>/helpop &lt;message&gt;</code></dd></dl>
 <nav class="toc"><div class="th">Contents</div><ol><li><a href="#bending">Bending</a></li><li><a href="#records">Your Dossier</a></li><li><a href="#getting-around">Getting Around</a></li><li><a href="#talking">Talking to People</a></li></ol></nav>
 
 <h2 id="bending">Bending</h2>
@@ -74,10 +76,10 @@
 <h2 id="records">Your Dossier</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
 <tr><td data-l="Command"><code>/dossier [name]</code></td><td data-l="Does">Your official record, or someone else's. Crouch + right-click a player also works. See <a href="dossier.html">Dossier &amp; Titles</a>.</td></tr>
-<tr><td data-l="Command"><code>/quests</code></td><td data-l="Does">Your quest log: main story and side quests, rewards, and which one your compass follows.</td></tr>
+<tr><td data-l="Command"><code>/quests</code></td><td data-l="Does">Your quest log: main story and <a href="side-quests.html">side quests</a>, rewards, and which one your compass follows.</td></tr>
 <tr><td data-l="Command"><code>/achievements [name]</code></td><td data-l="Does">Achievements earned.</td></tr>
 <tr><td data-l="Command"><code>/titles</code></td><td data-l="Does">Pick the title you wear.</td></tr>
-<tr><td data-l="Command"><code>/bal</code></td><td data-l="Does">Your Yuans.</td></tr>
+<tr><td data-l="Command"><code>/bal</code></td><td data-l="Does">Your <a href="economy.html#currency">Yuans</a>.</td></tr>
 </tbody></table></div>
 
 <h2 id="getting-around">Getting Around</h2>
@@ -94,11 +96,14 @@
 <tr><td data-l="Command"><code>/helpop &lt;text&gt;</code></td><td data-l="Does">Reach city staff.</td></tr>
 <tr><td data-l="Command"><code>/rules</code></td><td data-l="Does">The full ordinances.</td></tr>
 </tbody></table></div>
+
+<div class="seealso"><span>See also</span> <a href="how-to-play.html">Getting Started</a> &middot; <a href="dossier.html">Dossier &amp; Titles</a> &middot; <a href="housing.html">Housing</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

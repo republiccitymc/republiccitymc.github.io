@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -61,12 +62,13 @@
 <main class="article">
 <div class="crumb">Economy</div><h1>Money &amp; Shops</h1>
 <p class="lead">Republic City runs on <b>Yuans</b>. Your <b>Quest Points</b> are your service record and can't be bought. Nothing for sale makes you stronger.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>Money</dt><dd>Yuans. Check with <code>/bal</code></dd><dt>Earn it</dt><dd>Quests, wallets from human enemies, daily hidden caches</dd><dt>Can't buy</dt><dd>Quest Points, or anything that makes you stronger</dd><dt>Spend it</dt><dd>TenTen, Raku, Old Man Shen, Jian's Tea House, Landlady Fe</dd></dl>
 <nav class="toc"><div class="th">Contents</div><ol><li><a href="#currency">Yuans and Quest Points</a></li><li><a href="#shops">Shops</a></li><li><a href="#caches">Hidden Caches</a></li></ol></nav>
 
 <h2 id="currency">Yuans and Quest Points</h2>
 <div class="tbl-wrap"><table><thead><tr><th></th><th>Yuans</th><th>Quest Points</th></tr></thead><tbody>
 <tr><td data-l="">What it is</td><td data-l="Yuans">Everyday money. Check it with <code>/bal</code>.</td><td data-l="QP">Your service record. Unlocks <a href="bending.html#tiers">bending tiers</a> and <a href="roleplay-ranks.html">roleplay ranks</a>.</td></tr>
-<tr><td data-l="">How to earn</td><td data-l="Yuans">Quests (580 across Arc 1), side quests, hidden caches, and wallets dropped by Triad members and police recruits (0&ndash;10 Yuans).</td><td data-l="QP">Quests, side quests and the occasional hidden cache.</td></tr>
+<tr><td data-l="">How to earn</td><td data-l="Yuans">Quests (580 across Arc 1), <a href="side-quests.html">side quests</a>, hidden caches, and wallets dropped by Triad members and police recruits (0&ndash;10 Yuans; more from a fleeing grunt you catch).</td><td data-l="QP">Quests, side quests and the occasional hidden cache.</td></tr>
 <tr><td data-l="">Spend or trade?</td><td data-l="Yuans">Spend at shops, on housing and on name changes.</td><td data-l="QP">Never spent, traded or sold.</td></tr>
 </tbody></table></div>
 
@@ -98,11 +100,14 @@
   <li>You can claim <b>3 a day</b>.</li>
   <li>Inside: Yuans, food, materials, now and then a weapon, Quest Points, or (epic only) a Spider Fang Dagger blueprint or a technique scroll.</li>
 </ul>
+
+<div class="seealso"><span>See also</span> <a href="crafting.html">Crafting</a> &middot; <a href="housing.html">Housing</a> &middot; <a href="field-guide.html">Mobs, Bosses &amp; Items</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -60,7 +61,8 @@
 <div class="grp"><div class="gh">Community</div><a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></div></aside>
 <main class="article">
 <div class="crumb">Story</div><h1>Dossier &amp; Titles</h1>
-<p class="lead">The Hall of Civic Records keeps a <b>dossier</b> on every citizen. Anyone can read it, so it's how people know who you are. Open it with <code>/dossier</code>, or right-click your Registration Form or Citizenship Papers.</p>
+<p class="lead">The Hall of Civic Records keeps a <b>dossier</b> on every citizen. Anyone can read it, so it's how people know who you are. Open it with <code>/dossier</code>, or right-click your <a href="how-to-play.html#first-hour">Registration Form</a> or Citizenship Papers.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>Open yours</dt><dd><code>/dossier</code>, or right-click your papers</dd><dt>Read someone's</dt><dd>Crouch + right-click them, or <code>/dossier &lt;name&gt;</code></dd><dt>Wear a title</dt><dd><code>/titles</code></dd></dl>
 <nav class="toc"><div class="th">Contents</div><ol><li><a href="#opening">Opening a Dossier</a></li><li><a href="#contents">What It Shows</a></li><li><a href="#titles">Achievements and Titles</a></li></ol></nav>
 
 <h2 id="opening">Opening a Dossier</h2>
@@ -72,7 +74,7 @@
 <h2 id="contents">What It Shows</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Entry</th><th>What it means</th></tr></thead><tbody>
 <tr><td data-l="Entry">Name and title</td><td data-l="Means">Your character's name (username in brackets) and the title you wear.</td></tr>
-<tr><td data-l="Entry">Service Record</td><td data-l="Means">Your Quest Points.</td></tr>
+<tr><td data-l="Entry">Service Record</td><td data-l="Means">Your <a href="economy.html#currency">Quest Points</a>.</td></tr>
 <tr><td data-l="Entry">Next Tier</td><td data-l="Means">How many Quest Points your next bending tier needs, and how close you are.</td></tr>
 <tr><td data-l="Entry">Legal Status</td><td data-l="Means">Unregistered, Registration Filed, or Registered Citizen. Click it for achievements.</td></tr>
 <tr><td data-l="Entry">Place of Origin</td><td data-l="Means">From your Registration Form.</td></tr>
@@ -84,11 +86,14 @@
 
 <h2 id="titles">Achievements and Titles</h2>
 <p>Each achievement unlocks a title. Wear one at a time with <code>/titles</code>; it shows on your dossier. The Arc 1 achievements are listed on the <a href="quests.html#achievements">Main Story</a> page.</p>
+
+<div class="seealso"><span>See also</span> <a href="alignment.html">Order &amp; Chaos</a> &middot; <a href="roleplay-ranks.html">Roleplay Ranks</a> &middot; <a href="commands.html">Commands</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

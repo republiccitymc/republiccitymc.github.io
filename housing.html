@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -70,7 +71,7 @@
   </dl>
 </aside>
 <p class="lead">Finishing Arc 1 earns the key to your own room at Unity Flats. Decorate it, store your things, and sleep in your bed to respawn there.</p>
-<nav class="toc"><div class="th">Contents</div><ol><li><a href="#getting-home">Getting Home</a></li><li><a href="#building">Decorating</a></li><li><a href="#guests">Guests and Roommates</a></li></ol></nav>
+<nav class="toc"><div class="th">Contents</div><ol><li><a href="#getting-home">Getting Home</a></li><li><a href="#building">Decorating</a></li><li><a href="#comforts">Home Comforts</a></li><li><a href="#furniture">Furniture and Trophies</a></li><li><a href="#guests">Guests and Roommates</a></li></ol></nav>
 
 <h2 id="getting-home">Getting Home</h2>
 <ul>
@@ -81,6 +82,21 @@
 <h2 id="building">Decorating</h2>
 <p>You can build and place things inside your room. Walls, floor and ceiling stay as they are. Furniture is sold by <b>Landlady Fe</b>, out front of Unity Flats. Unity Flats is also a <code>/wp</code> waypoint once you've walked past it. Bending, PvP and mobs are switched off in the building.</p>
 
+<h2 id="comforts">Home Comforts</h2>
+<ul>
+  <li><b>Healing at home.</b> While you're in your own room (or one where you're a roommate), you slowly heal.</li>
+  <li><b>Rest.</b> Right-click your bed for full hunger and a "Well rested" note, once every 5 minutes. Sleeping in it also sets your respawn.</li>
+  <li><b>Whetstone.</b> Place one and right-click it to repair the item in your hand for 10 <a href="economy.html#currency">Yuans</a>. It only works in your own home.</li>
+</ul>
+
+<h2 id="furniture">Furniture and Trophies</h2>
+<p><b>Landlady Fe</b> sells 17 pieces in a 130 AG style: chairs and cushions, tea tables and a Pai Sho table, paper and stone lanterns, a fire brazier, a folding screen, rugs, a deco lamp, the whetstone and a weapon rack. Right-click the floor or a wall to place a piece; hit it once to pick it back up.</p>
+<p>Two pieces can't be bought. You earn them:</p>
+<div class="tbl-wrap"><table><thead><tr><th>Trophy</th><th>How to earn it</th></tr></thead><tbody>
+<tr><td data-l="Trophy"><a href="field-guide.html#bosses">Spider-Rat Queen</a> Fang Plaque</td><td data-l="How">Defeat the Spider-Rat Queen</td></tr>
+<tr><td data-l="Trophy">Syndicate Ring Display Case</td><td data-l="How">Finish Arc 1</td></tr>
+</tbody></table></div>
+
 <h2 id="guests">Guests and Roommates</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Command</th><th>What it does</th></tr></thead><tbody>
 <tr><td data-l="Command"><code>/apartment invite &lt;name&gt;</code></td><td data-l="Does">Lets them visit. <code>/apartment uninvite</code> takes it back.</td></tr>
@@ -89,11 +105,14 @@
 <tr><td data-l="Command"><code>/apartment kick &lt;name&gt;</code></td><td data-l="Does">Send a visitor outside.</td></tr>
 <tr><td data-l="Command"><code>/apartment info</code></td><td data-l="Does">Who can visit and who can build.</td></tr>
 </tbody></table></div>
+
+<div class="seealso"><span>See also</span> <a href="economy.html">Money &amp; Shops</a> &middot; <a href="quests.html">Main Story</a> &middot; <a href="commands.html">Commands</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

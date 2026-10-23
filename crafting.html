@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -61,6 +62,7 @@
 <main class="article">
 <div class="crumb">Economy</div><h1>Crafting</h1>
 <p class="lead">Public crafting tables stand all over the Civic District, but you have to learn a recipe before you can craft it. Vanilla Minecraft recipes work as normal.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>The rule</dt><dd>Learn a recipe before you can craft it</dd><dt>Start here</dt><dd>Old Man Shen's Scrap Lessons</dd><dt>Better gear</dt><dd>Blueprints from TenTen and epic hidden caches</dd><dt>Vanilla recipes</dt><dd>Work as normal</dd></dl>
 <nav class="toc"><div class="th">Contents</div><ol><li><a href="#basics">Learning the Basics</a></li><li><a href="#blueprints">Blueprints</a></li><li><a href="#recipes">Every Recipe</a></li></ol></nav>
 
 <h2 id="basics">Learning the Basics</h2>
@@ -70,18 +72,21 @@
 <h2 id="blueprints">Blueprints</h2>
 <p>Better gear comes from blueprints. Right-click one to learn its recipe for good; the blueprint is used up, and its description shows the recipe.</p>
 <div class="tbl-wrap"><table><thead><tr><th>Blueprint</th><th>Where</th></tr></thead><tbody>
-<tr><td data-l="Blueprint">Simple Jian, Dao, Gaff Hook</td><td data-l="Where">TenTen, 40 Yuans each (Weapons Masters only)</td></tr>
+<tr><td data-l="Blueprint">Simple Jian, Dao, Gaff Hook</td><td data-l="Where">TenTen, 40 Yuans each (<a href="weapons-master.html">Weapons Masters</a> only)</td></tr>
 <tr><td data-l="Blueprint">Simple Maul</td><td data-l="Where">TenTen, 60 Yuans (Weapons Masters only)</td></tr>
 <tr><td data-l="Blueprint">Spider Fang Dagger</td><td data-l="Where">Epic <a href="economy.html#caches">hidden caches</a></td></tr>
 </tbody></table></div>
 
 <h2 id="recipes">Every Recipe</h2>
 <p>Ingredients, effects and prices for every item are in the <a href="field-guide.html#items">Field Guide</a>.</p>
+
+<div class="seealso"><span>See also</span> <a href="economy.html">Money &amp; Shops</a> &middot; <a href="weapons-master.html">Weapons Master</a> &middot; <a href="field-guide.html">Mobs, Bosses &amp; Items</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

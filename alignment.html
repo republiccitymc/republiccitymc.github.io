@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -61,6 +62,7 @@
 <main class="article">
 <div class="crumb">Society</div><h1>Order &amp; Chaos</h1>
 <p class="lead">Like Raava and Vaatu, two forces pull at Republic City. Your choices earn <b>Order</b> or <b>Chaos</b>: two separate meters, so earning one never costs you the other.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>Two meters</dt><dd>Order and Chaos, counted separately</dd><dt>Earned by</dt><dd>Story choices and some <a href="side-quests.html">side quests</a></dd><dt>See yours</dt><dd>On your dossier</dd><dt>Why it matters</dt><dd>It decides which roleplay ranks will take you</dd></dl>
 <nav class="toc"><div class="th">Contents</div><ol><li><a href="#how">How It Works</a></li><li><a href="#arc1">Choices in Arc 1</a></li><li><a href="#why">Why It Matters</a></li></ol></nav>
 
 <h2 id="how">How It Works</h2>
@@ -75,18 +77,27 @@
 
 <h2 id="arc1">Choices in Arc 1</h2>
 <div class="tbl-wrap"><table><thead><tr><th>When</th><th>Order</th><th>Chaos</th></tr></thead><tbody>
-<tr><td data-l="When">Quest 7: squeezing Ren</td><td data-l="Order">+5 Order</td><td data-l="Chaos">+5 Chaos and 30 Yuans hush money</td></tr>
+<tr><td data-l="When">Quest 7: squeezing Ren</td><td data-l="Order">+5 Order</td><td data-l="Chaos">+5 Chaos and 30 <a href="economy.html#currency">Yuans</a> hush money</td></tr>
 <tr><td data-l="When">Arc 1 finale: the ring</td><td data-l="Order">+10 Order</td><td data-l="Chaos">+10 Chaos, and you keep the ring</td></tr>
 </tbody></table></div>
 <p>Kept the ring? After Arc 1, Shady Zhen will buy it once for 125 Yuans and another 5 Chaos.</p>
 
+<h3 id="side">Side quest choices</h3>
+<div class="tbl-wrap"><table><thead><tr><th>Side quest</th><th>Order</th><th>Chaos</th></tr></thead><tbody>
+<tr><td data-l="Side quest">Special Delivery</td><td data-l="Order">Deliver Ren's envelope sealed: +2 Order</td><td data-l="Chaos">Break the seal and read it: +2 Chaos</td></tr>
+<tr><td data-l="Side quest">Scoop!</td><td data-l="Order">Print the plain truth: +2 Order</td><td data-l="Chaos">Run the monster headline: +2 Chaos</td></tr>
+</tbody></table></div>
+
 <h2 id="why">Why It Matters</h2>
 <p>Alignment decides which <a href="roleplay-ranks.html">roleplay ranks</a> will have you, and how the city's people treat you in later arcs.</p>
+
+<div class="seealso"><span>See also</span> <a href="roleplay-ranks.html">Roleplay Ranks</a> &middot; <a href="quests.html">Main Story</a> &middot; <a href="dossier.html">Dossier &amp; Titles</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

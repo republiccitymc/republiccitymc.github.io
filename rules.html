@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html">Main Page</a>
 </div>
@@ -61,6 +62,7 @@
 <main class="article">
 <div class="crumb">New Players</div><h1>Rules</h1>
 <p class="lead">The full server rules are pinned in <b>#rules</b> on our <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>. In game, the city works like this.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>Full rules</dt><dd>Pinned in #rules on Discord</dd><dt>Building</dt><dd>Not allowed in the city. Bending is.</dd><dt>Your stuff</dt><dd>Quest items can't be lost: check <code>/backpack</code></dd><dt>Need staff</dt><dd><code>/helpop &lt;message&gt;</code></dd></dl>
 
 <h2 id="city">City Ordinances</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Rule</th><th>What it means</th></tr></thead><tbody>
@@ -79,11 +81,14 @@
 
 <h2 id="help">Getting Help</h2>
 <p>Stuck, bugged or need a hand? Use <code>/helpop &lt;message&gt;</code> in game to reach staff, or ask in the Discord.</p>
+
+<div class="seealso"><span>See also</span> <a href="how-to-play.html">Getting Started</a> &middot; <a href="commands.html">Commands</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

@@ -19,11 +19,12 @@
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
   <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
   <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
 </div></header>
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
-<aside class="side"><input type="search" class="js-find" placeholder="Search the wiki" aria-label="Search the wiki">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
 <div class="grp"><div class="gh">Republic City MC</div>
 <a href="index.html" class="on">Main Page</a>
 </div>
@@ -70,7 +71,12 @@
   <button class="copy js-copy" type="button">Copy</button>
   <div class="facts"><span class="pill gold">Java Edition <span class="js-ver">1.21.11</span></span><span class="pill blue">Beta: whitelist only</span><span class="pill status js-status">Checking&hellip;</span></div>
 </div>
-<p class="hint">New here? Start with <a href="how-to-play.html">Getting Started</a>. To join the beta, <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">DM Hammy on Discord</a>.</p>
+<div class="join3">
+  <div><b>Get on the whitelist</b><span>The beta is whitelist only. <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">DM Hammy on Discord</a> with your Minecraft username.</span></div>
+  <div><b>Join on Java 1.21.11</b><span>Add the address above under Multiplayer. Bedrock can't join.</span></div>
+  <div><b>Register with Huan</b><span>He's in the City Hall lobby. File your form, then follow your quest compass.</span></div>
+</div>
+<p class="hint">Your first hour, step by step: <a href="how-to-play.html">Getting Started</a>. Can't find something? Press <b>/</b> to search.</p>
 
 <h2 id="paths">Choose Your Path</h2>
 <div class="elements">
@@ -101,6 +107,7 @@
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
 <a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
 </div>
+<script src="assets/search-index.js"></script>
 <script src="assets/site.js"></script>
 </body>
 </html>

@@ -30,21 +30,74 @@ var RC_SERVER = { address: 'republiccitymc.play.minekube.net', version: '1.21.11
   }).catch(function(){ st.forEach(function(el){ el.textContent = 'Status unavailable'; }); });
 })();
 
-// Wiki sidebar search: typing filters the page links; Enter opens the first match.
+// Wiki search (top bar and sidebar): searches every page section plus the Field Guide's mobs and
+// items (assets/search-index.js, built by tools/build.py). "/" focuses it; arrows + Enter pick.
 (function(){
-  var box = document.querySelector('.js-find');
-  if(!box) return;
-  var links = Array.prototype.slice.call(document.querySelectorAll('.side .grp a'));
-  box.addEventListener('input', function(){
-    var q = box.value.trim().toLowerCase();
-    links.forEach(function(a){ a.classList.toggle('hidden', q && a.textContent.toLowerCase().indexOf(q) < 0); });
-    document.querySelectorAll('.side .grp').forEach(function(g){
-      g.classList.toggle('hidden', q && !g.querySelector('a:not(.hidden)'));
+  var DATA = window.RC_SEARCH || [];
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function norm(s){ return String(s).toLowerCase(); }
+  DATA.forEach(function(e){ e._h = norm(e.h); e._p = norm(e.p); e._x = norm(e.x); });
+  function reEsc(s){ return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+  // Terms match at the start of a word, so "tea" finds "teas" but not "steam".
+  function search(q){
+    var terms = norm(q).split(/\s+/).filter(Boolean);
+    if(!terms.length) return [];
+    var res = terms.map(function(t){ return new RegExp('(^|[^a-z0-9])' + reEsc(t), 'g'); });
+    var out = [];
+    DATA.forEach(function(e){
+      var score = 0;
+      for(var i = 0; i < res.length; i++){
+        var re = res[i], s = 0, n;
+        re.lastIndex = 0; if(re.test(e._h)) s += (e._h.indexOf(terms[i]) === 0 ? 14 : 10);
+        re.lastIndex = 0; if(re.test(e._p)) s += 3;
+        n = (e._x.match(re) || []).length; s += Math.min(n, 4);
+        if(!s) return;
+        score += s;
+      }
+      out.push({e: e, s: score});
     });
+    out.sort(function(a, b){ return b.s - a.s; });
+    return out.slice(0, 8).map(function(r){ return r.e; });
+  }
+  function snippet(e, q){
+    var x = e.x, t = norm(q).split(/\s+/).filter(Boolean)[0] || '', i = t ? norm(x).indexOf(t) : -1;
+    var start = Math.max(0, i - 40), s = (start ? '…' : '') + x.substr(start, 140) + (x.length > start + 140 ? '…' : '');
+    s = esc(s);
+    norm(q).split(/\s+/).filter(Boolean).forEach(function(w){
+      s = s.replace(new RegExp('(' + w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<mark>$1</mark>');
+    });
+    return s;
+  }
+  document.querySelectorAll('.search').forEach(function(wrap){
+    var box = wrap.querySelector('.js-search'), list = wrap.querySelector('.results'), hits = [], sel = -1;
+    function draw(){
+      var q = box.value.trim();
+      hits = search(q); sel = hits.length ? 0 : -1;
+      if(!q){ list.hidden = true; return; }
+      list.innerHTML = hits.length ? hits.map(function(e, i){
+        return '<a href="' + e.u + '"' + (i === sel ? ' class="sel"' : '') + '><b>' + esc(e.h) + '</b>'
+          + (e.h !== e.p ? ' <span class="pg">' + esc(e.p) + '</span>' : '') + '<small>' + snippet(e, q) + '</small></a>';
+      }).join('') : '<div class="none">Nothing found for “' + esc(q) + '”.</div>';
+      list.hidden = false;
+    }
+    function move(d){
+      var a = list.querySelectorAll('a'); if(!a.length) return;
+      if(sel > -1) a[sel].classList.remove('sel');
+      sel = (sel + d + a.length) % a.length; a[sel].classList.add('sel'); a[sel].scrollIntoView({block: 'nearest'});
+    }
+    box.addEventListener('input', draw);
+    box.addEventListener('focus', function(){ if(box.value.trim()) draw(); });
+    box.addEventListener('keydown', function(e){
+      if(e.key === 'ArrowDown'){ e.preventDefault(); move(1); }
+      else if(e.key === 'ArrowUp'){ e.preventDefault(); move(-1); }
+      else if(e.key === 'Enter' && sel > -1){ e.preventDefault(); window.location = hits[sel].u; }
+      else if(e.key === 'Escape'){ list.hidden = true; box.blur(); }
+    });
+    document.addEventListener('click', function(e){ if(!wrap.contains(e.target)) list.hidden = true; });
   });
-  box.addEventListener('keydown', function(e){
-    if(e.key !== 'Enter') return;
-    var first = links.filter(function(a){ return !a.classList.contains('hidden'); })[0];
-    if(first) window.location = first.href;
+  document.addEventListener('keydown', function(e){
+    if(e.key !== '/' || /input|textarea/i.test(document.activeElement.tagName)) return;
+    var box = Array.prototype.filter.call(document.querySelectorAll('.js-search'), function(b){ return b.offsetParent; })[0];
+    if(box){ e.preventDefault(); box.focus(); }
   });
 })();
