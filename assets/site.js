@@ -1,7 +1,7 @@
 // Republic City MC — shared bits for every page.
 // ► SERVER ADDRESS: set it here once (e.g. 'play.republiccitymc.net') and every page updates.
 //   Leave it '' to show "Address coming soon".
-var RC_SERVER = { address: '', version: '1.21.11' };
+var RC_SERVER = { address: 'republiccitymc.play.minekube.net', version: '1.21.11' };
 
 (function(){
   var addr = RC_SERVER.address;
