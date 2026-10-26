@@ -31,7 +31,7 @@ STAFF_FORM = "https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj7
 
 # Sidebar: (group, [(page, label), ...]). The group is also the page's breadcrumb.
 SIDEBAR = [
-    ("Republic City MC", [("index", "Main Page")]),
+    ("Republic City MC", [("index", "Home")]),
     ("New Players", [("how-to-play", "Getting Started"), ("rules", "Rules"), ("commands", "Commands")]),
     ("Bending", [("bending", "Bending & Tiers"), ("earthbending", "Earthbending"), ("waterbending", "Waterbending"),
                  ("firebending", "Firebending"), ("chi-blocking", "Chi Blocking"), ("weapons-master", "Weapons Master")]),
