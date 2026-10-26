@@ -68,7 +68,7 @@ RELATED = {
 LINKS = [
     ("Order &amp; Chaos", "alignment.html"), ("Order or Chaos", "alignment.html"), ("Order and Chaos", "alignment.html"),
     ("Quest Points", "economy.html#currency"), ("Yuans", "economy.html#currency"),
-    ("bending tiers", "bending.html#tiers"), ("Tier II", "bending.html#tiers"), ("Discipline", "bending.html#discipline"),
+    ("bending tiers", "bending.html#tiers"), ("Tier II", "bending.html#tiers"), ("Discipline", "bending.html#subelements"),
     ("Technique Scrolls", "bending.html#scrolls"), ("Scroll: Catapult", "bending.html#scrolls"),
     ("Registration Form", "how-to-play.html#first-hour"), ("Registrar Huan", "how-to-play.html#first-hour"),
     ("quest compass", "how-to-play.html#finding-your-way"), ("waypoints", "how-to-play.html#finding-your-way"),
