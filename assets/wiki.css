@@ -120,10 +120,35 @@
 .wiki .seealso{margin-top:34px;padding-top:12px;border-top:1px solid var(--line);font-size:.95rem}
 .wiki .seealso span{font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-right:6px}
 
-/* Moves by tier */
-.wiki table.moves td:first-child{font-weight:700;white-space:nowrap}
-.wiki table.moves td{min-width:150px}
-.wiki table.moves td:first-child{min-width:0}
-@media(max-width:700px){.wiki table.moves td{min-width:0}}
+
+/* Moves by tier (tables generated from tools/bending_data.py) */
+.wiki{--s-sand:#b8893a;--s-metal:#5f6d7a;--s-lava:#d4471a;--s-ice:#2a93c4;--s-healing:#17917f;--s-plant:#4a8a2a;--s-lightning:#5a5fd6;--s-combustion:#c97a0a}
+.wiki .s-sand{--sc:var(--s-sand)}.wiki .s-metal{--sc:var(--s-metal)}.wiki .s-lava{--sc:var(--s-lava)}
+.wiki .s-ice{--sc:var(--s-ice)}.wiki .s-healing{--sc:var(--s-healing)}.wiki .s-plant{--sc:var(--s-plant)}
+.wiki .s-lightning{--sc:var(--s-lightning)}.wiki .s-combustion{--sc:var(--s-combustion)}
+.wiki table.moves th small,.wiki table.moves td small{display:block;font-size:.72rem;font-weight:600;color:var(--muted);letter-spacing:.5px;margin-top:2px}
+.wiki table.moves td{min-width:140px}
+.wiki table.moves td:first-child{font-weight:700;white-space:nowrap;min-width:0}
+.wiki table.moves.path td:first-child{width:120px}
+.wiki ul.mv{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.wiki ul.mv li{margin:0;padding:0;line-height:1.35}
+.wiki ul.mv li a{color:var(--text);text-decoration:none;font-weight:600;border-bottom:1px dotted rgba(var(--fg-rgb),.3)}
+.wiki ul.mv li a:hover{border-bottom-style:solid}
+.wiki ul.mv li.sm{padding-left:14px;position:relative}
+.wiki ul.mv li.sm::before{content:"";position:absolute;left:0;top:.42em;width:8px;height:8px;border-radius:50%;background:var(--sc)}
+.wiki ul.mv li.sm a{color:var(--sc);border-bottom-color:var(--sc)}
+.wiki ul.mv li.later{color:var(--muted)}
+.wiki ul.mv.inline{display:flex;flex-wrap:wrap;gap:8px 18px}
+.wiki .cb{display:inline-block;margin-left:6px;font-size:.66rem;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);vertical-align:1px}
+td>.cb{margin-left:0}
+.wiki .schip{display:inline-block;margin:0 6px 6px 0;padding:3px 10px;border-radius:999px;font-size:.8rem;font-weight:700;color:#fff !important;background:var(--sc);text-decoration:none !important}
+.wiki .schip:hover{filter:brightness(1.08)}
+.wiki .sublegend{display:flex;flex-wrap:wrap;align-items:center;gap:0;margin:6px 0 4px}
+.wiki .sublegend span{font-size:.72rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);margin:0 10px 6px 0}
+.wiki .sublegend .schip{font-size:.74rem;padding:2px 9px}
+.wiki table.subs td:last-child{padding-top:9px;padding-bottom:3px}
+.wiki .ib-title.s-sand,.wiki .ib-title.s-metal,.wiki .ib-title.s-lava,.wiki .ib-title.s-ice,.wiki .ib-title.s-healing,.wiki .ib-title.s-plant,.wiki .ib-title.s-lightning,.wiki .ib-title.s-combustion{background:var(--sc);color:#fff}
+@media(max-width:700px){.wiki table.moves td{min-width:0}.wiki table.moves td small{display:inline;margin-left:6px}}
 .wiki table.tiers td:first-child,.wiki table.tiers td:nth-child(2){white-space:nowrap;font-weight:700}
 .wiki .join3+.tbl-wrap{margin-top:14px}
+.wiki ul.mv li:not(.sm)+li.sm{margin-top:6px}

@@ -13,6 +13,7 @@ Every `<h2 id="...">` becomes a Contents entry where the page has `<!-- toc -->`
 To add a page: create `pages/<name>.html` and add it to `SIDEBAR` in `tools/build.py`.
 
 ## Other bits
+- **Moves and subelements:** every move and subelement lives in `tools/bending_data.py`. The build makes a page for each (`move-<name>.html`, `sub-<name>.html`), the Moves by Tier table on Bending & Tiers, and each path page's move table. Change a move there, not in the HTML.
 - **Search:** `tools/build.py` writes `assets/search-index.js` (every page section plus the Field Guide snapshot; spoiler sections left out). The box is in the top bar, and in the sidebar on phones. `/` focuses it.
 - **Cross-links and See also:** the build links the first mention of each term in `LINKS` (in `tools/build.py`) and adds a See also row from `RELATED`. Add a term there, not by hand. Titles that must not be linked go in `PROTECT`.
 - **At a glance boxes:** `<dl class="glance">` right after a page's lead paragraph, for the quick answers.

@@ -24,8 +24,11 @@ import html
 import json
 import pathlib
 import re
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tools"))
+import bending_data as BD  # noqa: E402  (moves and subelements; see tools/bending_data.py)
 DISCORD = "https://discord.gg/sDV3UeRgCH"
 STAFF_FORM = "https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform"
 
@@ -241,6 +244,139 @@ def see_also(name):
     return f'\n<div class="seealso"><span>See also</span> {links}</div>\n'
 
 
+# ---------------- Bending: move and subelement pages, move tables (data in tools/bending_data.py) ----------------
+def move_url(m):
+    return f"move-{BD.slug(m['name'])}.html"
+
+
+def sub_url(key):
+    return f"sub-{key}.html"
+
+
+def move_li(m, show_sub=True):
+    cls = []
+    if m["sub"]:
+        cls += ["sm", f"s-{m['sub']}"]
+    if m["later"]:
+        cls.append("later")
+    c = f' class="{" ".join(cls)}"' if cls else ""
+    name = html.escape(m["name"])
+    inner = name if m["later"] else f'<a href="{move_url(m)}">{name}</a>'
+    if m["combo"]:
+        inner += '<span class="cb">combo</span>'
+    if m["later"]:
+        inner += '<span class="cb">coming later</span>'
+    title = f' title="{BD.SUBS[m["sub"]]["name"]}"' if m["sub"] and show_sub else ""
+    return f"<li{c}{title}>{inner}</li>"
+
+
+def moves_of(path, tier):
+    return [m for m in BD.MOVES if m["path"] == path and m["tier"] == tier]
+
+
+def sub_legend(paths=None):
+    chips = "".join(f'<a class="schip s-{k}" href="{sub_url(k)}">{v["name"]}</a>'
+                    for k, v in BD.SUBS.items() if paths is None or v["path"] in paths)
+    return f'<p class="sublegend"><span>Subelement moves</span>{chips}</p>' if chips else ""
+
+
+def moves_table():
+    head = "".join(f'<th>{n}<small>{q}</small></th>' for n, q in BD.TIERS.values())
+    rows = []
+    for key, p in BD.PATHS.items():
+        cells = []
+        for t, (n, q) in BD.TIERS.items():
+            ms = moves_of(key, t)
+            inner = f'<ul class="mv">{"".join(move_li(m) for m in ms)}</ul>' if ms else '<span class="cb">coming later</span>'
+            cells.append(f'<td data-l="{n} &middot; {q}">{inner}</td>')
+        rows.append(f'<tr><td data-l="Path"><a href="{p["page"]}.html">{p["name"]}</a></td>{"".join(cells)}</tr>')
+    return (sub_legend() + f'<div class="tbl-wrap"><table class="moves"><thead><tr><th>Path</th>{head}</tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>')
+
+
+def path_moves_table(path):
+    rows = []
+    for t, (n, q) in BD.TIERS.items():
+        ms = moves_of(path, t)
+        inner = f'<ul class="mv">{"".join(move_li(m) for m in ms)}</ul>' if ms else '<span class="cb">coming later</span>'
+        rows.append(f'<tr><td data-l="Tier">{n}<small>{q}</small></td><td data-l="Moves">{inner}</td></tr>')
+    paths = [path]
+    return (sub_legend(paths) + '<div class="tbl-wrap"><table class="moves path"><thead><tr><th>Tier</th><th>Moves</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>')
+
+
+def fill_markers(body):
+    body = body.replace("<!-- moves-table -->", moves_table())
+    return re.sub(r"<!-- moves:(\w+) -->", lambda mm: path_moves_table(mm.group(1)), body)
+
+
+def move_page(m):
+    p = BD.PATHS[m["path"]]
+    n, q = BD.TIERS[m["tier"]]
+    rows = [f'<dt>Path</dt><dd><a href="{p["page"]}.html">{p["name"]}</a></dd>']
+    if m["sub"]:
+        rows.append(f'<dt>Subelement</dt><dd><a class="schip s-{m["sub"]}" href="{sub_url(m["sub"])}">{BD.SUBS[m["sub"]]["name"]}</a></dd>')
+    rows.append(f'<dt>Tier</dt><dd><a href="bending.html#tiers">{n}</a> ({q})</dd>')
+    rows.append(f'<dt>Type</dt><dd>{"Combo" if m["combo"] else "Move"}</dd>')
+    tcls = f's-{m["sub"]}' if m["sub"] else f'bg-{m["path"]}'
+    box = f'<aside class="infobox"><div class="ib-title {tcls}">{html.escape(m["name"])}</div><dl>{"".join(rows)}</dl></aside>'
+    steps = "".join(f'<li>{"<b>" + lab + ".</b> " if lab else ""}{how}</li>' for lab, how in m["use"])
+    if not m["combo"]:
+        steps += f'<li><b>Bind it.</b> <code>/b bind {m["name"].replace(" ", "")} &lt;slot&gt;</code> puts it on a hotbar slot (1&ndash;9).</li>'
+    hint = ('<p class="hint">A combo: you perform it by chaining the moves above. <code>/b help '
+            f'{m["name"].replace(" ", "")}</code> shows the sequence in game.</p>') if m["combo"] else ""
+    others = [o for o in BD.MOVES if o is not m and not o["later"] and o["path"] == m["path"] and o["sub"] == m["sub"]]
+    label = BD.SUBS[m["sub"]]["name"] if m["sub"] else p["name"]
+    more = ""
+    if others:
+        more = (f'<h2 id="more">More {label} Moves</h2><ul class="mv inline">'
+                + "".join(move_li(o, False) for o in others) + "</ul>")
+    body = (f'{box}<p class="lead">{m["what"]}</p>\n<h2 id="use">How to Use</h2><ul>{steps}</ul>{hint}\n'
+            f'<h2 id="get">How to Get It</h2><p>{m["get"] or BD.default_get(m)}</p>\n{more}\n')
+    crumb = f'Bending &middot; {p["name"]}'
+    desc = f'{m["name"]}: a {label} move on Republic City MC. How to use it and how to get it.'
+    return f"move-{BD.slug(m['name'])}", m["name"], desc, body, crumb, p["page"]
+
+
+def sub_page(key):
+    s = BD.SUBS[key]
+    p = BD.PATHS[s["path"]]
+    sibs = " &middot; ".join(f'<a href="{sub_url(k)}">{v["name"]}</a>' if k != key else f"<b>{v['name']}</b>"
+                             for k, v in BD.SUBS.items() if v["path"] == s["path"])
+    first = BD.TIERS[BD.SUB_FIRST_TIER[s["path"]]]
+    ms = [m for m in BD.MOVES if m["sub"] == key]
+    rows = [f'<dt>Element</dt><dd><a href="{p["page"]}.html">{p["name"]}</a></dd>',
+            f'<dt>Subelements</dt><dd>{sibs}</dd>',
+            f'<dt>From</dt><dd>{first[0]} ({first[1]})</dd>']
+    box = f'<aside class="infobox"><div class="ib-title s-{key}">{s["name"]}</div><dl>{"".join(rows)}</dl></aside>'
+    if ms:
+        mt = "".join(f'<tr><td data-l="Move"><ul class="mv">{move_li(m, False)}</ul></td><td data-l="Tier">{BD.TIERS[m["tier"]][0]}</td>'
+                     f'<td data-l="What it does">{m["what"]}</td></tr>' for m in ms)
+        moves = f'<div class="tbl-wrap"><table><thead><tr><th>Move</th><th>Tier</th><th>What it does</th></tr></thead><tbody>{mt}</tbody></table></div>'
+    else:
+        moves = "<p>No moves of its own: it opens up new things to bend with the moves you already know.</p>"
+    body = (f'{box}<p class="lead">{s["lead"]}</p>\n<!-- toc -->\n'
+            f'<h2 id="bends">What You Can Bend</h2><p>{s["bends"]}</p>\n'
+            f'<h2 id="moves">Moves</h2>{moves}\n'
+            f'<h2 id="get">How to Get It</h2><p>{BD.SUB_RULES[s["path"]]} You choose the order. {s["teacher"]}</p>\n')
+    body = body.replace("<!-- toc -->", toc(body))
+    desc = f'{s["name"]}, a {p["name"].lower()} subelement on Republic City MC: what it bends, its moves and how to get it.'
+    return f"sub-{key}", f'{s["name"]} ({p["name"]})', desc, body, f'Bending &middot; Subelements', p["page"]
+
+
+def generated_pages():
+    return [move_page(m) for m in BD.MOVES if not m["later"]] + [sub_page(k) for k in BD.SUBS]
+
+
+def write_page(name, title, desc, body, crumb, side):
+    h1 = "" if name == "index" else f"<h1>{html.escape(title)}</h1>"
+    page = (HEAD.format(title=html.escape(title), desc=html.escape(desc), discord=DISCORD)
+            + sidebar(side) + f'\n<main class="article">\n{crumb}{h1}\n{body}</main>\n'
+            + FOOT.format(discord=DISCORD, staff=STAFF_FORM))
+    (ROOT / f"{name}.html").write_text(page)
+    print("built", f"{name}.html")
+
+
 def build():
     groups = {page: group for group, pages in SIDEBAR for page, _ in pages}
     entries = []
@@ -249,18 +385,18 @@ def build():
         text = src.read_text()
         meta = dict(re.findall(r"<!-- (\w+): (.*?) -->", text))
         body = re.sub(r"<!-- (\w+): .*? -->\n?", "", text)
+        body = fill_markers(body)
         body = body.replace("<!-- toc -->", toc(body))
         title = meta.get("title", name)
         if name != "index":
             index_page(name, title, body, entries, meta.get("desc", ""))
             body = autolink(body, name) + see_also(name)
         crumb = "" if name == "index" else f'<div class="crumb">{html.escape(groups.get(name, ""))}</div>'
-        h1 = "" if name == "index" else f"<h1>{html.escape(title)}</h1>"
-        page = (HEAD.format(title=html.escape(title), desc=html.escape(meta.get("desc", "")), discord=DISCORD)
-                + sidebar(name) + f'\n<main class="article">\n{crumb}{h1}\n{body}</main>\n'
-                + FOOT.format(discord=DISCORD, staff=STAFF_FORM))
-        (ROOT / f"{name}.html").write_text(page)
-        print("built", f"{name}.html")
+        write_page(name, title, meta.get("desc", ""), body, crumb, name)
+    for name, title, desc, body, crumb, side in generated_pages():
+        index_page(name, title, body, entries, desc)
+        body = autolink(body, name) + f'\n<div class="seealso"><span>See also</span> <a href="bending.html">Bending &amp; Tiers</a> &middot; <a href="{side}.html">{html.escape(next(p["name"] for p in BD.PATHS.values() if p["page"] == side))}</a></div>\n'
+        write_page(name, title, desc, body, f'<div class="crumb">{crumb}</div>', side)
     index_field_guide(entries)
     (ROOT / "assets" / "search-index.js").write_text(
         "// Search index for the wiki search box. Generated by tools/build.py; don't edit by hand.\n"
