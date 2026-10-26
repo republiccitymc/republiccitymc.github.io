@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Getting Started | Republic City MC Wiki</title>
-<meta name="description" content="How to join Republic City MC, create your character and start Arc 1.">
+<meta name="description" content="How to join Republic City MC, create your character, start Arc 1, and the server rules.">
 <meta property="og:title" content="Getting Started | Republic City MC Wiki">
-<meta property="og:description" content="How to join Republic City MC, create your character and start Arc 1.">
+<meta property="og:description" content="How to join Republic City MC, create your character, start Arc 1, and the server rules.">
 <meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +25,11 @@
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
 <aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
-<div class="grp"><div class="gh">Republic City MC</div>
+<div class="grp">
 <a href="index.html">Home</a>
 </div>
 <div class="grp"><div class="gh">New Players</div>
 <a href="how-to-play.html" class="on">Getting Started</a>
-<a href="rules.html">Rules</a>
 <a href="commands.html">Commands</a>
 </div>
 <div class="grp"><div class="gh">Bending</div>
@@ -45,14 +44,11 @@
 <a href="quests.html">Arc 1</a>
 <a href="side-quests.html">Side Quests</a>
 </div>
-<div class="grp"><div class="gh">Society</div>
+<div class="grp"><div class="gh">City Life</div>
 <a href="dossier.html">Dossier &amp; Titles</a>
 <a href="alignment.html">Order &amp; Chaos</a>
 <a href="roleplay-ranks.html">Roleplay Ranks</a>
-</div>
-<div class="grp"><div class="gh">Economy</div>
-<a href="economy.html">Money &amp; Shops</a>
-<a href="crafting.html">Crafting</a>
+<a href="economy.html">Money &amp; Crafting</a>
 <a href="housing.html">Housing</a>
 </div>
 <div class="grp"><div class="gh">Field Guide</div>
@@ -62,7 +58,7 @@
 <main class="article">
 <div class="crumb">New Players</div><h1>Getting Started</h1>
 <p class="lead">You start in front of Republic City Hall. Here's how to get in the game and find your feet.</p>
-<nav class="toc"><div class="th">Contents</div><ol><li><a href="#connect">Joining the Server</a></li><li><a href="#first-hour">Your First Steps</a></li><li><a href="#origins">Origins and Paths</a></li><li><a href="#finding-your-way">Finding Your Way</a></li></ol></nav>
+<nav class="toc"><div class="th">Contents</div><ol><li><a href="#connect">Joining the Server</a></li><li><a href="#first-hour">Your First Steps</a></li><li><a href="#origins">Origins and Paths</a></li><li><a href="#finding-your-way">Finding Your Way</a></li><li><a href="#rules">Rules</a></li></ol></nav>
 
 <h2 id="connect">Joining the Server</h2>
 <div class="ipbox">
@@ -77,9 +73,9 @@
 
 <h2 id="first-hour">Your First Steps</h2>
 <ol>
-  <li><b>Create your character.</b> This opens as soon as you join. Pick your <b>Place of Origin</b> and your <b>path</b>, then sign your papers. Choose carefully: changing your path later means <a href="economy.html#papers">forged papers</a> from Shady Zhen, and a name change costs 100 Yuans at City Hall.</li>
+  <li><b>Create your character.</b> This opens as soon as you join. Pick your <b>Place of Origin</b> and your <b>path</b>, then sign your papers. Choose carefully: changing your path later means <a href="economy.html#papers">forged papers</a> from Shady Zhen, and a name change costs 100 <span class="gl" tabindex="0" data-tip="The city&#x27;s money. Earned from quests and mobs, spent in shops.">Yuans</span> at City Hall.</li>
   <li><b>Talk to Registrar Huan</b> inside City Hall to start Arc 1. He also hands you a starter kit: a training staff, cabbage cookies and the <i>Welcome to Republic City</i> pamphlet. Waterbenders also get water bottles.</li>
-  <li><b>Check your abilities.</b> Your starting moves are already on your hotbar. <code>/b display</code> lists them; see <a href="commands.html">Commands</a> for the rest. Bend with an <b>empty hand</b> (put your compass in your off hand); from Tier III you can bend while holding things.</li>
+  <li><b>Check your abilities.</b> Your starting moves are already on your hotbar. <code>/b display</code> lists them; see <a href="commands.html">Commands</a> for the rest. Bend with an <b>empty hand</b> (put your compass in your off hand); from <span class="gl" tabindex="0" data-tip="Your bending rank: I to start, II at 50 QP, III at 250, star at 500. It goes up by itself.">Tier III</span> you can bend while holding things.</li>
   <li><b>Follow your quest compass.</b> It tracks your current quest and points you to the next step (more under <a href="#finding-your-way">Finding Your Way</a>). The <a href="quests.html">Arc 1</a> page has walkthroughs if you get stuck.</li>
 </ol>
 
@@ -96,9 +92,23 @@
 <ul>
   <li><b>Quest compass.</b> Hold it to see your current task above the hotbar. It points along the streets, not through walls.</li>
   <li><b>Markers.</b> A floating <b>!</b> over someone means they have a job for you; <b>?</b> means go back and report.</li>
-  <li><b>Waypoints.</b> Landmarks unlock as you walk past them. <code>/wp</code> takes you back to any you've found.</li>
-  <li><b>Objectives and rewards.</b> When you finish a step, it flashes on screen along with your next one. Quest Points, Yuans and <a href="alignment.html">Order or Chaos</a> show on screen when you earn them.</li>
+  <li><b><span class="gl" tabindex="0" data-tip="Landmarks you&#x27;ve walked past. /wp takes you back to any of them.">Waypoints</span>.</b> Landmarks unlock as you walk past them. <code>/wp</code> takes you back to any you've found.</li>
+  <li><b>Objectives and rewards.</b> When you finish a step, it flashes on screen along with your next one. <span class="gl" tabindex="0" data-tip="Earned from quests. They raise your bending tier and are never spent.">Quest Points</span>, Yuans and <a href="alignment.html">Order or Chaos</a> show on screen when you earn them.</li>
 </ul>
+
+<h2 id="rules">Rules</h2>
+<ul>
+  <li><b>Bend freely, build nothing.</b> Bend anywhere in the city. You can't place or break blocks, and bent earth goes back on its own.</li>
+</ul>
+
+<h3 id="safety">Your Items Are Safe</h3>
+<ul>
+  <li><b>Quest items can't be dropped.</b> If you die, they go to your <code>/backpack</code>.</li>
+  <li><b>Lost your papers?</b> They come back the next time you log in.</li>
+</ul>
+
+<h3 id="help">Getting Help</h3>
+<p>Stuck, bugged or need a hand? Use <code>/helpop &lt;message&gt;</code> in game to reach staff, or ask in the Discord.</p>
 
 <div class="seealso"><span>See also</span> <a href="quests.html">Arc 1</a> &middot; <a href="bending.html">Bending &amp; Tiers</a> &middot; <a href="commands.html">Commands</a> &middot; <a href="side-quests.html">Side Quests</a></div>
 </main>

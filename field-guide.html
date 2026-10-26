@@ -25,12 +25,11 @@
 <input type="checkbox" id="sidetoggle">
 <div class="layout">
 <aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
-<div class="grp"><div class="gh">Republic City MC</div>
+<div class="grp">
 <a href="index.html">Home</a>
 </div>
 <div class="grp"><div class="gh">New Players</div>
 <a href="how-to-play.html">Getting Started</a>
-<a href="rules.html">Rules</a>
 <a href="commands.html">Commands</a>
 </div>
 <div class="grp"><div class="gh">Bending</div>
@@ -45,14 +44,11 @@
 <a href="quests.html">Arc 1</a>
 <a href="side-quests.html">Side Quests</a>
 </div>
-<div class="grp"><div class="gh">Society</div>
+<div class="grp"><div class="gh">City Life</div>
 <a href="dossier.html">Dossier &amp; Titles</a>
 <a href="alignment.html">Order &amp; Chaos</a>
 <a href="roleplay-ranks.html">Roleplay Ranks</a>
-</div>
-<div class="grp"><div class="gh">Economy</div>
-<a href="economy.html">Money &amp; Shops</a>
-<a href="crafting.html">Crafting</a>
+<a href="economy.html">Money &amp; Crafting</a>
 <a href="housing.html">Housing</a>
 </div>
 <div class="grp"><div class="gh">Field Guide</div>
@@ -72,14 +68,14 @@
   <li><b>Punish a mistake.</b> A Bruiser who misses his charge is dazed and takes extra damage for a moment. Earthbending recruits hide behind a stone guard; wait it out.</li>
   <li><b>Keep an eye on your loot.</b> After a Triad fight, a pickpocket may run in and grab what's on the ground. Catch him and he drops it.</li>
   <li><b>Recruits don't fight to the death.</b> At the Sparring Grounds a beaten recruit yields and stops fighting. It still counts as a win, so you never have to finish one off.</li>
-  <li><b>Bosses scale with your group.</b> The Spider-Rat Queen and Pitmaster Jax get more health for every extra player, and everyone who did at least 10% of the damage gets their own drops.</li>
+  <li><b>Bosses scale with your group.</b> The <a href="boss-spider-rat-queen.html">Spider-Rat Queen</a> and Pitmaster Jax get more health for every extra player, and everyone who did at least 10% of the damage gets their own drops.</li>
 </ul>
 <h2 id="mobs">Mobs</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-mobs"></tbody></table></div>
 <h2 id="bosses">Bosses</h2>
 <div class="tbl-wrap"><table><thead><tr><th>Name</th><th>Health</th><th>Melee</th><th>Found In</th><th>Abilities</th><th>Drops</th></tr></thead><tbody id="fg-bosses"></tbody></table></div>
 <h2 id="items">Items</h2>
-<p>Prices are what the vendors charge, in Yuans. Where they are: <a href="economy.html#shops">Money &amp; Shops</a>.</p>
+<p>Prices are what the vendors charge, in <span class="gl" tabindex="0" data-tip="The city&#x27;s money. Earned from quests and mobs, spent in shops.">Yuans</span>. Where they are: <a href="economy.html#shops">Money &amp; Shops</a>.</p>
 <div class="tbl-wrap"><table><thead><tr><th>Item</th><th>Price</th><th>Where to Get</th><th>Recipe</th><th>Effect / Notes</th><th>Requires</th></tr></thead><tbody id="fg-items"></tbody></table></div>
 </div>
 <script src="assets/wiki-data.js"></script>
@@ -93,6 +89,7 @@
     return '<tr'+(sp(r)?' class="hide" title="Spoiler - click to reveal"':'')+'>'+cols.map(function(c,i){
       var v=rcEsc(r[c]||(c==='Drops'?'None':''));
       if(c==='Item'&&r['Tier']) v+=' <span class="pill">'+rcEsc(r['Tier'])+'</span>';
+      if(c==='Name'&&(r['Rank']||'').toLowerCase()==='boss') v='<a href="boss-'+String(r['Name']).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'.html">'+v+'</a>';
       return '<td data-l="'+labels[i]+'">'+v+'</td>';}).join('')+'</tr>';
   }
   function drawBest(rows){
@@ -118,7 +115,7 @@
 })();
 </script>
 
-<div class="seealso"><span>See also</span> <a href="quests.html">Arc 1</a> &middot; <a href="economy.html">Money &amp; Shops</a> &middot; <a href="crafting.html">Crafting</a></div>
+<div class="seealso"><span>See also</span> <a href="quests.html">Arc 1</a> &middot; <a href="economy.html">Money &amp; Crafting</a> &middot; <a href="bending.html">Bending &amp; Tiers</a></div>
 </main>
 </div>
 <footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;

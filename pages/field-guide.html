@@ -32,6 +32,7 @@
     return '<tr'+(sp(r)?' class="hide" title="Spoiler - click to reveal"':'')+'>'+cols.map(function(c,i){
       var v=rcEsc(r[c]||(c==='Drops'?'None':''));
       if(c==='Item'&&r['Tier']) v+=' <span class="pill">'+rcEsc(r['Tier'])+'</span>';
+      if(c==='Name'&&(r['Rank']||'').toLowerCase()==='boss') v='<a href="boss-'+String(r['Name']).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'.html">'+v+'</a>';
       return '<td data-l="'+labels[i]+'">'+v+'</td>';}).join('')+'</tr>';
   }
   function drawBest(rows){

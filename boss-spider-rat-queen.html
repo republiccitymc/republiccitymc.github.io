@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spider-Rat Queen | Republic City MC Wiki</title>
+<meta name="description" content="Spider-Rat Queen, a boss on Republic City MC: how the fight works, tips and drops.">
+<meta property="og:title" content="Spider-Rat Queen | Republic City MC Wiki">
+<meta property="og:description" content="Spider-Rat Queen, a boss on Republic City MC: how the fight works, tips and drops.">
+<meta property="og:image" content="https://i.imgur.com/pTQClVA.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/wiki.css">
+</head>
+<body>
+<div class="rc wiki">
+<header class="topbar"><div class="in">
+  <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
+  <a class="brand" href="index.html">REPUBLIC CITY <span>MC</span> <em>Wiki</em></a>
+  <div class="search"><input type="search" class="js-search" placeholder="Search the wiki  ( / )" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
+  <a class="btn dc" href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a>
+</div></header>
+<input type="checkbox" id="sidetoggle">
+<div class="layout">
+<aside class="side"><div class="search side-search"><input type="search" class="js-search" placeholder="Search the wiki" aria-label="Search the wiki" autocomplete="off"><div class="results" hidden></div></div>
+<div class="grp">
+<a href="index.html">Home</a>
+</div>
+<div class="grp"><div class="gh">New Players</div>
+<a href="how-to-play.html">Getting Started</a>
+<a href="commands.html">Commands</a>
+</div>
+<div class="grp"><div class="gh">Bending</div>
+<a href="bending.html">Bending &amp; Tiers</a>
+<a href="earthbending.html">Earthbending</a>
+<a href="waterbending.html">Waterbending</a>
+<a href="firebending.html">Firebending</a>
+<a href="chi-blocking.html">Chi Blocking</a>
+<a href="weapons-master.html">Weapons Master</a>
+</div>
+<div class="grp"><div class="gh">Story</div>
+<a href="quests.html">Arc 1</a>
+<a href="side-quests.html">Side Quests</a>
+</div>
+<div class="grp"><div class="gh">City Life</div>
+<a href="dossier.html">Dossier &amp; Titles</a>
+<a href="alignment.html">Order &amp; Chaos</a>
+<a href="roleplay-ranks.html">Roleplay Ranks</a>
+<a href="economy.html">Money &amp; Crafting</a>
+<a href="housing.html">Housing</a>
+</div>
+<div class="grp"><div class="gh">Field Guide</div>
+<a href="field-guide.html" class="on">Mobs, Bosses &amp; Items</a>
+</div>
+<div class="grp"><div class="gh">Community</div><a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a><a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></div></aside>
+<main class="article">
+<div class="crumb">Field Guide &middot; Bosses</div><h1>Spider-Rat Queen</h1>
+<aside class="infobox"><div class="ib-title plain">Spider-Rat Queen</div><dl><dt>Found in</dt><dd id="bs-found">The Nest, deepest chamber of the Civic Sewers</dd><dt>Health</dt><dd id="bs-health">50</dd><dt>Melee</dt><dd id="bs-melee">3</dd><dt>Story</dt><dd><a href="quests.html#walkthroughs">Arc 1, Quest 4: Into the Depths</a></dd></dl></aside><p class="lead">How the fight works, how to win it, and what drops.</p>
+<nav class="toc"><div class="th">Contents</div><ol><li><a href="#fight">The Fight</a></li><li><a href="#tips">Tips</a></li><li><a href="#drops">Drops</a></li></ol></nav>
+<h2 id="fight">The Fight</h2><ul id="bs-abilities"><li>50 health solo, more with every extra player (up to 125).</li><li>Lunges to knock you back.</li><li>Takes turns between Web Spit (slows you hard for 3 seconds), Summon Brood (3 Spider-Rats) and Brood Swap (trades places with one of her rats).</li><li>At 40% health she flees to her nest and heals a little while her brood guards her.</li><li>At 20% she goes into a frenzy.</li></ul>
+<h2 id="tips">Tips</h2><ul><li>Follow the glowing crystals down through the Civic Sewers to reach her nest.</li><li>Watch chat for the &#9888; warning before each special move, then step aside.</li><li>When she flees to her nest at 40%, go after her: she heals while her brood holds you off.</li><li>Bring friends. She gets more health per player, but everyone who does 10% of the damage gets their own drops.</li></ul>
+<h2 id="drops">Drops</h2><p>Everyone who does at least 10% of the damage gets their own roll.</p><ul id="bs-drops"><li>Spider-Rat Queen Fang (quest item, 100%)</li><li>Spider-Rat Pelt ×2–4 (100%)</li><li>Brood Queen Chitin (25%)</li></ul>
+<p class="hint">Numbers update from the live Field Guide sheet. Every mob and boss: <a href="field-guide.html">Mobs, Bosses &amp; Items</a>.</p>
+<script src="assets/wiki-data.js"></script>
+<script src="assets/sheet.js"></script>
+<script>
+(function(){
+  var NAME="Spider-Rat Queen";
+  function sentences(t){return String(t||'').split(/(?<=[.!?])\s+(?=[A-Z])/).filter(Boolean);}
+  function drops(t){return String(t||'').split(/(?<=\))[,.]\s+|\.\s+(?=[A-Z])/).filter(function(x){return x&&x.indexOf('Everyone')!==0;});}
+  function li(a){return a.map(function(x){return '<li>'+rcEsc(x)+'</li>';}).join('');}
+  function draw(rows){
+    var r=rows.filter(function(x){return x['Name']===NAME;})[0]; if(!r) return;
+    var set=function(id,v){var e=document.getElementById(id); if(e) e.innerHTML=v;};
+    set('bs-found',rcEsc(r['Found In'])); set('bs-health',rcEsc(r['Health'])); set('bs-melee',rcEsc(r['Melee Damage']));
+    set('bs-abilities',li(sentences(r['Abilities']))); set('bs-drops',li(drops(r['Drops'])));
+  }
+  if(window.RC_DATA) draw(RC_DATA.Bestiary);
+  rcLoadSheet('Bestiary').then(draw).catch(function(){});
+})();
+</script>
+
+<div class="seealso"><span>See also</span> <a href="field-guide.html">Mobs, Bosses &amp; Items</a></div>
+</main>
+</div>
+<footer class="foot">Republic City MC &middot; 130 AG &middot; Java Edition <span class="js-ver">1.21.11</span> &middot;
+<a href="https://discord.gg/sDV3UeRgCH" target="_blank" rel="noopener">Discord</a> &middot; <a href="https://docs.google.com/forms/d/e/1FAIpQLScwG0y4fhHJuOsHGs1cWmVXj707PEQFZhoxQ46axCv9K23ASQ/viewform" target="_blank" rel="noopener">Join the team</a></footer>
+</div>
+<script src="assets/search-index.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>
