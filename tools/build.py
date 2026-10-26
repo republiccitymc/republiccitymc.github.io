@@ -38,8 +38,8 @@ SIDEBAR = [
     ("New Players", [("how-to-play", "Getting Started"), ("rules", "Rules"), ("commands", "Commands")]),
     ("Bending", [("bending", "Bending & Tiers"), ("earthbending", "Earthbending"), ("waterbending", "Waterbending"),
                  ("firebending", "Firebending"), ("chi-blocking", "Chi Blocking"), ("weapons-master", "Weapons Master")]),
-    ("Story", [("quests", "Main Story"), ("side-quests", "Side Quests"), ("dossier", "Dossier & Titles")]),
-    ("Society", [("alignment", "Order & Chaos"), ("roleplay-ranks", "Roleplay Ranks")]),
+    ("Story", [("quests", "Arc 1"), ("side-quests", "Side Quests")]),
+    ("Society", [("dossier", "Dossier & Titles"), ("alignment", "Order & Chaos"), ("roleplay-ranks", "Roleplay Ranks")]),
     ("Economy", [("economy", "Money & Shops"), ("crafting", "Crafting"), ("housing", "Housing")]),
     ("Field Guide", [("field-guide", "Mobs, Bosses & Items")]),
 ]
