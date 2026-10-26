@@ -149,6 +149,6 @@ td>.cb{margin-left:0}
 .wiki table.subs td:last-child{padding-top:9px;padding-bottom:3px}
 .wiki .ib-title.s-sand,.wiki .ib-title.s-metal,.wiki .ib-title.s-lava,.wiki .ib-title.s-ice,.wiki .ib-title.s-healing,.wiki .ib-title.s-plant,.wiki .ib-title.s-lightning,.wiki .ib-title.s-combustion{background:var(--sc);color:#fff}
 @media(max-width:700px){.wiki table.moves td{min-width:0}.wiki table.moves td small{display:inline;margin-left:6px}}
-.wiki table.tiers td:first-child,.wiki table.tiers td:nth-child(2){white-space:nowrap;font-weight:700}
+.wiki table.tierlist td:first-child,.wiki table.tierlist td:nth-child(2){white-space:nowrap;font-weight:700}
 .wiki .join3+.tbl-wrap{margin-top:14px}
 .wiki ul.mv li:not(.sm)+li.sm{margin-top:6px}
