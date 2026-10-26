@@ -159,3 +159,12 @@ td>.cb{margin-left:0}
 .wiki .gl::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 8px);z-index:30;width:max-content;max-width:260px;padding:8px 11px;border-radius:8px;background:var(--text);color:var(--bg);font-size:.8rem;font-weight:500;line-height:1.4;letter-spacing:0;text-transform:none;white-space:normal;box-shadow:0 6px 18px rgba(0,0,0,.18);opacity:0;visibility:hidden;transform:translateY(4px);transition:opacity .15s,transform .15s;pointer-events:none}
 .wiki .gl:hover::after,.wiki .gl:focus::after,.wiki .gl:focus-within::after{opacity:1;visibility:visible;transform:none}
 @media(max-width:700px){.wiki .gl::after{max-width:220px}}
+
+/* Roleplay rank ladders */
+.wiki ol.rk{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:rk}
+.wiki ol.rk li{counter-increment:rk;display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline;margin:0;padding-left:22px;position:relative}
+.wiki ol.rk li::before{content:counter(rk);position:absolute;left:0;top:.15em;width:16px;height:16px;border-radius:50%;background:rgba(var(--fg-rgb),.08);color:var(--muted);font-size:.66rem;font-weight:800;display:flex;align-items:center;justify-content:center}
+.wiki ol.rk li b{color:var(--text);font-weight:600}
+.wiki ol.rk li span{font-size:.8rem;color:var(--muted)}
+.wiki .rk-note{margin:6px 0 0;font-size:.8rem;color:var(--muted);font-style:italic}
+.wiki table.ranks td:first-child{min-width:150px}
