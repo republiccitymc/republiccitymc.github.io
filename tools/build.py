@@ -71,7 +71,7 @@ LINKS = [
     ("Order &amp; Chaos", "alignment.html"), ("Order or Chaos", "alignment.html"), ("Order and Chaos", "alignment.html"),
     ("Quest Points", "economy.html#currency"), ("Yuans", "economy.html#currency"),
     ("bending tiers", "bending.html#tiers"), ("Tier II", "bending.html#tiers"), ("Discipline", "bending.html#subelements"),
-    ("Technique Scrolls", "bending.html#scrolls"), ("Scroll: Catapult", "bending.html#scrolls"),
+    ("Technique Scrolls", "bending.html#scrolls"), ("Scroll: Catapult", "bending.html#scrolls"), ("technique scrolls", "bending.html#scrolls"),
     ("Registration Form", "how-to-play.html#first-hour"), ("Registrar Huan", "how-to-play.html#first-hour"),
     ("quest compass", "how-to-play.html#finding-your-way"), ("waypoints", "how-to-play.html#finding-your-way"),
     ("dossier", "dossier.html"), ("Dossier", "dossier.html"),
@@ -209,7 +209,7 @@ GLOSSARY = [
     (r"[Ss]ubelements?", "A specialty inside an element, like Metal or Ice. Benders get one at Tier II, two at III, three at star."),
     (r"Discipline", "The line on your dossier that lists your subelements."),
     (r"[Rr]oleplay [Rr]anks?", "Groups you can join, like the police or the White Lotus. Your rank shows on your nametag."),
-    (r"Technique Scrolls?", "A rare boss drop that teaches one move early, for good."),
+    (r"Technique Scrolls?", "Read one to learn a move for good, at any tier. Bosses drop some; TenTen sells others."),
     (r"[Ww]aypoints?", "Landmarks you've walked past. /wp takes you back to any of them."),
     (r"[Cc]ombos?\b", "A move you perform by chaining other moves in order."),
 ]
@@ -319,6 +319,15 @@ def move_li(m, show_sub=True):
     return f"<li{c}{title}>{inner}</li>"
 
 
+def tier_groups():
+    """The tiers plus the Scrolls group (scroll-only moves), as (key, name, sub-label)."""
+    return [(t, n, q) for t, (n, q) in BD.TIERS.items()] + [("SC", BD.SCROLL_TIER[0], BD.SCROLL_TIER[1])]
+
+
+def tier_label(t):
+    return BD.SCROLL_TIER if t == "SC" else BD.TIERS[t]
+
+
 def moves_of(path, tier):
     return [m for m in BD.MOVES if m["path"] == path and m["tier"] == tier and not m["later"]]
 
@@ -343,11 +352,11 @@ def sub_legend(paths=None):
 
 
 def moves_table():
-    head = "".join(f'<th>{n}<small>{q}</small></th>' for n, q in BD.TIERS.values())
+    head = "".join(f'<th>{n}<small>{q}</small></th>' for _, n, q in tier_groups())
     rows = []
     for key, p in BD.PATHS.items():
         cells = []
-        for t, (n, q) in BD.TIERS.items():
+        for t, n, q in tier_groups():
             ms = moves_of(key, t)
             inner = f'<ul class="mv">{"".join(move_li(m) for m in ms)}</ul>' if ms else '&mdash;'
             cells.append(f'<td data-l="{n} &middot; {q}">{inner}</td>')
@@ -358,7 +367,7 @@ def moves_table():
 
 def path_moves_table(path):
     rows = []
-    for t, (n, q) in BD.TIERS.items():
+    for t, n, q in tier_groups():
         ms = moves_of(path, t)
         if not ms:
             continue
@@ -376,11 +385,16 @@ def fill_markers(body):
 
 def move_page(m):
     p = BD.PATHS[m["path"]]
-    n, q = BD.TIERS[m["tier"]]
+    n, q = tier_label(m["tier"])
     rows = [f'<dt>Path</dt><dd><a href="{p["page"]}.html">{p["name"]}</a></dd>']
     if m["sub"]:
         rows.append(f'<dt>Subelement</dt><dd><a class="schip s-{m["sub"]}" href="{sub_url(m["sub"])}">{BD.SUBS[m["sub"]]["name"]}</a></dd>')
-    rows.append(f'<dt>Tier</dt><dd><a href="bending.html#tiers">{n}</a> ({q})</dd>')
+    if m.get("scroll"):
+        rows.append(f'<dt>Learned from</dt><dd><a href="bending.html#scrolls">Scroll: {html.escape(m["name"])}</a></dd>')
+        rows.append(f'<dt>Price</dt><dd>{m["scroll"]["price"]} Yuans, {m["scroll"].get("seller", BD.SCROLL_SELLER)}</dd>')
+        rows.append('<dt>Tier</dt><dd>Any</dd>')
+    else:
+        rows.append(f'<dt>Tier</dt><dd><a href="bending.html#tiers">{n}</a> ({q})</dd>')
     rows.append(f'<dt>Type</dt><dd>{"Combo" if m["combo"] else "Move"}</dd>')
     tcls = f's-{m["sub"]}' if m["sub"] else f'bg-{m["path"]}'
     box = f'<aside class="infobox"><div class="ib-title {tcls}">{html.escape(m["name"])}</div><dl>{"".join(rows)}</dl></aside>'
@@ -407,7 +421,7 @@ def sub_page(key):
     p = BD.PATHS[s["path"]]
     sibs = " &middot; ".join(f'<a href="{sub_url(k)}">{v["name"]}</a>' if k != key else f"<b>{v['name']}</b>"
                              for k, v in BD.SUBS.items() if v["path"] == s["path"])
-    first = BD.TIERS[BD.SUB_FIRST_TIER[s["path"]]]
+    first = BD.TIERS[s.get("first", BD.SUB_FIRST_TIER[s["path"]])]
     ms = [m for m in BD.MOVES if m["sub"] == key and not m["later"]]
     later = [m["name"] for m in BD.MOVES if m["sub"] == key and m["later"]]
     rows = [f'<dt>Element</dt><dd><a href="{p["page"]}.html">{p["name"]}</a></dd>',
@@ -415,7 +429,7 @@ def sub_page(key):
             f'<dt>From</dt><dd>{first[0]} ({first[1]})</dd>']
     box = f'<aside class="infobox"><div class="ib-title s-{key}">{s["name"]}</div><dl>{"".join(rows)}</dl></aside>'
     if ms:
-        mt = "".join(f'<tr><td data-l="Move"><ul class="mv">{move_li(m, False)}</ul></td><td data-l="Tier">{BD.TIERS[m["tier"]][0]}</td>'
+        mt = "".join(f'<tr><td data-l="Move"><ul class="mv">{move_li(m, False)}</ul></td><td data-l="Tier">{tier_label(m["tier"])[0]}</td>'
                      f'<td data-l="What it does">{m["what"]}</td></tr>' for m in ms)
         moves = f'<div class="tbl-wrap"><table><thead><tr><th>Move</th><th>Tier</th><th>What it does</th></tr></thead><tbody>{mt}</tbody></table></div>'
     else:

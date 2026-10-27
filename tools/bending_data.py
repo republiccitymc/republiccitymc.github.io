@@ -18,6 +18,7 @@ MOVE fields
   what    one or two sentences: what it does
   use     list of (label, how) steps; label may be "" for a single step
   get     how you learn it (leave out for the default, which comes from the tier/trainer rules below)
+  scroll  for scroll-only moves: {"price": Yuans, "seller": "..."}; tier is then "SC" (shown in its own Scrolls group)
 """
 
 PATHS = {
@@ -29,38 +30,41 @@ PATHS = {
 }
 
 TIERS = {"I": ("Tier I", "Start"), "II": ("Tier II", "50 QP"), "III": ("Tier III", "250 QP"), "S": ("Tier &#9733;", "500 QP")}
+# Scroll-only moves: no tier teaches them; you buy the scroll and read it, at any tier.
+SCROLL_TIER = ("Scrolls", "TenTen")
+SCROLL_SELLER = "Weapons Vendor TenTen"
 
 # Subelements. Order inside each element is the order they're listed in.
 SUBS = {
-    "metal": {"name": "Metal", "path": "earth",
+    "metal": {"name": "Metal", "path": "earth", "first": "II",
               "lead": "Toph Beifong's own invention, and the badge of her police force. Metalbenders sense the bits of earth left in refined metal.",
               "bends": "Iron, gold and copper, ore and block.",
               "teacher": "Young Lin Beifong teaches it herself."},
-    "sand": {"name": "Sand", "path": "earth",
+    "sand": {"name": "Sand", "path": "earth", "first": "II",
              "lead": "Sandbenders shift loose sand and sandstone, the way the Sandbenders of the Si Wong Desert ride the dunes.",
              "bends": "Sand, red sand, sandstone and red sandstone.",
              "teacher": "Young Lin Beifong sends you to a sandbender she knows."},
-    "lava": {"name": "Lava", "path": "earth",
+    "lava": {"name": "Lava", "path": "earth", "first": "III",
              "lead": "Rare and feared. Lavabenders melt earth into magma and turn it back to stone.",
              "bends": "Lava, and earth melted into magma.",
-             "teacher": "Your earth trainer points you to a lavabender."},
-    "ice": {"name": "Ice", "path": "water",
+             "teacher": "Penga points you to a lavabender once you reach Tier III."},
+    "ice": {"name": "Ice", "path": "water", "first": "II",
             "lead": "Freezing water into blades, spikes and platforms: the Northern Water Tribe's oldest art.",
             "bends": "Ice and packed ice.",
-            "teacher": "Young Kya teaches it, then Master Kanok at Tier III."},
-    "healing": {"name": "Healing", "path": "water",
+            "teacher": "Haku at Maru's Butchery teaches it after Young Kya's quests, then Master Kanok at Tier III."},
+    "healing": {"name": "Healing", "path": "water", "first": "II",
                 "lead": "Water's gentlest use. Katara is the greatest healer alive, and her daughter is learning fast.",
                 "bends": "Water you already carry, to close wounds.",
                 "teacher": "Young Kya teaches it."},
-    "plant": {"name": "Plant", "path": "water",
+    "plant": {"name": "Plant", "path": "water", "first": "II",
               "lead": "Drawing the water out of living things, the way the Foggy Swamp Tribe does.",
               "bends": "Plants as a water source: leaves, grass, flowers, vines, moss, cactus, sugar cane, melons and pumpkins.",
               "teacher": "Your water trainer shows you."},
-    "lightning": {"name": "Lightning", "path": "fire",
+    "lightning": {"name": "Lightning", "path": "fire", "first": "III",
                   "lead": "Cold-blooded fire. In Republic City, lightning-benders are starting to find work in the power plants.",
                   "bends": "Lightning, made from your own chi.",
                   "teacher": "The Royal Academy Elite teaches it."},
-    "combustion": {"name": "Combustion", "path": "fire",
+    "combustion": {"name": "Combustion", "path": "fire", "first": "III",
                    "lead": "Very rare: an explosion focused through the mind. Combustion-benders are feared for good reason.",
                    "bends": "Explosive blasts, made from your own chi.",
                    "teacher": "The Royal Academy Elite teaches it."},
@@ -68,16 +72,16 @@ SUBS = {
 
 # How many subelements you have at each tier, per element (shown on Bending & Tiers and the sub pages).
 SUB_RULES = {
-    "earth": "Pick one of Sand, Metal or Lava at Tier II, a second at Tier III, and the last at Tier &#9733;.",
-    "water": "Pick Ice or Healing at Tier II. At Tier III take the other one or Plant, and the last at Tier &#9733;.",
+    "earth": "Pick Metal or Sand at Tier II. At Tier III take a second (Lava opens at Tier III), and the last at Tier &#9733;.",
+    "water": "No pick: Ice, Healing and Plant are all taught from Tier II.",
     "fire": "Pick Lightning or Combustion at Tier III, and the other at Tier &#9733;.",
 }
-SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "III"}
+SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "III"}  # earliest subelement per element; each sub's own "first" wins
 
 
-def M(name, path, tier, what, use, sub=None, combo=False, later=False, get=None):
+def M(name, path, tier, what, use, sub=None, combo=False, later=False, get=None, scroll=None):
     return {"name": name, "path": path, "tier": tier, "what": what, "use": use, "sub": sub,
-            "combo": combo, "later": later, "get": get}
+            "combo": combo, "later": later, "get": get, "scroll": scroll}
 
 
 MOVES = [
@@ -93,22 +97,23 @@ MOVES = [
     M("Shockwave", "earth", "II", "Send a ring of earth out in every direction, hitting everyone around you.",
       [("Ring", "Hold sneak until you see particles, then release."), ("Cone", "Left-click instead of releasing to send it forward only."),
        ("Fall", "Land from a great height with Shockwave selected and it fires by itself.")]),
-    M("Earth Grab", "earth", "II", "Root a target to the spot, or drag items lying on earth over to you.",
+    M("Earth Grab", "earth", "SC", "Root a target to the spot, or drag items lying on earth over to you.",
       [("Grab", "Left-click toward the target."), ("Drag", "Sneak to pull nearby items to you."),
-       ("Escape", "If you're caught, right-click the trap a few times, or get moved by another earth move.")]),
-    M("Earth Smash", "earth", "II", "Raise a boulder, then throw it or ride it.",
+       ("Escape", "If you're caught, right-click the trap a few times, or get moved by another earth move.")],
+      scroll={"price": 60}),
+    M("Earth Smash", "earth", "III", "Raise a boulder, then throw it or ride it.",
       [("Smash", "Hold sneak until particles appear, release at an earthbendable block, hold sneak on the boulder to grab it, then left-click to throw."),
        ("Ride", "Hold sneak and right-click the boulder, then look where you want to go.")]),
     M("Catapult", "earth", "II", "Launch yourself through the air on a burst of earth.",
       [("", "Hold sneak until you hear a sound, then release to launch where you're looking. Left-click for a smaller hop.")],
       get="Taught by Young Lin Beifong's quests at Tier II. <b>Scroll: Catapult</b> from Pitmaster Jax teaches it earlier."),
-    M("Earth Tunnel", "earth", "II", "Dig through earth: escape routes, shortcuts, your own caves.",
+    M("Earth Tunnel", "earth", "I", "Dig through earth: escape routes, shortcuts, your own caves.",
       [("", "Hold sneak while looking at earth. Let go, or look at something else, to stop.")]),
     M("Tremorsense", "earth", "II", "Feel the ground around you. In the dark, the earth under your feet lights up for you only.",
       [("", "Stand on earth in the dark and it works on its own. Left-click to spot hollow pockets nearby.")]),
-    M("Earth Dome", "earth", "II", "Close yourself, or someone else, inside a dome of earth.",
+    M("Earth Dome", "earth", "SC", "Close yourself, or someone else, inside a dome of earth.",
       [("Yourself", "Raise Earth (right-click), then Shockwave (right-click)."), ("Someone else", "Raise Earth (right-click), then Shockwave (left-click).")],
-      combo=True),
+      combo=True, scroll={"price": 80, "needs": "Shockwave (Tier II)"}),
     M("Earth Pillars", "earth", "III", "Pillars burst up under everyone near you and throw them into the air.",
       [("", "Shockwave (tap sneak), Shockwave (hold sneak), then Catapult (release sneak). Landing from high up on Catapult also works.")],
       combo=True),
@@ -119,9 +124,9 @@ MOVES = [
     M("Extraction", "earth", "II", "Pull the metal out of ore, sometimes two or three times over.",
       [("", "Tap sneak at an ore block.")], sub="metal"),
     M("Metal Cables", "earth", "S", "The Metalbending Police's cables.", [], sub="metal", later=True),
-    M("Magma Shot", "earth", "II", "Fire balls of magma, up to three in a row.",
+    M("Magma Shot", "earth", "III", "Fire balls of magma, up to three in a row.",
       [("", "Run <code>/b help MagmaShot</code> in game for the controls.")], sub="lava"),
-    M("Lava Manipulation", "earth", "II", "Melt earth into a stream of lava and fling it.",
+    M("Lava Manipulation", "earth", "III", "Melt earth into a stream of lava and fling it.",
       [("", "Run <code>/b help LavaManipulation</code> in game for the controls.")], sub="lava"),
     M("Lava Flow", "earth", "S", "Turn the ground around you into lava, or cool lava back into stone.",
       [("Flow", "Hold sneak and the lava spreads out. Tap sneak to turn it back."), ("Pool", "Left-click to melt earth into a pool."),
@@ -147,17 +152,17 @@ MOVES = [
       get='Young Kya\'s first quest, <b>Lost in the Sewers</b>, once you reach Tier II (50 QP).'),
     M("Phase Change", "water", "II", "Freeze water into ice to stand on, or melt ice back.",
       [("Freeze", "Left-click water."), ("Melt", "Hold sneak while looking at ice.")], sub="ice",
-      get="Young Kya's second quest, once you've chosen Ice. You'll need Water Bubble to get through the flooded sewers."),
+      get="Haku's quest at Maru's Butchery, after Young Kya's quests. He teaches it together with Ice Spike."),
     M("Ice Spike", "water", "II", "Fire a shard of ice, or raise spikes from ice under your enemies. Both slow what they hit.",
       [("Blast", "Tap sneak at a water source, then left-click to fire."), ("Spike", "Near ice, tap sneak. Or left-click one ice block.")],
-      sub="ice", get="Young Kya's second quest, once you've chosen Ice."),
+      sub="ice", get="Haku's quest at Maru's Butchery, after Young Kya's quests. He teaches it together with Phase Change."),
     M("Ice Wave", "water", "II", "Freeze your water wave as you ride it, hurting everything it hits.",
       [("", "Ride a Water Spout wave, then switch to Phase Change and left-click.")], sub="ice", combo=True,
-      get="A Technique Scroll dropped by a boss, once you've chosen Ice."),
+      get="A Technique Scroll dropped by a boss."),
     M("Healing Waters", "water", "II", "Heal yourself or someone else with water.",
       [("Yourself", "Hold sneak while standing in water or carrying water bottles."),
        ("Someone else", "Sneak and right-click them, and keep looking at them.")], sub="healing",
-      get="Young Kya's quest, once you've chosen Healing."),
+      get="Young Kya's second quest, after Lost in the Sewers."),
     M("Ice Blast", "water", "III", "A fast, hard shot of ice. Good for finishing a fight.",
       [("", "Tap sneak at an ice block, then click a direction.")], sub="ice"),
     M("Ice Bullet", "water", "III", "Punch rapid shards out of a wall of ice.",
@@ -181,14 +186,14 @@ MOVES = [
       [("", "Left-click to turn it on or off.")]),
     M("Fire Burst", "fire", "II", "A sphere of fire bursting out in every direction.",
       [("", "Hold sneak until particles appear, then release. Left-click instead to send it one way.")]),
-    M("Fire Shield", "fire", "II", "A shield of fire that blocks projectiles and bending.",
-      [("", "Hold sneak. Left-click for a quick shield that sets anyone inside it alight.")]),
+    M("Fire Shield", "fire", "SC", "A shield of fire that blocks projectiles and bending.",
+      [("", "Hold sneak. Left-click for a quick shield that sets anyone inside it alight.")], scroll={"price": 60}),
     M("Fire Manipulation", "fire", "II", "Paint a wall of fire, then throw it.",
       [("", "Hold sneak and move your view to place fire, then left-click to send it out.")]),
     M("Fire Kick", "fire", "II", "A short arc of fire off your foot.",
       [("", "Fire Blast, Fire Blast, hold sneak, Fire Blast.")], combo=True),
-    M("Fire Spin", "fire", "II", "A ring of fire that throws everyone near you back.",
-      [("", "Fire Blast, Fire Blast, Fire Shield (left-click), Fire Shield (tap sneak).")], combo=True),
+    M("Fire Spin", "fire", "SC", "A ring of fire that throws everyone near you back.",
+      [("", "Fire Blast, Fire Blast, Fire Shield (left-click), Fire Shield (tap sneak).")], combo=True, scroll={"price": 80, "needs": "Fire Shield (also a scroll)"}),
     M("Wall of Fire", "fire", "III", "Raise a wall of fire that burns and pushes back anyone who touches it.",
       [("", "Left-click where you want the wall.")]),
     M("Jet Blast", "fire", "III", "An explosive Fire Jet that flies faster.",
@@ -212,7 +217,7 @@ MOVES = [
     M("Rapid Punch", "chi", "II", "A flurry of punches for heavy damage.", [("", "Punch a player.")]),
     M("Paralyze", "chi", "II", "Freeze a target where they stand for a moment.", [("", "Punch a player.")]),
     M("Smokescreen", "chi", "II", "A smoke bomb that blinds everyone near where it lands.", [("", "Left-click to throw it.")]),
-    M("Bola", "chi", "II", "Throw a bola that wraps a target and slows them, which sets up everything else.",
+    M("Bola", "chi", "III", "Throw a bola that wraps a target and slows them, which sets up everything else.",
       [("", "Run <code>/b help Bola</code> in game for the controls.")]),
     M("Immobilize", "chi", "III", "Lock a target in place for several seconds.",
       [("", "Quick Strike, Swift Kick, Quick Strike, Quick Strike.")], combo=True),
@@ -235,12 +240,20 @@ def slug(name):
 def default_get(m):
     p = PATHS[m["path"]]
     t = m["tier"]
+    if m.get("scroll"):
+        sc = m["scroll"]
+        txt = (f"Buy <b>Scroll: {m['name']}</b> from {sc.get('seller', SCROLL_SELLER)} at the Sparring Grounds for "
+               f"{sc['price']} Yuans ({p['name'].lower().replace('bending', 'benders') if m['path'] in ('earth', 'fire', 'water') else p['name']} only). "
+               "Right-click it to learn the move for good, at any tier.")
+        if sc.get("needs"):
+            txt += f" To perform it you also need {sc['needs']}."
+        return txt
     if t == "I":
         return "You start with it. It's already on your hotbar when you create your character."
     tier_name, qp = TIERS[t]
     if m["sub"]:
         s = SUBS[m["sub"]]
-        if t == SUB_FIRST_TIER[m["path"]]:
-            return f"Learned through a trainer quest once you've chosen <b>{s['name']}</b>. {s['teacher']}"
+        if t == s.get("first", SUB_FIRST_TIER[m["path"]]):
+            return f"Learned through a trainer quest once you have <b>{s['name']}</b>. {s['teacher']}"
         return f"Taught by {p['trainers'][t]}'s quests once you reach {tier_name} ({qp}) and have <b>{s['name']}</b>."
     return f"Taught by {p['trainers'][t]}'s quests once you reach {tier_name} ({qp})."
