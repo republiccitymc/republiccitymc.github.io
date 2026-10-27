@@ -25,7 +25,7 @@ PATHS = {
     "earth": {"name": "Earthbending", "page": "earthbending", "trainers": {"II": "Young Lin Beifong", "III": "Penga", "S": "Toph Beifong"}},
     "water": {"name": "Waterbending", "page": "waterbending", "trainers": {"II": "Young Kya", "III": "Master Kanok", "S": "Katara"}},
     "fire": {"name": "Firebending", "page": "firebending", "trainers": {"II": "Business Man Shinu", "III": "Royal Academy Elite", "S": "Fire Lord Zuko / General Iroh"}},
-    "chi": {"name": "Chi Blocking", "page": "chi-blocking", "trainers": {"II": "Acrobat Ji", "III": "Ty Lee", "S": "Suki"}},
+    "chi": {"name": "Chi Blocking", "page": "chi-blocking", "trainers": {"II": "Acrobat Lee", "III": "Ty Lee", "S": "Suki"}},
     "wm": {"name": "Weapons Master", "page": "weapons-master", "trainers": {"II": "Young Bumi", "III": "Mai", "S": "Sokka"}},
 }
 
@@ -162,7 +162,7 @@ MOVES = [
     M("Healing Waters", "water", "II", "Heal yourself or someone else with water.",
       [("Yourself", "Hold sneak while standing in water or carrying water bottles."),
        ("Someone else", "Sneak and right-click them, and keep looking at them.")], sub="healing",
-      get="Young Kya's second quest, after Lost in the Sewers."),
+      get="Young Kya's second quest, <b>Great-Gran's Necklace</b>, after Lost in the Sewers."),
     M("Ice Blast", "water", "III", "A fast, hard shot of ice. Good for finishing a fight.",
       [("", "Tap sneak at an ice block, then click a direction.")], sub="ice"),
     M("Ice Bullet", "water", "III", "Punch rapid shards out of a wall of ice.",
