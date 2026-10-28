@@ -439,7 +439,7 @@ def sub_page(key):
     body = (f'{box}<p class="lead">{s["lead"]}</p>\n<!-- toc -->\n'
             f'<h2 id="bends">What You Can Bend</h2><p>{s["bends"]}</p>\n'
             f'<h2 id="moves">Moves</h2>{moves}\n'
-            f'<h2 id="get">How to Get It</h2><p>{BD.SUB_RULES[s["path"]]} You choose the order. {s["teacher"]}</p>\n')
+            f'<h2 id="get">How to Get It</h2><p>{BD.SUB_RULES[s["path"]]} {s["teacher"]}</p>\n')
     body = body.replace("<!-- toc -->", toc(body))
     desc = f'{s["name"]}, a {p["name"].lower()} subelement on Republic City MC: what it bends, its moves and how to get it.'
     return f"sub-{key}", f'{s["name"]} ({p["name"]})', desc, body, f'Bending &middot; Subelements', p["page"]

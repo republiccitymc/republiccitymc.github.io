@@ -22,7 +22,7 @@ MOVE fields
 """
 
 PATHS = {
-    "earth": {"name": "Earthbending", "page": "earthbending", "trainers": {"II": "Young Lin Beifong", "III": "Penga", "S": "Toph Beifong"}},
+    "earth": {"name": "Earthbending", "page": "earthbending", "trainers": {"II": "Foreman Akatsuchi", "III": "Penga", "S": "Toph Beifong"}},
     "water": {"name": "Waterbending", "page": "waterbending", "trainers": {"II": "Young Kya", "III": "Master Kanok", "S": "Katara"}},
     "fire": {"name": "Firebending", "page": "firebending", "trainers": {"II": "Business Man Shinu", "III": "Royal Academy Elite", "S": "Fire Lord Zuko / General Iroh"}},
     "chi": {"name": "Chi Blocking", "page": "chi-blocking", "trainers": {"II": "Acrobat Lee", "III": "Ty Lee", "S": "Suki"}},
@@ -39,7 +39,7 @@ SUBS = {
     "metal": {"name": "Metal", "path": "earth", "first": "II",
               "lead": "Toph Beifong's own invention, and the badge of her police force. Metalbenders sense the bits of earth left in refined metal.",
               "bends": "Iron, gold and copper, ore and block.",
-              "teacher": "Young Lin Beifong teaches it herself."},
+              "teacher": "Young Lin Beifong teaches it herself. Foreman Akatsuchi sends you to her."},
     "sand": {"name": "Sand", "path": "earth", "first": "II",
              "lead": "Sandbenders shift loose sand and sandstone, the way the Sandbenders of the Si Wong Desert ride the dunes.",
              "bends": "Sand, red sand, sandstone and red sandstone.",
@@ -72,9 +72,9 @@ SUBS = {
 
 # How many subelements you have at each tier, per element (shown on Bending & Tiers and the sub pages).
 SUB_RULES = {
-    "earth": "Pick Metal or Sand at Tier II. At Tier III take a second (Lava opens at Tier III), and the last at Tier &#9733;.",
+    "earth": "No pick: you can learn all three, each from its own teacher. Metal and Sand from Tier II, Lava from Tier III.",
     "water": "No pick: Ice, Healing and Plant are all taught from Tier II.",
-    "fire": "Pick Lightning or Combustion at Tier III, and the other at Tier &#9733;.",
+    "fire": "No pick: you can learn both, Lightning and Combustion, from Tier III.",
 }
 SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "III"}  # earliest subelement per element; each sub's own "first" wins
 
@@ -96,7 +96,8 @@ MOVES = [
       [("", "Tap sneak at earthbendable blocks to pull them onto you. Hold sneak and left-click to take it off.")]),
     M("Shockwave", "earth", "II", "Send a ring of earth out in every direction, hitting everyone around you.",
       [("Ring", "Hold sneak until you see particles, then release."), ("Cone", "Left-click instead of releasing to send it forward only."),
-       ("Fall", "Land from a great height with Shockwave selected and it fires by itself.")]),
+       ("Fall", "Land from a great height with Shockwave selected and it fires by itself.")],
+      get="Foreman Akatsuchi's quest <b>Lost in Translation</b>, after The Old Mines."),
     M("Earth Grab", "earth", "SC", "Root a target to the spot, or drag items lying on earth over to you.",
       [("Grab", "Left-click toward the target."), ("Drag", "Sneak to pull nearby items to you."),
        ("Escape", "If you're caught, right-click the trap a few times, or get moved by another earth move.")],
@@ -106,7 +107,7 @@ MOVES = [
        ("Ride", "Hold sneak and right-click the boulder, then look where you want to go.")]),
     M("Catapult", "earth", "II", "Launch yourself through the air on a burst of earth.",
       [("", "Hold sneak until you hear a sound, then release to launch where you're looking. Left-click for a smaller hop.")],
-      get="Taught by Young Lin Beifong's quests at Tier II. <b>Scroll: Catapult</b> from Pitmaster Jax teaches it earlier."),
+      get="Foreman Akatsuchi's quest <b>The Old Mines</b>, at Tier II. <b>Scroll: Catapult</b> from Pitmaster Jax teaches it earlier."),
     M("Earth Tunnel", "earth", "I", "Dig through earth: escape routes, shortcuts, your own caves.",
       [("", "Hold sneak while looking at earth. Let go, or look at something else, to stop.")]),
     M("Tremorsense", "earth", "SC", "Feel the ground around you. In the dark, the earth under your feet lights up for you only.",
