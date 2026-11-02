@@ -30,8 +30,8 @@ PATHS = {
 }
 
 TIERS = {"I": ("Tier I", "Start"), "II": ("Tier II", "50 QP"), "III": ("Tier III", "250 QP"), "S": ("Tier &#9733;", "500 QP")}
-# Scroll-only moves: no tier teaches them; you buy the scroll and read it, at any tier.
-SCROLL_TIER = ("Scrolls", "TenTen")
+# Scroll-only moves: no tier teaches them; the scroll drops from a boss or comes from a quest or vendor, and works at any tier.
+SCROLL_TIER = ("Scrolls", "Drops &amp; Vendors")
 SCROLL_SELLER = "Weapons Vendor TenTen"
 # Moves you get from boss drops and side quests instead of a tier: tier "BX", listed under the table.
 BONUS_TIER = ("Boss Drops & Side Quests", "Bonus")
@@ -118,8 +118,8 @@ MOVES = [
     M("Metal Clips", "earth", "II", "Throw iron ingots that lock around a target as armor, then move them where you want.",
       [("Clips", "Carry iron ingots. Left-click to throw one. Once enough clips are on a target, hold sneak to control them and release to throw them."),
        ("Magnet", "Hold sneak to pull iron ingots to you.")], sub="metal"),
-    M("Metal Fragments", "earth", "II", "Tear metal fragments off blocks and fire them.", H("Metal Fragments"), sub="metal"),
-    M("Magnet Shield", "earth", "II", "Repel arrows, metal projectiles, and foes in metal gear.", H("Magnet Shield"), sub="metal"),
+    M("Extraction", "earth", "II", "Pull the metal out of ore, sometimes two or three times over.",
+      [("", "Tap sneak at an ore block.")], sub="metal"),
     M("Sand Blast", "earth", "II", "Blast sand at a target to damage and blind them.", H("Sand Blast"), sub="sand"),
     M("Earth Smash", "earth", "III", "Raise a boulder, then throw it or ride it.",
       [("Smash", "Hold sneak until particles appear, release at an earthbendable block, hold sneak on the boulder to grab it, then left-click to throw."),
@@ -128,36 +128,32 @@ MOVES = [
       [("", "Shockwave (tap sneak), Shockwave (hold sneak), then Catapult (release sneak). Landing from high up on Catapult also works.")],
       combo=True),
     M("Earth Surf", "earth", "III", "Ride a rolling wave of earth across the ground.", H("Earth Surf")),
-    M("Lava Flow", "earth", "III", "Turn the ground around you into lava, or cool lava back into stone.",
-      [("Flow", "Hold sneak and the lava spreads out. Tap sneak to turn it back."), ("Pool", "Left-click to melt earth into a pool."),
-       ("Solidify", "Left-click lava to turn it to stone.")], sub="lava"),
-    M("Lava Flux", "earth", "III", "Send a wave of molten lava along the ground.", H("Lava Flux"), sub="lava"),
-    M("Lava Disc", "earth", "III", "Form a spinning disc of lava, throw it, and call it back.", H("Lava Disc"), sub="lava"),
-    M("Crevice", "earth", "S", "Rip a deep crevice open in the ground.", C("Collapse, Shockwave, Shockwave."), combo=True),
+    M("Magnet Shield", "earth", "III", "Repel arrows, metal projectiles, and foes in metal gear.", H("Magnet Shield"), sub="metal"),
+    M("Magma Shot", "earth", "III", "Fire balls of magma, up to three in a row.", H("Magma Shot"), sub="lava"),
+    M("Lava Manipulation", "earth", "III", "Melt earth into a stream of lava and fling it.", H("Lava Manipulation"), sub="lava"),
     M("Tremorsense", "earth", "S", "Feel the ground around you. In the dark, the earth under your feet lights up for you only.",
       [("", "Stand on earth in the dark and it works on its own. Left-click to spot hollow pockets nearby.")]),
+    M("Crevice", "earth", "S", "Rip a deep crevice open in the ground.", C("Collapse, Shockwave, Shockwave."), combo=True),
+    M("Metal Cables", "earth", "S", "Fire wrist-mounted metal cables to grapple and control targets.", [], sub="metal", later=True),
+    M("Lava Flow", "earth", "S", "Turn the ground around you into lava, or cool lava back into stone.",
+      [("Flow", "Hold sneak and the lava spreads out. Tap sneak to turn it back."), ("Pool", "Left-click to melt earth into a pool."),
+       ("Solidify", "Left-click lava to turn it to stone.")], sub="lava"),
+    M("Lava Disc", "earth", "S", "Form a spinning disc of lava, throw it, and call it back.", H("Lava Disc"), sub="lava"),
     M("Earth Grab", "earth", "SC", "Root a target to the spot, or drag items lying on earth over to you.",
       [("Grab", "Left-click toward the target."), ("Drag", "Sneak to pull nearby items to you."),
-       ("Escape", "If you're caught, right-click the trap a few times, or get moved by another earth move.")],
-      scroll={"price": 60}),
+       ("Escape", "If you're caught, right-click the trap a few times, or get moved by another earth move.")], scroll={"price": 60, "seller": SCROLL_SELLER}),
     M("Earth Dome", "earth", "SC", "Close yourself, or someone else, inside a dome of earth.",
-      [("Yourself", "Raise Earth (right-click), then Shockwave (right-click)."), ("Someone else", "Raise Earth (right-click), then Shockwave (left-click).")],
-      scroll={"price": 80, "needs": "Shockwave (Tier II)"}),
-    M("Magma Blast", "earth", "SC", "Fire explosive balls of magma.", C("Earth Blast, then Lava Flow."), sub="lava", combo=True,
-      scroll={"needs": "Lava Flow (Lava, Tier III)"}),
-    M("Lava Throw", "earth", "SC", "Scoop lava and hurl it in splashes.", H("Lava Throw"), sub="lava", scroll={}),
-    # bonus: boss drops and side quests
-    M("Earth Kick", "earth", "BX", "Kick a spray of earth chunks at whoever's in front of you.", H("Earth Kick")),
-    M("Earth Shard", "earth", "BX", "Pull up shards of earth and fire them one by one.", H("Earth Shard")),
-    M("Mud Surge", "earth", "BX", "Turn earth to mud and send a wave of it crashing over your enemies.", H("Mud Surge")),
-    M("Metal Hook", "earth", "BX", "Fire metal grappling cables to swing across the city.", H("Metal Hook"), sub="metal"),
-    M("Extraction", "earth", "BX", "Pull the metal out of ore, sometimes two or three times over.",
-      [("", "Tap sneak at an ore block.")], sub="metal"),
-    M("Metal Shred", "earth", "BX", "Peel open a metal wall to pass through.", H("Metal Shred"), sub="metal"),
-    M("Fissure", "earth", "BX", "Open a widening crack of lava in the ground and close it again.", H("Fissure"), sub="lava"),
-    M("Magma Shot", "earth", "BX", "Fire balls of magma, up to three in a row.", H("Magma Shot"), sub="lava"),
-    M("Lava Manipulation", "earth", "BX", "Melt earth into a stream of lava and fling it.", H("Lava Manipulation"), sub="lava"),
-
+      [("Yourself", "Raise Earth (right-click), then Shockwave (right-click)."), ("Someone else", "Raise Earth (right-click), then Shockwave (left-click).")], scroll={"price": 80, "seller": SCROLL_SELLER, "needs": "Shockwave (Tier II)"}),
+    M("Earth Kick", "earth", "SC", "Kick a spray of earth chunks at a foe.", H("Earth Kick"), scroll={}),
+    M("Earth Shard", "earth", "SC", "Pull up small earth shards, hold several, and launch them one by one.", H("Earth Shard"), scroll={}),
+    M("Mud Surge", "earth", "SC", "Hurl a wave of mud that knocks back, damages, and can blind.", H("Mud Surge"), scroll={}),
+    M("Metal Hook", "earth", "SC", "Fire metal grappling cables to swing across the city.", H("Metal Hook"), sub="metal", scroll={}),
+    M("Metal Fragments", "earth", "SC", "Tear metal fragments off blocks and fire them.", H("Metal Fragments"), sub="metal", scroll={}),
+    M("Metal Shred", "earth", "SC", "Peel open a metal wall to pass through.", H("Metal Shred"), sub="metal", scroll={}),
+    M("Lava Flux", "earth", "SC", "Send a wave of molten lava along the ground.", H("Lava Flux"), sub="lava", scroll={}),
+    M("Fissure", "earth", "SC", "Open a widening crack of lava in the ground and close it again.", H("Fissure"), sub="lava", scroll={}),
+    M("Magma Blast", "earth", "SC", "Fire explosive balls of magma.", C("Earth Blast, then Lava Flow."), sub="lava", combo=True, scroll={"needs": "Lava Flow (Lava, Tier &#9733;)"}),
+    M("Lava Throw", "earth", "SC", "Scoop lava from a pool and hurl it in splashes.", H("Lava Throw"), sub="lava", scroll={}),
     # ---------------- WATER ----------------
     M("Water Manipulation", "water", "I", "Shoot a fast jet of water. Steer it, or take over someone else's.",
       [("", "Tap sneak at a water source, then left-click to send it. Left-click again to change its direction.")]),
@@ -173,6 +169,8 @@ MOVES = [
        ("Wave", "Left-click a water source, hold sneak, then release to ride a wave.")]),
     M("Water Bubble", "water", "I", "Push water back to make a pocket of air underwater.",
       [("", "Hold sneak near water. Click for a short bubble.")]),
+    M("Octopus Form", "water", "II", "Eight arms of water around you: block, and whip anyone close.",
+      [("", "Left-click a water source, then hold sneak to form the tentacles. Left-click to whip.")]),
     M("Water Flow", "water", "II", "Steer a powerful stream of water.", C("Water Manipulation, then Torrent."), combo=True),
     M("Phase Change", "water", "II", "Freeze water into ice to stand on, or melt ice back.",
       [("Freeze", "Left-click water."), ("Melt", "Hold sneak while looking at ice.")], sub="ice",
@@ -180,32 +178,28 @@ MOVES = [
     M("Ice Spike", "water", "II", "Fire a shard of ice, or raise spikes from ice under your enemies. Both slow what they hit.",
       [("Blast", "Tap sneak at a water source, then left-click to fire."), ("Spike", "Near ice, tap sneak. Or left-click one ice block.")],
       sub="ice", get="Haku's quest at Maru's Butchery, after Young Kya's quests. He teaches it together with Phase Change."),
-    M("Ice Wall", "water", "II", "Raise a wall of ice that damages nearby enemies when shattered.", H("Ice Wall"), sub="ice"),
     M("Healing Waters", "water", "II", "Heal yourself or someone else with water.",
       [("Yourself", "Hold sneak while standing in water or carrying water bottles."),
        ("Someone else", "Sneak and right-click them, and keep looking at them.")], sub="healing",
       get="Young Kya's second quest, <b>Great-Gran's Necklace</b>, after Lost in the Sewers."),
-    M("Plant Tether", "water", "II", "Grow a vine from plants to pull an enemy in or pull yourself.", [], sub="plant", later=True),
-    M("Drain", "water", "II", "Draw water out of nearby plants to fill bottles or fire blasts.", H("Drain"), sub="plant"),
-    M("Octopus Form", "water", "III", "Eight arms of water around you: block, and whip anyone close.",
-      [("", "Left-click a water source, then hold sneak to form the tentacles. Left-click to whip.")]),
     M("Water Gimbal", "water", "III", "Two spinning rings of water fired at enemies.", C("Torrent, Torrent, Water Manipulation."), combo=True),
     M("Maelstrom", "water", "III", "Create a deep-water whirlpool that drags enemies down.", C("Phase Change, Torrent, Torrent."), combo=True),
+    M("Ice Blast", "water", "III", "A fast, hard shot of ice. Good for finishing a fight.",
+      [("", "Tap sneak at an ice block, then click a direction.")], sub="ice"),
+    M("Ice Bullet", "water", "III", "Punch rapid shards out of a wall of ice.",
+      [("", "Water Bubble (tap sneak), then Ice Blast (hold sneak). Wait for the ice to form, then alternate left- and right-clicks.")],
+      sub="ice", combo=True),
+    M("Plant Tether", "water", "III", "Grow a vine from plants to pull an enemy in or pull yourself.", [], sub="plant", later=True),
     M("Water Arms", "water", "S", "Two arms of water that punch, grab, pull, grapple and freeze.",
       [("Start", "Tap sneak at a water source. Hold sneak and left-click to stop."),
        ("Use", "Left-click to punch, pull, grapple, grab and throw, or fire ice, depending on the arm's mode.")]),
+    M("Frost Breath", "water", "S", "Breathe freezing air that freezes targets in place.", H("Frost Breath"), sub="ice"),
+    M("Drain", "water", "S", "Draw water out of nearby plants to fill bottles or fire blasts.", H("Drain"), sub="plant"),
     M("Wake Fishing", "water", "SC", "Waterbend fish straight out of the water.", H("Wake Fishing"), scroll={}),
+    M("Ice Wave", "water", "SC", "Freeze your water wave as you ride it, hurting everything it hits.",
+      [("", "Ride a Water Spout wave, then switch to Phase Change and left-click.")], sub="ice", combo=True, scroll={"from": "a boss drop"}),
+    M("Ice Wall", "water", "SC", "Raise a wall of ice that damages nearby enemies when shattered.", H("Ice Wall"), sub="ice", scroll={}),
     M("Ice Claws", "water", "SC", "Form ice claws on your fingers to slash or throw.", H("Ice Claws"), sub="ice", scroll={}),
-    # bonus: boss drops and side quests
-    M("Ice Wave", "water", "BX", "Freeze your water wave as you ride it, hurting everything it hits.",
-      [("", "Ride a Water Spout wave, then switch to Phase Change and left-click.")], sub="ice", combo=True),
-    M("Ice Blast", "water", "BX", "A fast, hard shot of ice. Good for finishing a fight.",
-      [("", "Tap sneak at an ice block, then click a direction.")], sub="ice"),
-    M("Ice Bullet", "water", "BX", "Punch rapid shards out of a wall of ice.",
-      [("", "Water Bubble (tap sneak), then Ice Blast (hold sneak). Wait for the ice to form, then alternate left- and right-clicks.")],
-      sub="ice", combo=True),
-    M("Frost Breath", "water", "BX", "Breathe freezing air that freezes targets in place.", H("Frost Breath"), sub="ice"),
-
     # ---------------- FIRE ----------------
     M("Fire Blast", "fire", "I", "Your basic fireball, fast and repeatable. Charge it for a bigger blast.",
       [("Ball", "Left-click."), ("Blast", "Hold sneak until particles appear, then release.")]),
@@ -216,41 +210,38 @@ MOVES = [
     M("Heat Control", "fire", "I", "Put out fire, melt ice, cool lava and cook food.",
       [("Extinguish", "Tap sneak."), ("Melt", "Left-click ice."), ("Solidify", "Stand still and hold sneak at lava."),
        ("Cook", "Put raw food in this slot and hold sneak.")]),
-    M("Fire Shield", "fire", "I", "A shield of fire that blocks projectiles and bending.",
-      [("", "Hold sneak. Left-click for a quick shield that sets anyone inside it alight.")]),
+    M("Illumination", "fire", "I", "A small flame that lights the dark around you.",
+      [("", "Left-click to turn it on or off.")]),
+    M("Fire Burst", "fire", "II", "A sphere of fire bursting out in every direction.",
+      [("", "Hold sneak until particles appear, then release. Left-click instead to send it one way.")]),
     M("Fire Manipulation", "fire", "II", "Paint a wall of fire, then throw it.",
       [("", "Hold sneak and move your view to place fire, then left-click to send it out.")]),
     M("Fire Kick", "fire", "II", "A short arc of fire off your foot.",
       [("", "Fire Blast, Fire Blast, hold sneak, Fire Blast.")], combo=True),
     M("Fire Punch", "fire", "II", "Charge your fist with fire to ignite the next enemy you hit.", H("Fire Punch")),
-    M("Fire Burst", "fire", "III", "A sphere of fire bursting out in every direction.",
-      [("", "Hold sneak until particles appear, then release. Left-click instead to send it one way.")]),
+    M("Fire Shots", "fire", "II", "Summon several small fireballs and fire them one by one.", H("Fire Shots")),
     M("Wall of Fire", "fire", "III", "Raise a wall of fire that burns and pushes back anyone who touches it.",
       [("", "Left-click where you want the wall.")]),
-    M("Fire Ski", "fire", "III", "Skate rapidly along the ground propelled by fire jets.", H("Fire Ski")),
+    M("Jet Blast", "fire", "III", "An explosive Fire Jet that flies faster.",
+      [("", "Fire Jet (tap sneak), Fire Jet (tap sneak), Fire Shield (tap sneak), Fire Jet.")], combo=True),
+    M("Jet Blaze", "fire", "III", "A Fire Jet that burns everyone you fly past.",
+      [("", "Fire Jet (tap sneak), Fire Jet (tap sneak), Blaze (tap sneak), Fire Jet.")], combo=True),
+    M("Fire Wheel", "fire", "III", "A wheel of fire that rolls along the ground a long way.",
+      [("", "Fire Shield (hold sneak), right-click a block in front of you twice, switch to Blaze, release sneak.")], combo=True),
     M("Lightning", "fire", "III", "Charge lightning and fire it. It can stun.",
       [("", "Hold sneak until particles appear, then release to fire where you're looking.")], sub="lightning"),
-    M("Discharge", "fire", "III", "Fire rapid bolts of electricity from the fingertips that can stun.", H("Discharge"), sub="lightning"),
-    M("Lightning Burst", "fire", "III", "Charge a sphere of lightning and release it to shock everyone nearby.", H("Lightning Burst"), sub="lightning"),
     M("Combustion", "fire", "III", "A focused blast that explodes on impact, from far away.",
       [("", "Tap sneak to fire. It explodes when it hits, or left-click to set it off early.")], sub="combustion"),
     M("Fire Breath", "fire", "S", "Breathe a sustained stream of dragon fire.", H("Fire Breath")),
-    M("Jet Blaze", "fire", "S", "A Fire Jet that burns everyone you fly past.",
-      [("", "Fire Jet (tap sneak), Fire Jet (tap sneak), Blaze (tap sneak), Fire Jet.")], combo=True),
-    M("Illumination", "fire", "SC", "A small flame that lights the dark around you.",
-      [("", "Left-click to turn it on or off.")], scroll={}),
+    M("Lightning Redirection", "fire", "S", "Absorb incoming lightning and redirect it back out.", [], sub="lightning", later=True),
+    M("Lightning Burst", "fire", "S", "Charge a sphere of lightning and release it to shock everyone nearby.", H("Lightning Burst"), sub="lightning"),
+    M("Fire Shield", "fire", "SC", "A shield of fire that blocks projectiles and bending.",
+      [("", "Hold sneak. Left-click for a quick shield that sets anyone inside it alight.")], scroll={"price": 60, "seller": SCROLL_SELLER}),
     M("Fire Spin", "fire", "SC", "A ring of fire that throws everyone near you back.",
-      [("", "Fire Blast, Fire Blast, Fire Shield (left-click), Fire Shield (tap sneak).")], combo=True,
-      scroll={"price": 80, "needs": "Fire Shield (Tier I)"}),
+      [("", "Fire Blast, Fire Blast, Fire Shield (left-click), Fire Shield (tap sneak).")], combo=True, scroll={"price": 80, "seller": SCROLL_SELLER, "needs": "Fire Shield (also a scroll)"}),
+    M("Fire Ski", "fire", "SC", "Skate rapidly along the ground propelled by fire jets.", H("Fire Ski"), scroll={}),
     M("Fire Ball", "fire", "SC", "Throw a single fireball projectile.", H("Fire Ball"), scroll={}),
-    # bonus: boss drops and side quests
-    M("Fire Shots", "fire", "BX", "Summon several small fireballs and fire them one by one.", H("Fire Shots")),
-    M("Fire Wheel", "fire", "BX", "A wheel of fire that rolls along the ground a long way.",
-      [("", "Fire Shield (hold sneak), right-click a block in front of you twice, switch to Blaze, release sneak.")], combo=True),
-    M("Jet Blast", "fire", "BX", "An explosive Fire Jet that flies faster.",
-      [("", "Fire Jet (tap sneak), Fire Jet (tap sneak), Fire Shield (tap sneak), Fire Jet.")], combo=True),
-    M("Lightning Redirection", "fire", "BX", "Catch lightning fired at you and send it back.", [], sub="lightning", later=True),
-
+    M("Discharge", "fire", "SC", "Fire rapid bolts of electricity from the fingertips that can stun.", H("Discharge"), sub="lightning", scroll={}),
     # ---------------- CHI BLOCKING ----------------
     M("Quick Strike", "chi", "I", "A fast jab that can block a bender's chi.", [("", "Left-click a player.")]),
     M("Swift Kick", "chi", "I", "A jumping kick that can block a bender's chi.", [("", "Jump and left-click a player.")]),
@@ -262,13 +253,12 @@ MOVES = [
       get="Acrobat Lee's quest <b>Pipa's Great Escape</b>, at Tier II."),
     M("Smokescreen", "chi", "II", "A smoke bomb that blinds everyone near where it lands.", [("", "Left-click to throw it.")],
       get="Acrobat Lee's quest <b>Catch Me If You Can</b>, after Pipa's Great Escape."),
+    M("Bola", "chi", "III", "Throw a bola that wraps a target and slows them, which sets up everything else.",
+      [("", "Run <code>/b help Bola</code> in game for the controls.")]),
     M("Immobilize", "chi", "III", "Lock a target in place for several seconds.",
       [("", "Quick Strike, Swift Kick, Quick Strike, Quick Strike.")], combo=True),
     M("Warrior Stance", "chi", "III", "Hit harder, but take a bit more damage.", [("", "Left-click to switch it on or off.")]),
-    M("Bola", "chi", "III", "Throw a bola that wraps a target and slows them, which sets up everything else.",
-      [("", "Run <code>/b help Bola</code> in game for the controls.")]),
     M("Backstab", "chi", "S", "Deliver a heavy chi-blocking strike from behind.", H("Backstab")),
-
     # ---------------- WEAPONS MASTER ----------------
     M("Leaping Strike", "wm", "I", "Leap forward and bring your weapon down, knocking back everyone near where you land. Damage comes from the weapon in your hand.",
       [("", "Hold a weapon and run <code>/b help LeapingStrike</code> in game for the controls.")]),
@@ -296,10 +286,16 @@ def default_get(m):
     t = m["tier"]
     if m.get("scroll") is not None:
         sc = m["scroll"]
-        price = f" for {sc['price']} Yuans" if sc.get("price") else ""
-        txt = (f"Buy <b>Scroll: {m['name']}</b> from {sc.get('seller', SCROLL_SELLER)} at the Sparring Grounds{price} "
-               f"({p['name'].lower().replace('bending', 'benders') if m['path'] in ('earth', 'fire', 'water') else p['name']} only). "
-               "Right-click it to learn the move for good, at any tier.")
+        who = (f"{p['name'].lower().replace('bending', 'benders')} only" if m["path"] in ("earth", "fire", "water") else p["name"])
+        if sc.get("seller"):
+            price = f" for {sc['price']} Yuans" if sc.get("price") else ""
+            txt = f"Buy <b>Scroll: {m['name']}</b> from {sc['seller']} at the Sparring Grounds{price} ({who})."
+        elif sc.get("from"):
+            txt = f"<b>Scroll: {m['name']}</b> comes from {sc['from']} ({who})."
+        else:
+            txt = (f"<b>Scroll: {m['name']}</b>, a Technique Scroll. Scrolls drop from bosses and come from quests and "
+                   f"vendors ({who}). Where this one comes from isn't decided yet.")
+        txt += " Right-click it to learn the move for good, at any tier."
         if sc.get("needs"):
             txt += f" To perform it you also need {sc['needs']}."
         return txt

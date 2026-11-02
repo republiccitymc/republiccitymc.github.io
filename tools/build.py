@@ -394,8 +394,29 @@ def path_moves_table(path):
             f'<tbody>{"".join(rows)}</tbody></table></div>' + coming_later([path]))
 
 
+def scrolls_table():
+    """Technique Scrolls on Bending & Tiers: every scroll-only move, plus Catapult's early scroll."""
+    rows = []
+    for m in BD.MOVES:
+        if m["tier"] != "SC":
+            continue
+        sc, p = m["scroll"], BD.PATHS[m["path"]]
+        who = p["name"].replace("bending", "benders") if m["path"] in ("earth", "water", "fire") else p["name"]
+        if m["sub"]:
+            who += f' with {BD.SUBS[m["sub"]]["name"]}'
+        where = (f'TenTen, {sc["price"]} Yuans' if sc.get("seller") else sc.get("from", "To be decided").capitalize())
+        cb = ' <span class="cb">combo</span>' if m["combo"] else ""
+        name = html.escape(m["name"]) if m["later"] else f'<a href="{move_url(m)}">{html.escape(m["name"])}</a>'
+        rows.append(f'<tr><td data-l="Scroll">{name}{cb}</td><td data-l="For">{who}</td><td data-l="Where">{where}</td></tr>')
+    rows.append('<tr><td data-l="Scroll"><a href="move-catapult.html">Catapult</a></td><td data-l="For">Earthbenders</td>'
+                '<td data-l="Where">Pitmaster Jax drop (15%); also taught at Tier II</td></tr>')
+    return ('<div class="tbl-wrap" style="max-width:640px"><table><thead><tr><th>Scroll</th><th>For</th><th>Where</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>')
+
+
 def fill_markers(body):
     body = body.replace("<!-- moves-table -->", moves_table())
+    body = body.replace("<!-- scrolls-table -->", scrolls_table())
     return re.sub(r"<!-- moves:(\w+) -->", lambda mm: path_moves_table(mm.group(1)), body)
 
 
