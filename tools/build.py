@@ -315,8 +315,10 @@ def move_li(m, show_sub=True):
         inner += '<span class="cb">combo</span>'
     if m["later"]:
         inner += '<span class="cb">coming later</span>'
-    title = f' title="{BD.SUBS[m["sub"]]["name"]}"' if m["sub"] and show_sub else ""
-    return f"<li{c}{title}>{inner}</li>"
+    tip = re.sub(r"<[^>]+>", "", m["what"])
+    if m["sub"] and show_sub:
+        tip = f'{BD.SUBS[m["sub"]]["name"]}: {tip}'
+    return f'<li{c} title="{html.escape(tip)}">{inner}</li>'
 
 
 def tier_groups():
@@ -325,21 +327,19 @@ def tier_groups():
 
 
 def tier_label(t):
-    return BD.SCROLL_TIER if t == "SC" else BD.TIERS[t]
+    return BD.SCROLL_TIER if t == "SC" else BD.BONUS_TIER if t == "BX" else BD.TIERS[t]
 
 
 def moves_of(path, tier):
-    return [m for m in BD.MOVES if m["path"] == path and m["tier"] == tier and not m["later"]]
+    """The moves in one table cell; moves that aren't on the server yet are listed too, greyed out."""
+    return [m for m in BD.MOVES if m["path"] == path and m["tier"] == tier]
 
 
 def coming_later(paths=None):
     """One line naming the moves that aren't on the server yet (they're left out of the tables)."""
-    later = [m["name"] for m in BD.MOVES if m["later"] and (paths is None or m["path"] in paths)]
     blank = [BD.PATHS[k]["name"] for k in (paths or BD.PATHS)
              if any(not moves_of(k, t) for t in BD.TIERS)]
     bits = []
-    if later:
-        bits.append(", ".join(later))
     if blank:
         bits.append("more " + " and ".join(blank) + " moves" if len(blank) < 3 else "more moves for " + ", ".join(blank))
     return f'<p class="hint">Coming later: {"; ".join(bits)}.</p>' if bits else ""
@@ -362,12 +362,28 @@ def moves_table():
             cells.append(f'<td data-l="{n} &middot; {q}">{inner}</td>')
         rows.append(f'<tr><td data-l="Path"><a href="{p["page"]}.html">{p["name"]}</a></td>{"".join(cells)}</tr>')
     return (sub_legend() + f'<div class="tbl-wrap"><table class="moves"><thead><tr><th>Path</th>{head}</tr></thead>'
-            f'<tbody>{"".join(rows)}</tbody></table></div>' + coming_later())
+            f'<tbody>{"".join(rows)}</tbody></table></div>' + bonus_table() + coming_later())
+
+
+def bonus_table():
+    """Boss drops and side quests: moves no tier teaches, one row per path that has any."""
+    n, q = BD.BONUS_TIER
+    rows = []
+    for key, p in BD.PATHS.items():
+        ms = moves_of(key, "BX")
+        if ms:
+            rows.append(f'<tr><td data-l="Path"><a href="{p["page"]}.html">{p["name"]}</a></td>'
+                        f'<td data-l="{n}"><ul class="mv inline">{"".join(move_li(m) for m in ms)}</ul></td></tr>')
+    if not rows:
+        return ""
+    return (f'<h3 id="bonus">{n}</h3><p class="hint">No tier teaches these. They drop from bosses or come from side quests, at any tier.</p>'
+            f'<div class="tbl-wrap"><table class="moves bonus"><thead><tr><th>Path</th><th>Moves</th></tr></thead>'
+            f'<tbody>{"".join(rows)}</tbody></table></div>')
 
 
 def path_moves_table(path):
     rows = []
-    for t, n, q in tier_groups():
+    for t, n, q in tier_groups() + [("BX",) + BD.BONUS_TIER]:
         ms = moves_of(path, t)
         if not ms:
             continue
@@ -389,9 +405,13 @@ def move_page(m):
     rows = [f'<dt>Path</dt><dd><a href="{p["page"]}.html">{p["name"]}</a></dd>']
     if m["sub"]:
         rows.append(f'<dt>Subelement</dt><dd><a class="schip s-{m["sub"]}" href="{sub_url(m["sub"])}">{BD.SUBS[m["sub"]]["name"]}</a></dd>')
-    if m.get("scroll"):
+    if m.get("scroll") is not None:
         rows.append(f'<dt>Learned from</dt><dd><a href="bending.html#scrolls">Scroll: {html.escape(m["name"])}</a></dd>')
-        rows.append(f'<dt>Price</dt><dd>{m["scroll"]["price"]} Yuans, {m["scroll"].get("seller", BD.SCROLL_SELLER)}</dd>')
+        if m["scroll"].get("price"):
+            rows.append(f'<dt>Price</dt><dd>{m["scroll"]["price"]} Yuans, {m["scroll"].get("seller", BD.SCROLL_SELLER)}</dd>')
+        rows.append('<dt>Tier</dt><dd>Any</dd>')
+    elif m["tier"] == "BX":
+        rows.append(f'<dt>Learned from</dt><dd><a href="bending.html#bonus">{n}</a></dd>')
         rows.append('<dt>Tier</dt><dd>Any</dd>')
     else:
         rows.append(f'<dt>Tier</dt><dd><a href="bending.html#tiers">{n}</a> ({q})</dd>')
