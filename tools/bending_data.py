@@ -125,7 +125,7 @@ MOVES = [
       get="Young Lin Beifong's quest <b>Hanging by a Cable</b>, after Foreman Akatsuchi's jobs. She opens up your Metal at the same time."),
     M("Sand Blast", "earth", "II", "Blast sand at a target to damage and blind them.",
       [("", "Tap sneak at a sand block (within 8 blocks), then left-click in a direction.")], sub="sand",
-      get="Pakura's job <b>Sand in Their Eyes</b> at her caravan by the Sparring Grounds, after Young Lin Beifong's lessons."),
+      get="Pakura's job <b>Sand in Their Eyes</b> at her caravan by the Sparring Grounds, after Young Lin Beifong's lessons: dig her barrels out of the sand with your earth moves, and she shows you how sand really moves."),
     M("Earth Smash", "earth", "III", "Raise a boulder, then throw it or ride it.",
       [("Smash", "Hold sneak until particles appear, release at an earthbendable block, hold sneak on the boulder to grab it, then left-click to throw."),
        ("Ride", "Hold sneak and right-click the boulder, then look where you want to go.")]),
