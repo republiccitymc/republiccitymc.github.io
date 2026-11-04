@@ -53,20 +53,20 @@ SUBS = {
     "ice": {"name": "Ice", "path": "water", "first": "II",
             "lead": "Freezing water into blades, spikes and platforms: the Northern Water Tribe's oldest art.",
             "bends": "Ice and packed ice.",
-            "teacher": "Haku at Maru's Butchery teaches it after Young Kya's quests, then Master Kanok at Tier III."},
+            "teacher": "Pick Ice after Young Kya's first lesson and she sends you to Haku at Maru's Butchery. Master Kanok teaches more at Tier III."},
     "healing": {"name": "Healing", "path": "water", "first": "II",
                 "lead": "Water's gentlest use. Katara is the greatest healer alive, and her daughter is learning fast.",
                 "bends": "Water you already carry, to close wounds.",
-                "teacher": "Young Kya teaches it."},
+                "teacher": "Pick Healing after Young Kya's first lesson and she teaches it herself."},
     "plant": {"name": "Plant", "path": "water", "first": "II",
               "lead": "Drawing the water out of living things, the way the Foggy Swamp Tribe does.",
               "bends": "Plants as a water source: leaves, grass, flowers, vines, moss, cactus, sugar cane, melons and pumpkins.",
-              "teacher": "Your water trainer shows you."},
-    "lightning": {"name": "Lightning", "path": "fire", "first": "III",
+              "teacher": "No teacher yet: a plantbender's quest is coming."},
+    "lightning": {"name": "Lightning", "path": "fire", "first": "II",
                   "lead": "Cold-blooded fire. In Republic City, lightning-benders are starting to find work in the power plants.",
                   "bends": "Lightning, made from your own chi.",
                   "teacher": "The Royal Academy Elite teaches it."},
-    "combustion": {"name": "Combustion", "path": "fire", "first": "III",
+    "combustion": {"name": "Combustion", "path": "fire", "first": "II",
                    "lead": "Very rare: an explosion focused through the mind. Combustion-benders are feared for good reason.",
                    "bends": "Explosive blasts, made from your own chi.",
                    "teacher": "The Royal Academy Elite teaches it."},
@@ -75,10 +75,10 @@ SUBS = {
 # How many subelements you have at each tier, per element (shown on Bending & Tiers and the sub pages).
 SUB_RULES = {
     "earth": "One subelement at Tier II: Metal or Sand, your pick after Foreman Akatsuchi's jobs. A second at Tier III, where Lava opens too. All three at Tier &#9733;.",
-    "water": "No pick: Ice, Healing and Plant are all taught from Tier II.",
-    "fire": "No pick: you can learn both, Lightning and Combustion, from Tier III.",
+    "water": "One subelement at Tier II: Healing or Ice, your pick after Young Kya's first lesson (Plant has no teacher yet). A second at Tier III. All three at Tier &#9733;.",
+    "fire": "Pick Lightning or Combustion at Tier II, and learn the other at Tier III.",
 }
-SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "III"}  # earliest subelement per element; each sub's own "first" wins
+SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "II"}  # earliest subelement per element; each sub's own "first" wins
 
 
 def M(name, path, tier, what, use, sub=None, combo=False, later=False, get=None, scroll=None):
@@ -183,14 +183,14 @@ MOVES = [
       get="Young Kya's first quest, <b>Lost in the Sewers</b>, once you reach Tier II (50 QP). She teaches it together with Octopus Form."),
     M("Phase Change", "water", "II", "Freeze water into ice to stand on, or melt ice back.",
       [("Freeze", "Left-click water."), ("Melt", "Hold sneak while looking at ice.")], sub="ice",
-      get="Haku's quest at Maru's Butchery, after Young Kya's quests. He teaches it together with Ice Spike."),
+      get="Haku's quest at Maru's Butchery, if you pick Ice after Young Kya's first lesson. He teaches it together with Ice Spike."),
     M("Ice Spike", "water", "II", "Fire a shard of ice, or raise spikes from ice under your enemies. Both slow what they hit.",
       [("Blast", "Tap sneak at a water source, then left-click to fire."), ("Spike", "Near ice, tap sneak. Or left-click one ice block.")],
-      sub="ice", get="Haku's quest at Maru's Butchery, after Young Kya's quests. He teaches it together with Phase Change."),
+      sub="ice", get="Haku's quest at Maru's Butchery, if you pick Ice after Young Kya's first lesson. He teaches it together with Phase Change."),
     M("Healing Waters", "water", "II", "Heal yourself or someone else with water.",
       [("Yourself", "Hold sneak while standing in water or carrying water bottles."),
        ("Someone else", "Sneak and right-click them, and keep looking at them.")], sub="healing",
-      get="Young Kya's second quest, <b>Great-Gran's Necklace</b>, after Lost in the Sewers."),
+      get="Young Kya's quest <b>Great-Gran's Necklace</b>, if you pick Healing after Lost in the Sewers."),
     M("Water Gimbal", "water", "III", "Two spinning rings of water fired at enemies.", C("Torrent, Torrent, Water Manipulation."), combo=True),
     M("Maelstrom", "water", "III", "Create a deep-water whirlpool that drags enemies down.", C("Phase Change, Torrent, Torrent."), combo=True),
     M("Ice Blast", "water", "III", "A fast, hard shot of ice. Good for finishing a fight.",
