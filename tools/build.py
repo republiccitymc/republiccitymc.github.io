@@ -206,7 +206,7 @@ GLOSSARY = [
     (r"Yuans", "The city's money. Earned from quests and mobs, spent in shops."),
     (r"Order (?:and|or|&amp;) Chaos", "Two separate scores your quest choices raise. They open different Roleplay Ranks."),
     (r"Tier (?:I|II|III)\b|Tier &#9733;", "Your bending rank: I to start, II at 50 QP, III at 250, star at 500. It goes up by itself."),
-    (r"[Ss]ubelements?", "A specialty inside an element, like Metal or Ice. Benders get one at Tier II, two at III, three at star."),
+    (r"[Ss]ubelements?", "A specialty inside an element, like Metal or Ice. Benders get one at Tier II, two at III, all of their element's at star."),
     (r"Discipline", "The line on your dossier that lists your subelements."),
     (r"[Rr]oleplay [Rr]anks?", "Groups you can join, like the police or the White Lotus. Your rank shows on your nametag."),
     (r"Technique Scrolls?", "Read one to learn a move for good, at any tier. Bosses drop some; TenTen sells others."),
