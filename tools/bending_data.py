@@ -61,7 +61,7 @@ SUBS = {
     "plant": {"name": "Plant", "path": "water", "first": "II",
               "lead": "Drawing the water out of living things, the way the Foggy Swamp Tribe does.",
               "bends": "Plants as a water source: leaves, grass, flowers, vines, moss, cactus, sugar cane, melons and pumpkins.",
-              "teacher": "No teacher yet: a plantbender's quest is coming."},
+              "teacher": "Pick Plant after Young Kya's first lesson and she sends you to Moku, a Foggy Swamp Tribe plantbender by the Public Library."},
     "lightning": {"name": "Lightning", "path": "fire", "first": "II",
                   "lead": "Cold-blooded fire. In Republic City, lightning-benders are starting to find work in the power plants.",
                   "bends": "Lightning, made from your own chi.",
@@ -75,7 +75,7 @@ SUBS = {
 # How many subelements you have at each tier, per element (shown on Bending & Tiers and the sub pages).
 SUB_RULES = {
     "earth": "One subelement at Tier II: Metal or Sand, your pick after Foreman Akatsuchi's jobs. A second at Tier III, where Lava opens too. All three at Tier &#9733;.",
-    "water": "One subelement at Tier II: Healing or Ice, your pick after Young Kya's first lesson (Plant has no teacher yet). A second at Tier III. All three at Tier &#9733;.",
+    "water": "One subelement at Tier II: Healing, Ice or Plant, your pick after Young Kya's first lesson. A second at Tier III. All three at Tier &#9733;.",
     "fire": "Pick Lightning or Combustion at Tier II, and learn the other at Tier III.",
 }
 SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "II"}  # earliest subelement per element; each sub's own "first" wins
@@ -198,7 +198,11 @@ MOVES = [
     M("Ice Bullet", "water", "III", "Punch rapid shards out of a wall of ice.",
       [("", "Water Bubble (tap sneak), then Ice Blast (hold sneak). Wait for the ice to form, then alternate left- and right-clicks.")],
       sub="ice", combo=True),
-    M("Plant Tether", "water", "III", "Grow a vine from plants to pull an enemy in or pull yourself.", [], sub="plant", later=True),
+    M("Plant Tether", "water", "II", "Grow a vine from plants to pull an enemy in or pull yourself.",
+      [("Pick a plant", "Tap sneak while looking at a plant."),
+       ("Pull something", "Left-click at a mob or player: the vine drags it to the plant."),
+       ("Pull yourself", "Left-click while looking at the plant itself.")], sub="plant",
+      get="Moku's quest <b>The Seed Thief</b> by the Public Library, if you pick Plant after Young Kya's first lesson."),
     M("Water Arms", "water", "S", "Two arms of water that punch, grab, pull, grapple and freeze.",
       [("Start", "Tap sneak at a water source. Hold sneak and left-click to stop."),
        ("Use", "Left-click to punch, pull, grapple, grab and throw, or fire ice, depending on the arm's mode.")]),
