@@ -41,11 +41,11 @@ SUBS = {
     "metal": {"name": "Metal", "path": "earth", "first": "II",
               "lead": "Toph Beifong's own invention, and the badge of her police force. Metalbenders sense the bits of earth left in refined metal.",
               "bends": "Iron, gold and copper, ore and block.",
-              "teacher": "Young Lin Beifong teaches it herself. Foreman Akatsuchi sends you to her."},
+              "teacher": "Pick Metal after Foreman Akatsuchi's jobs and he sends you to Young Lin Beifong, who teaches it herself."},
     "sand": {"name": "Sand", "path": "earth", "first": "II",
              "lead": "Sandbenders shift loose sand and sandstone, the way the Sandbenders of the Si Wong Desert ride the dunes.",
              "bends": "Sand, red sand, sandstone and red sandstone.",
-             "teacher": "Young Lin Beifong sends you to Pakura, a Si Wong caravan trader at the stalls by the Sparring Grounds."},
+             "teacher": "Pick Sand after Foreman Akatsuchi's jobs and he sends you to Pakura, a Si Wong caravan trader at the stalls by the Sparring Grounds."},
     "lava": {"name": "Lava", "path": "earth", "first": "III",
              "lead": "Rare and feared. Lavabenders melt earth into magma and turn it back to stone.",
              "bends": "Lava, and earth melted into magma.",
@@ -74,7 +74,7 @@ SUBS = {
 
 # How many subelements you have at each tier, per element (shown on Bending & Tiers and the sub pages).
 SUB_RULES = {
-    "earth": "No pick: you can learn all three, each from its own teacher. Metal and Sand from Tier II, Lava from Tier III.",
+    "earth": "One subelement at Tier II: Metal or Sand, your pick after Foreman Akatsuchi's jobs. A second at Tier III, where Lava opens too. All three at Tier &#9733;.",
     "water": "No pick: Ice, Healing and Plant are all taught from Tier II.",
     "fire": "No pick: you can learn both, Lightning and Combustion, from Tier III.",
 }
@@ -122,10 +122,10 @@ MOVES = [
       get="Young Lin Beifong's quest <b>The Iron Vein</b>: pull the iron out of the old mine's ore, and she shows you how to throw it."),
     M("Extraction", "earth", "II", "Pull the metal out of ore, sometimes two or three times over.",
       [("", "Tap sneak at an ore block.")], sub="metal",
-      get="Young Lin Beifong's quest <b>Hanging by a Cable</b>, after Foreman Akatsuchi's jobs. She opens up your Metal at the same time."),
+      get="Young Lin Beifong's quest <b>Hanging by a Cable</b>, if you pick Metal after Foreman Akatsuchi's jobs. She opens up your Metal at the same time."),
     M("Sand Blast", "earth", "II", "Blast sand at a target to damage and blind them.",
       [("", "Tap sneak at a sand block (within 8 blocks), then left-click in a direction.")], sub="sand",
-      get="Pakura's job <b>Sand in Their Eyes</b> at her caravan by the Sparring Grounds, after Young Lin Beifong's lessons: dig her barrels out of the sand with your earth moves, and she shows you how sand really moves."),
+      get="Pakura's job <b>Sand in Their Eyes</b> at her caravan by the Sparring Grounds, if you pick Sand after Foreman Akatsuchi's jobs: dig her barrels out of the sand with your earth moves, and she shows you how sand really moves."),
     M("Earth Smash", "earth", "III", "Raise a boulder, then throw it or ride it.",
       [("Smash", "Hold sneak until particles appear, release at an earthbendable block, hold sneak on the boulder to grab it, then left-click to throw."),
        ("Ride", "Hold sneak and right-click the boulder, then look where you want to go.")]),
