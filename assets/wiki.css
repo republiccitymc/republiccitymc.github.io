@@ -168,3 +168,4 @@ td>.cb{margin-left:0}
 .wiki ol.rk li span{font-size:.8rem;color:var(--muted)}
 .wiki .rk-note{margin:6px 0 0;font-size:.8rem;color:var(--muted);font-style:italic}
 .wiki table.ranks td:first-child{min-width:150px}
+.wiki table.ranks small.recruiter{display:block;margin-top:4px;color:var(--muted,#888);font-weight:normal;line-height:1.3}
