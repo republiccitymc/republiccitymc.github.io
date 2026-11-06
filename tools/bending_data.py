@@ -201,7 +201,7 @@ MOVES = [
     M("Razor Leaf", "water", "II", "Pull a leaf out of a plant, hold it sharp and spinning, then throw it. Call it back to throw it again.",
       [("Start", "Hold sneak while looking at a plant: a leaf disc spins up in front of you."),
        ("Throw", "Aim and let go of sneak."),
-       ("Call it back", "Sneak again while it's out and it flies back towards you.")], sub="plant",
+       ("Call it back", "Sneak again while it's out and it flies back toward you.")], sub="plant",
       get="Moku's quest <b>The Seed Thief</b> by the Public Library, if you pick Plant after Young Kya's first lesson."),
     M("Water Arms", "water", "S", "Two arms of water that punch, grab, pull, grapple and freeze.",
       [("Start", "Tap sneak at a water source. Hold sneak and left-click to stop."),
