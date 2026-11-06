@@ -72,7 +72,7 @@ LINKS = [
     ("Quest Points", "economy.html#currency"), ("Yuans", "economy.html#currency"),
     ("bending tiers", "bending.html#tiers"), ("Tier II", "bending.html#tiers"), ("Discipline", "bending.html#subelements"),
     ("Technique Scrolls", "bending.html#scrolls"), ("Scroll: Catapult", "bending.html#scrolls"), ("technique scrolls", "bending.html#scrolls"),
-    ("Registration Form", "how-to-play.html#first-hour"), ("Registrar Huan", "how-to-play.html#first-hour"),
+    ("Registration Form", "how-to-play.html#first-hour"), ("Clerk Huan", "how-to-play.html#first-hour"),
     ("quest compass", "how-to-play.html#finding-your-way"), ("waypoints", "how-to-play.html#finding-your-way"),
     ("dossier", "dossier.html"), ("Dossier", "dossier.html"),
     ("roleplay ranks", "roleplay-ranks.html"), ("Roleplay Ranks", "roleplay-ranks.html"),
