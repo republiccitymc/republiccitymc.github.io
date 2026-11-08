@@ -402,9 +402,12 @@ def scrolls_table():
             continue
         sc, p = m["scroll"], BD.PATHS[m["path"]]
         who = p["name"].replace("bending", "benders") if m["path"] in ("earth", "water", "fire") else p["name"]
+        if m["path"] == "chi":
+            who = "Chi blockers"
         if m["sub"]:
             who += f' with {BD.SUBS[m["sub"]]["name"]}'
-        where = (f'TenTen, {sc["price"]} Yuans' if sc.get("seller") else sc.get("from", "To be decided").capitalize())
+        short = {BD.SCROLL_SELLER: "TenTen", BD.GING_SELLER: "Ging's Antiques (after Jax)"}
+        where = (f'{short.get(sc["seller"], sc["seller"])}, {sc["price"]} Yuans' if sc.get("seller") else sc.get("from", "To be decided").capitalize())
         cb = ' <span class="cb">combo</span>' if m["combo"] else ""
         name = html.escape(m["name"]) if m["later"] else f'<a href="{move_url(m)}">{html.escape(m["name"])}</a>'
         rows.append(f'<tr><td data-l="Scroll">{name}{cb}</td><td data-l="For">{who}</td><td data-l="Where">{where}</td></tr>')

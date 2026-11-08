@@ -33,6 +33,8 @@ TIERS = {"I": ("Tier I", "Start"), "II": ("Tier II", "50 QP"), "III": ("Tier III
 # Scroll-only moves: no tier teaches them; the scroll drops from a boss or comes from a quest or vendor, and works at any tier.
 SCROLL_TIER = ("Scrolls", "Drops &amp; Vendors")
 SCROLL_SELLER = "Weapons Vendor TenTen"
+# Ging's Antiques sells its scrolls once Pitmaster Jax is beaten (2026-11-08). At most 4 scrolls per shop.
+GING_SELLER = "Shopkeeper Ging, Ging's Antiques (after Pitmaster Jax)"
 # Moves you get from boss drops and side quests instead of a tier: tier "BX", listed under the table.
 BONUS_TIER = ("Boss Drops & Side Quests", "Bonus")
 
@@ -137,7 +139,7 @@ MOVES = [
     M("Magma Shot", "earth", "III", "Fire balls of magma, up to three in a row.", H("Magma Shot"), sub="lava"),
     M("Lava Manipulation", "earth", "III", "Melt earth into a stream of lava and fling it.", H("Lava Manipulation"), sub="lava"),
     M("Tremorsense", "earth", "SC", "Feel the ground around you. In the dark, the earth under your feet lights up for you only.",
-      [("", "Stand on earth in the dark and it works on its own. Left-click to spot hollow pockets nearby.")], scroll={"price": 60, "seller": SCROLL_SELLER}),
+      [("", "Stand on earth in the dark and it works on its own. Left-click to spot hollow pockets nearby.")], scroll={}),
     M("Crevice", "earth", "S", "Rip a deep crevice open in the ground.", C("Collapse, Shockwave, Shockwave."), combo=True, later=True),
     M("Metal Cables", "earth", "S", "Fire wrist-mounted metal cables to grapple and control targets.", [], sub="metal", later=True),
     M("Lava Flow", "earth", "S", "Turn the ground around you into lava, or cool lava back into stone.",
@@ -148,7 +150,7 @@ MOVES = [
       [("Grab", "Left-click toward the target."), ("Drag", "Sneak to pull nearby items to you."),
        ("Escape", "If you're caught, right-click the trap a few times, or get moved by another earth move.")], scroll={"price": 60, "seller": SCROLL_SELLER}),
     M("Earth Dome", "earth", "SC", "Close yourself, or someone else, inside a dome of earth.",
-      [("Yourself", "Raise Earth (right-click), then Shockwave (right-click)."), ("Someone else", "Raise Earth (right-click), then Shockwave (left-click).")], scroll={"price": 80, "seller": SCROLL_SELLER, "needs": "Shockwave (Tier II)"}),
+      [("Yourself", "Raise Earth (right-click), then Shockwave (right-click)."), ("Someone else", "Raise Earth (right-click), then Shockwave (left-click).")], scroll={"price": 80, "seller": GING_SELLER, "needs": "Shockwave (Tier II)"}),
     M("Earth Kick", "earth", "SC", "Kick a spray of earth chunks at a foe.", H("Earth Kick"), scroll={}, later=True),
     M("Earth Shard", "earth", "SC", "Pull up small earth shards, hold several, and launch them one by one.", H("Earth Shard"), scroll={}, later=True),
     M("Mud Surge", "earth", "SC", "Hurl a wave of mud that knocks back, damages, and can blind.", H("Mud Surge"), scroll={}, later=True),
@@ -208,9 +210,10 @@ MOVES = [
        ("Use", "Left-click to punch, pull, grapple, grab and throw, or fire ice, depending on the arm's mode.")]),
     M("Frost Breath", "water", "S", "Breathe freezing air that freezes targets in place.", H("Frost Breath"), sub="ice", later=True),
     M("Drain", "water", "S", "Draw water out of nearby plants to fill bottles or fire blasts.", H("Drain"), sub="plant", later=True),
-    M("Wake Fishing", "water", "SC", "Waterbend fish straight out of the water.", H("Wake Fishing"), scroll={}, later=True),
+    M("Wake Fishing", "water", "SC", "Waterbend fish straight out of the water.",
+      [("", "Hold sneak and keep looking at water. After a moment, fish jump out at you.")], scroll={"price": 40, "seller": SCROLL_SELLER}),
     M("Ice Wave", "water", "SC", "Freeze your water wave as you ride it, hurting everything it hits.",
-      [("", "Ride a Water Spout wave, then switch to Phase Change and left-click.")], sub="ice", combo=True, scroll={}),
+      [("", "Ride a Water Spout wave, then switch to Phase Change and left-click.")], sub="ice", combo=True, scroll={"price": 120, "seller": GING_SELLER}),
     M("Ice Wall", "water", "SC", "Raise a wall of ice that damages nearby enemies when shattered.", H("Ice Wall"), sub="ice", scroll={}, later=True),
     M("Ice Claws", "water", "SC", "Form ice claws on your fingers to slash or throw.", H("Ice Claws"), sub="ice", scroll={}, later=True),
     # ---------------- FIRE ----------------
@@ -256,7 +259,7 @@ MOVES = [
     M("Fire Shield", "fire", "SC", "A shield of fire that blocks projectiles and bending.",
       [("", "Hold sneak. Left-click for a quick shield that sets anyone inside it alight.")], scroll={"price": 60, "seller": SCROLL_SELLER}),
     M("Fire Spin", "fire", "SC", "A ring of fire that throws everyone near you back.",
-      [("", "Fire Blast, Fire Blast, Fire Shield (left-click), Fire Shield (tap sneak).")], combo=True, scroll={"price": 80, "seller": SCROLL_SELLER, "needs": "Fire Shield (also a scroll)"}),
+      [("", "Fire Blast, Fire Blast, Fire Shield (left-click), Fire Shield (tap sneak).")], combo=True, scroll={"price": 80, "seller": GING_SELLER, "needs": "Fire Shield (also a scroll)"}),
     M("Fire Ski", "fire", "SC", "Skate rapidly along the ground propelled by fire jets.", H("Fire Ski"), scroll={}, later=True),
     M("Fire Ball", "fire", "SC", "Throw a single fireball projectile.", H("Fire Ball"), scroll={}, later=True),
     M("Discharge", "fire", "SC", "Fire rapid bolts of electricity from the fingertips that can stun.", H("Discharge"), sub="lightning", scroll={}, later=True),
@@ -273,6 +276,10 @@ MOVES = [
       get="Acrobat Lee's quest <b>Catch Me If You Can</b>, after Pipa's Great Escape."),
     M("Bola", "chi", "III", "Throw a bola that wraps a target and slows them, which sets up everything else.",
       [("", "Run <code>/b help Bola</code> in game for the controls.")]),
+    M("Jab", "chi", "SC", "Quick jabs that chain into combos.", [("", "Left-click or right-click a player, again and again.")],
+      scroll={"price": 60, "seller": SCROLL_SELLER}),
+    M("Ninja Stance", "chi", "SC", "A stance that makes you faster and quieter, and can hide you.",
+      [("", "Left-click to take the stance, then hold sneak to fade from sight.")], scroll={"price": 110, "seller": GING_SELLER}),
     M("Immobilize", "chi", "III", "Lock a target in place for several seconds.",
       [("", "Quick Strike, Swift Kick, Quick Strike, Quick Strike.")], combo=True),
     M("Warrior Stance", "chi", "III", "Hit harder, but take a bit more damage.", [("", "Left-click to switch it on or off.")]),
