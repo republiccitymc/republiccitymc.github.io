@@ -62,11 +62,11 @@ SUBS = {
               "lead": "Drawing the water out of living things, the way the Foggy Swamp Tribe does.",
               "bends": "Plants as a water source: leaves, grass, flowers, vines, moss, cactus, sugar cane, melons and pumpkins.",
               "teacher": "Pick Plant after Young Kya's first lesson and she sends you to Plantbender Moku, a Foggy Swamp Tribe plantbender by the Public Library."},
-    "lightning": {"name": "Lightning", "path": "fire", "first": "II",
+    "lightning": {"name": "Lightning", "path": "fire", "first": "III",
                   "lead": "Cold-blooded fire. In Republic City, lightning-benders are starting to find work in the power plants.",
                   "bends": "Lightning, made from your own chi.",
                   "teacher": "The Royal Academy Elite teaches it."},
-    "combustion": {"name": "Combustion", "path": "fire", "first": "II",
+    "combustion": {"name": "Combustion", "path": "fire", "first": "III",
                    "lead": "Very rare: an explosion focused through the mind. Combustion-benders are feared for good reason.",
                    "bends": "Explosive blasts, made from your own chi.",
                    "teacher": "The Royal Academy Elite teaches it."},
@@ -76,9 +76,9 @@ SUBS = {
 SUB_RULES = {
     "earth": "One subelement at Tier II: Metal or Sand, your pick after Crew Boss Akatsuchi's jobs. A second at Tier III, where Lava opens too. All three at Tier &#9733;.",
     "water": "One subelement at Tier II: Healing, Ice or Plant, your pick after Young Kya's first lesson. A second at Tier III. All three at Tier &#9733;.",
-    "fire": "Pick Lightning or Combustion at Tier II, and learn the other at Tier III.",
+    "fire": "Pick Lightning or Combustion at Tier III, and learn the other at Tier &#9733;. At Tier &#9733; your fire also burns blue.",
 }
-SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "II"}  # earliest subelement per element; each sub's own "first" wins
+SUB_FIRST_TIER = {"earth": "II", "water": "II", "fire": "III"}  # earliest subelement per element; each sub's own "first" wins
 
 
 def M(name, path, tier, what, use, sub=None, combo=False, later=False, get=None, scroll=None):
