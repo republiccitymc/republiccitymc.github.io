@@ -79,7 +79,7 @@ LINKS = [
     ("Main Story", "quests.html"), ("main story", "quests.html"), ("Avatar Aang", "quests.html"),
     ("side quests", "side-quests.html"), ("Side Quests", "side-quests.html"), ("Scrap Lessons", "side-quests.html"),
     ("Unity Flats", "housing.html"), ("apartment", "housing.html"), ("Landlady Fe", "housing.html#building"),
-    ("hidden caches", "economy.html#caches"), ("hidden cache", "economy.html#caches"),
+    ("hidden loot boxes", "economy.html#loot-boxes"), ("hidden loot box", "economy.html#loot-boxes"),
     ("Jian's Tea House", "economy.html#teas"), ("Shady Zhen", "economy.html#shops"),
     ("Weapons Vendor TenTen", "economy.html#shops"), ("TenTen", "economy.html#shops"),
     ("Noodle Man Raku", "economy.html#shops"), ("Old Man Shen", "economy.html#basics"),
