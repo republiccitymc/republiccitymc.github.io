@@ -314,7 +314,10 @@ def default_get(m):
         who = (f"{p['name'].lower().replace('bending', 'benders')} only" if m["path"] in ("earth", "fire", "water") else p["name"])
         if sc.get("seller"):
             price = f" for {sc['price']} Yuans" if sc.get("price") else ""
-            txt = f"Buy <b>Scroll: {m['name']}</b> from {sc['seller']} at the Sparring Grounds{price} ({who})."
+            learner = (p['name'].lower().replace('bending', 'benders') if m["path"] in ("earth", "fire", "water")
+                       else "Chi Blockers" if m["path"] == "chi" else p["name"])
+            txt = (f"Buy <b>Scroll: {m['name']}</b> from {sc['seller']} at the Sparring Grounds{price}. "
+                   f"Any path can buy it, but only {learner} can learn it.")
         elif sc.get("from"):
             txt = f"<b>Scroll: {m['name']}</b> comes from {sc['from']} ({who})."
         else:
