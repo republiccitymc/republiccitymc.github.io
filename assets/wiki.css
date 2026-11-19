@@ -169,3 +169,10 @@ td>.cb{margin-left:0}
 .wiki .rk-note{margin:6px 0 0;font-size:.8rem;color:var(--muted);font-style:italic}
 .wiki table.ranks td:first-child{min-width:150px}
 .wiki table.ranks small.recruiter{display:block;margin-top:4px;color:var(--muted,#888);font-weight:normal;line-height:1.3}
+
+/* Home: the Join box stands out (2026-11-19) */
+.wiki .join-box{border-width:2px;padding:22px 24px}
+.wiki .join-box .ip{font-size:clamp(1.2rem,3.8vw,1.75rem)}
+.wiki .join-links{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px}
+.wiki .join-links .btn{padding:11px 22px;font-size:.95rem}
+.wiki .join-links .btn-alt{background:transparent;color:var(--text) !important;border:1px solid rgba(var(--accent-rgb),.45)}
