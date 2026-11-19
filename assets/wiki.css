@@ -175,4 +175,3 @@ td>.cb{margin-left:0}
 .wiki .join-box .ip{font-size:clamp(1.2rem,3.8vw,1.75rem)}
 .wiki .join-links{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px}
 .wiki .join-links .btn{padding:11px 22px;font-size:.95rem}
-.wiki .join-links .btn-alt{background:transparent;color:var(--text) !important;border:1px solid rgba(var(--accent-rgb),.45)}

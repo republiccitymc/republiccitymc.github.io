@@ -73,7 +73,7 @@ LINKS = [
     ("Order &amp; Chaos", "alignment.html"), ("Order or Chaos", "alignment.html"), ("Order and Chaos", "alignment.html"),
     ("Quest Points", "economy.html#currency"), ("Yuans", "economy.html#currency"),
     ("bending tiers", "bending.html#tiers"), ("Tier II", "bending.html#tiers"), ("Discipline", "bending.html#subelements"),
-    ("Technique Scrolls", "bending.html#scrolls"), ("Scroll: Catapult", "bending.html#scrolls"), ("technique scrolls", "bending.html#scrolls"),
+    ("Technique Scrolls", "economy.html#scrolls"), ("Scroll: Catapult", "economy.html#scrolls"), ("technique scrolls", "economy.html#scrolls"),
     ("Registration Form", "how-to-play.html#first-hour"), ("Clerk Huan", "how-to-play.html#first-hour"),
     ("quest compass", "how-to-play.html#finding-your-way"), ("waypoints", "how-to-play.html#finding-your-way"),
     ("registration", "registration.html"), ("Registration", "registration.html"),
@@ -432,7 +432,7 @@ def move_page(m):
     if m["sub"]:
         rows.append(f'<dt>Subelement</dt><dd><a class="schip s-{m["sub"]}" href="{sub_url(m["sub"])}">{BD.SUBS[m["sub"]]["name"]}</a></dd>')
     if m.get("scroll") is not None:
-        rows.append(f'<dt>Learned from</dt><dd><a href="bending.html#scrolls">Scroll: {html.escape(m["name"])}</a></dd>')
+        rows.append(f'<dt>Learned from</dt><dd><a href="economy.html#scrolls">Scroll: {html.escape(m["name"])}</a></dd>')
         if m["scroll"].get("price"):
             rows.append(f'<dt>Price</dt><dd>{m["scroll"]["price"]} Yuans, {m["scroll"].get("seller", BD.SCROLL_SELLER)}</dd>')
         rows.append('<dt>Tier</dt><dd>Any</dd>')
