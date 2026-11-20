@@ -21,6 +21,7 @@ Run from anywhere:  python3 tools/build.py
 Add a page: create pages/<name>.html and add it to SIDEBAR below (and RELATED).
 """
 import html
+import hashlib
 import json
 import pathlib
 import re
@@ -627,12 +628,21 @@ def generated_pages():
     return [move_page(m) for m in BD.MOVES if not m["later"]] + [sub_page(k) for k in BD.SUBS] + boss_pages()
 
 
+def bust(page):
+    """Adds ?v=<short content hash> to our own CSS/JS links so a browser never mixes new pages with a cached old stylesheet."""
+    def ver(mm):
+        f = ROOT / mm.group(2)
+        v = hashlib.md5(f.read_bytes()).hexdigest()[:8] if f.exists() else "0"
+        return f'{mm.group(1)}{mm.group(2)}?v={v}"'
+    return re.sub(r'((?:href|src)=")(assets/[\w-]+\.(?:css|js))"', ver, page)
+
+
 def write_page(name, title, desc, body, crumb, side):
     h1 = "" if name == "index" else f"<h1>{html.escape(title)}</h1>"
     page = (HEAD.format(title=html.escape(title), desc=html.escape(desc), discord=DISCORD)
             + sidebar(side) + f'\n<main class="article">\n{crumb}{h1}\n{body}</main>\n'
             + FOOT.format(discord=DISCORD, staff=STAFF_FORM))
-    (ROOT / f"{name}.html").write_text(page)
+    (ROOT / f"{name}.html").write_text(bust(page))
     print("built", f"{name}.html")
 
 

@@ -257,3 +257,9 @@ td>.cb{margin-left:0}
 .wiki .firsthour{margin-left:0 !important;padding-left:0 !important}
 .wiki .ladder .rung:nth-child(1){min-height:130px}.wiki .ladder .rung:nth-child(2){min-height:175px}
 .wiki .ladder .rung:nth-child(3){min-height:220px}.wiki .ladder .rung:nth-child(4){min-height:250px}
+/* Ladder: equal-height cards, a thicker gold bar for each tier up (2026-11-20) */
+.wiki .ladder{align-items:stretch}
+.wiki .ladder .rung{min-height:0 !important;border-top-width:4px;border-top-color:rgba(var(--accent-rgb),.5)}
+.wiki .ladder .rung:nth-child(2){border-top-width:7px;border-top-color:rgba(var(--accent-rgb),.7)}
+.wiki .ladder .rung:nth-child(3){border-top-width:10px;border-top-color:rgba(var(--accent-rgb),.9)}
+.wiki .ladder .rung:nth-child(4){border-top-width:13px;border-top-color:var(--accent-fill)}
