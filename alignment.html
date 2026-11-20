@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">  <symbol id="el-earth" viewBox="0 0 24 24"><path d="M2 21 8.5 8l4 7 3-5L22 21Z"/><path d="M8.5 8 10 11H7Z" fill="#fff" opacity=".35"/></symbol>  <symbol id="el-water" viewBox="0 0 24 24"><path d="M12 2.5S5 10.2 5 15a7 7 0 0 0 14 0c0-4.8-7-12.5-7-12.5Zm-3 13a3 3 0 0 0 3 3v2a5 5 0 0 1-5-5Z"/></symbol>  <symbol id="el-fire" viewBox="0 0 24 24"><path d="M12.5 2c.6 4 6.5 6.4 6.5 12.2A7 7 0 0 1 5 14.5c0-3.2 1.8-5.4 3.4-7 0 2.4 1 3.6 2.4 3.9C10.4 8 11 4.6 12.5 2Zm-.4 11.2c-1.6 1.6-2.6 2.7-2.6 4.3a2.6 2.6 0 0 0 5.2 0c0-1.7-1.3-2.8-2.6-4.3Z"/></symbol>  <symbol id="el-chi" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.6"/><circle cx="6" cy="16" r="2.6"/><circle cx="18" cy="16" r="2.6"/><path d="M12 7.6v4.6M7.9 14.2l2.6-1.6M16.1 14.2l-2.6-1.6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="12" cy="13" r="1.8"/></symbol>  <symbol id="el-wm" viewBox="0 0 24 24"><path d="M20.5 2.5 21.5 3.5 9.8 15.2l-1-1Z"/><path d="M6.2 13.2l4.6 4.6-1.4 1.4-1.6-1.6-3.1 3.1a1 1 0 0 1-1.4-1.4l3.1-3.1-1.6-1.6Z"/><path d="M3.5 2.5 2.5 3.5l11.7 11.7 1-1Z"/><path d="M17.8 13.2l-4.6 4.6 1.4 1.4 1.6-1.6 3.1 3.1a1 1 0 0 0 1.4-1.4l-3.1-3.1 1.6-1.6Z"/></symbol></svg>
 <div class="rc wiki">
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
@@ -60,15 +61,18 @@
 <main class="article">
 <div class="crumb">City Life</div><h1>Order &amp; Chaos</h1>
 <p class="lead">Like Raava and Vaatu, two forces pull at Republic City. Your choices earn <b>Order</b> or <b>Chaos</b>: two separate meters, so earning one never costs you the other.</p>
+<dl class="glance"><div class="gt">At a glance</div><dt>Two meters</dt><dd><span class="gl" tabindex="0" data-tip="Two separate scores your quest choices raise. They open different Roleplay Ranks.">Order and Chaos</span> add up separately; earning one never lowers the other.</dd><dt>Big choices</dt><dd>Quest 7 (+5) and the Arc 1 finale (+10).</dd><dt>Fights</dt><dd>Spare or arrest a beaten enemy: +1 Order. Finish him: +1 Chaos. First 5 per group.</dd><dt>Why</dt><dd>It decides which <span class="gl" tabindex="0" data-tip="Groups you can join, like the police or the White Lotus. Your rank shows on your nametag.">Roleplay Ranks</span> will have you.</dd></dl>
 <nav class="toc"><div class="th">Contents</div><ol><li><a href="#how">How It Works</a></li><li><a href="#arc1">Choices in Arc 1</a></li><li><a href="#fights">In Fights</a></li><li><a href="#why">Why It Matters</a></li></ol></nav>
 
 <h2 id="how">How It Works</h2>
-<div class="tbl-wrap">
-    <table><thead><tr><th></th><th class="c-order">Order</th><th class="c-chaos">Chaos</th></tr></thead><tbody>
-      <tr><td data-l="">You earn it by</td><td data-l="Order">Playing it straight: reporting, cooperating, handing over evidence</td><td data-l="Chaos">Leverage: threats, bribes, keeping what you find</td></tr>
-      <tr><td data-l="">In Arc 1</td><td data-l="Order">Turn Ren in the right way; hand Aang everything</td><td data-l="Chaos">Squeeze Ren for his silence; pocket the ring</td></tr>
-    </tbody></table>
-  </div>
+<div class="split">
+  <div class="o"><h3>Order</h3><div class="tag">Play it straight</div><ul>
+    <li>Report, cooperate, hand over evidence</li>
+    <li>Spare or arrest a beaten enemy</li></ul></div>
+  <div class="c"><h3>Chaos</h3><div class="tag">Use leverage</div><ul>
+    <li>Threats, bribes, keeping what you find</li>
+    <li>Finish off a beaten enemy</li></ul></div>
+</div>
 <p>Your <a href="registration.html">registration</a> shows which way you lean, with both totals.</p>
 
 <h2 id="arc1">Choices in Arc 1</h2>

@@ -115,6 +115,7 @@ HEAD = """<!doctype html>
 <link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">  <symbol id="el-earth" viewBox="0 0 24 24"><path d="M2 21 8.5 8l4 7 3-5L22 21Z"/><path d="M8.5 8 10 11H7Z" fill="#fff" opacity=".35"/></symbol>  <symbol id="el-water" viewBox="0 0 24 24"><path d="M12 2.5S5 10.2 5 15a7 7 0 0 0 14 0c0-4.8-7-12.5-7-12.5Zm-3 13a3 3 0 0 0 3 3v2a5 5 0 0 1-5-5Z"/></symbol>  <symbol id="el-fire" viewBox="0 0 24 24"><path d="M12.5 2c.6 4 6.5 6.4 6.5 12.2A7 7 0 0 1 5 14.5c0-3.2 1.8-5.4 3.4-7 0 2.4 1 3.6 2.4 3.9C10.4 8 11 4.6 12.5 2Zm-.4 11.2c-1.6 1.6-2.6 2.7-2.6 4.3a2.6 2.6 0 0 0 5.2 0c0-1.7-1.3-2.8-2.6-4.3Z"/></symbol>  <symbol id="el-chi" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.6"/><circle cx="6" cy="16" r="2.6"/><circle cx="18" cy="16" r="2.6"/><path d="M12 7.6v4.6M7.9 14.2l2.6-1.6M16.1 14.2l-2.6-1.6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="12" cy="13" r="1.8"/></symbol>  <symbol id="el-wm" viewBox="0 0 24 24"><path d="M20.5 2.5 21.5 3.5 9.8 15.2l-1-1Z"/><path d="M6.2 13.2l4.6 4.6-1.4 1.4-1.6-1.6-3.1 3.1a1 1 0 0 1-1.4-1.4l3.1-3.1-1.6-1.6Z"/><path d="M3.5 2.5 2.5 3.5l11.7 11.7 1-1Z"/><path d="M17.8 13.2l-4.6 4.6 1.4 1.4 1.6-1.6 3.1 3.1a1 1 0 0 0 1.4-1.4l-3.1-3.1 1.6-1.6Z"/></symbol></svg>
 <div class="rc wiki">
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
@@ -419,7 +420,65 @@ def scrolls_table():
             f'<tbody>{"".join(rows)}</tbody></table></div>')
 
 
+# NPC portraits: <i class="face" data-npc="Young Bumi"></i> in a page becomes the NPC's skin face (face + hat layer).
+# Source: the Citizens skin (local copy in assets/npc/, else the Mojang texture URL from plugins/Citizens/saves.yml).
+# Color = nameplate color. An empty source, or a texture that fails to load, shows the initial instead.
+NPCS = {
+    'Neighbor Mei-Lin': ('https://textures.minecraft.net/texture/c3329436e26037b8c92e4d7e22271560f190c2489e9b14d3cd04c084b9b5981d', 'plain'),
+    'Avatar Aang': ('https://textures.minecraft.net/texture/4cd277bca537fa9a1327d1c3d6a19b394cc1bd13dfb1a4f91b9d4938dedcfde2', 'avatar'),
+    'Shopkeeper Ging': ('https://textures.minecraft.net/texture/90e75cd429ba6331cd210b9bd19399527ee3bab467b5a9f61cb8a27b177f6789', 'plain'),
+    'Clerk Huan': ('assets/npc/clerk_huan.png', 'plain'),
+    'Gatekeeper Ren': ('https://textures.minecraft.net/texture/2d9de85e022b7a4a02c9784b30e646f997ebd2aa0ac587cb40d43d5412783865', 'plain'),
+    'Shopkeeper Jian': ('https://textures.minecraft.net/texture/a98468949d36aa62d0577ebdb3ee5ed846ee986636b03d2e28a523f431972461', 'plain'),
+    'Young Kya': ('https://textures.minecraft.net/texture/a3bd16079f764cd541e072e888fe43885e711f98658323db0f9a6045da91ee7a', 'water'),
+    'Business Man Homura': ('', 'fire'),
+    'Acrobat Lee': ('https://textures.minecraft.net/texture/1b7147f8250a573ef00f50bf9c6a30548be9d3e2d3ce747082eac8e36a49079f', 'chi'),
+    'Young Bumi': ('assets/npc/young_bumi.png', 'plain'),
+    'Weapons Vendor TenTen': ('https://textures.minecraft.net/texture/97baf31cea68131a5433d2bda1e21c67ab5cb366c4bd112200f04166a48c9daf', 'wm'),
+    'Plumber Kuo': ('https://textures.minecraft.net/texture/3c305949b74852876cf4326968df973394bd8b782333df7fea1c2dec9eccf828', 'plain'),
+    'Lady Shijimi': ('assets/npc/lady_shijimi.png', 'plain'),
+    'Noodle Man Raku': ('https://textures.minecraft.net/texture/97d54026dd00a2947a2984e7a8634e7217f46652596c566f5b1df5f0b4762f88', 'plain'),
+    'Old Man Shen': ('assets/npc/old_man_shen.png', 'plain'),
+    'Shady Zhen': ('assets/npc/shady_zhen.png', 'plain'),
+    'Vegetable Seller Bo': ('assets/npc/vegetable_seller_bo.png', 'plain'),
+    'Author Jira': ('https://textures.minecraft.net/texture/797ddce65abe66b0d63de858dabb4e3952be0bd0746402aaa79f97740643216d', 'plain'),
+    'Librarian Kashi': ('', 'plain'),
+    'Landlady Fe': ('', 'plain'),
+    'Postmaster Kotetsu': ('assets/npc/postmaster_kotetsu.png', 'plain'),
+    'Poshi the Hawk': ('https://textures.minecraft.net/texture/963286a21aa0d8622c76c7723d5deff1fe12966ca39612d722e0e7a4e834d7f4', 'plain'),
+    'Police Officer Izumo': ('assets/npc/officer_izumo.png', 'earth'),
+    'Reporter Shiho': ('', 'plain'),
+    'Activist Ayame': ('https://textures.minecraft.net/texture/b50636f8a0a474a1fe983cbc9bca2a086f7cc53f09b63c9f8e1f970afae4a13f', 'plain'),
+    'Agni Kai Yura': ('https://textures.minecraft.net/texture/b32185f1f0546c574cd612d015c1f84af8e5986ea6222e115845b148554d9df6', 'fire'),
+    'Butcher Maru': ('', 'plain'),
+    'Iceman Haku': ('https://textures.minecraft.net/texture/fe2a5a325ecad9a1b154a61537e81867b43f1ba4836d3c16775dcc4790c2e076', 'water'),
+    'Builder Giichi': ('assets/npc/builder_giichi.png', 'earth'),
+    'Pipa the Armadillo-Bunny': ('', 'plain'),
+    'Crew Boss Akatsuchi': ('https://textures.minecraft.net/texture/507c178950e42d6a2f889068fb0f1b07fe9a7da986eb711a5743b28d9ebf2b77', 'earth'),
+    'Young Lin Beifong': ('', 'earth'),
+    'Trader Pakura': ('https://textures.minecraft.net/texture/b866b5a4754b6d94b0bcf6549f0c90d0a72c41fead840290179eb253a008b006', 'earth'),
+    'Plantbender Moku': ('https://textures.minecraft.net/texture/cc312d37decfff9685c3141a1b1bf2bfb5d40007cedbadab233ed8595dde9258', 'water'),
+    'Cabbage Corp Iwashi': ('', 'plain'),
+    'Terra Triad Kitsuchi': ('assets/npc/terra_triad_kitsuchi.png', 'earth'),
+    'Red Monsoon Ao': ('assets/npc/recruiter_ao.png', 'water'),
+    'Ungiven Yoroi': ('assets/npc/ungiven_yoroi.png', 'chi'),
+    'United Forces Sergeant Ebisu': ('', 'plain'),
+}
+
+
+def faces(body):
+    def one(mm):
+        name = mm.group(2)
+        src, el = NPCS.get(name, ("", "plain"))
+        initial = html.escape(name.split()[-1][0])
+        data = f' data-src="{src}"' if src else ""
+        extra = mm.group(1) or ""
+        return f'<i class="face{extra} el-{el}"{data} title="{html.escape(name)}" aria-hidden="true">{initial}</i>'
+    return re.sub(r'<i class="face( [\w ]+)?" data-npc="([^"]+)"></i>', lambda mm: one(mm), body)
+
+
 def fill_markers(body):
+    body = faces(body)
     body = body.replace("<!-- moves-table -->", moves_table())
     body = body.replace("<!-- scrolls-table -->", scrolls_table())
     return re.sub(r"<!-- moves:(\w+) -->", lambda mm: path_moves_table(mm.group(1)), body)

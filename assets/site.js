@@ -101,3 +101,15 @@ var RC_SERVER = { address: 'republiccitymc.play.minekube.net', version: '1.21.11
     if(box){ e.preventDefault(); box.focus(); }
   });
 })();
+
+// NPC portraits: load the skin, then draw its face (and hat layer) as two scaled backgrounds. Keeps the initial if it fails.
+(function(){
+  document.querySelectorAll('.face[data-src]').forEach(function(el){
+    var src = el.getAttribute('data-src'), img = new Image();
+    img.onload = function(){
+      el.style.backgroundImage = 'url("' + src + '"), url("' + src + '")';
+      el.classList.add('on');
+    };
+    img.src = src;
+  });
+})();

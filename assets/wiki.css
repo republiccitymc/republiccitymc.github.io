@@ -175,3 +175,85 @@ td>.cb{margin-left:0}
 .wiki .join-box .ip{font-size:clamp(1.2rem,3.8vw,1.75rem)}
 .wiki .join-links{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0 4px}
 .wiki .join-links .btn{padding:11px 22px;font-size:.95rem}
+
+/* ---------- Visuals pass (2026-11-20) ---------- */
+/* Home: center the join buttons */
+.wiki .join-links{justify-content:center}
+
+/* NPC portraits: a Minecraft skin's face, hat layer on top. --u is one skin pixel. */
+.wiki .face{--u:4.5px;display:inline-flex;align-items:center;justify-content:center;width:calc(var(--u)*8);height:calc(var(--u)*8);
+  border-radius:6px;vertical-align:middle;margin-right:8px;flex:none;font-style:normal;font-weight:800;font-size:.95rem;color:#fff;
+  background-color:#8a8f96;background-repeat:no-repeat;image-rendering:pixelated;box-shadow:0 0 0 2px var(--card),0 0 0 3px var(--line)}
+.wiki .face.lg{--u:7px;font-size:1.4rem;border-radius:8px}
+.wiki .face.on{color:transparent;background-size:calc(var(--u)*64) calc(var(--u)*64);
+  background-position:calc(var(--u)*-40) calc(var(--u)*-8),calc(var(--u)*-8) calc(var(--u)*-8)}
+.wiki .face.el-earth{background-color:var(--green)}.wiki .face.el-water{background-color:var(--blue)}
+.wiki .face.el-fire{background-color:var(--red)}.wiki .face.el-chi{background-color:#b8892c}
+.wiki .face.el-wm{background-color:var(--wm)}.wiki .face.el-avatar{background-color:#7b4fa6}
+.wiki td .face{margin:2px 8px 2px 0}
+.wiki .who{display:flex;align-items:center}
+
+/* Element icons */
+.wiki .el-icon{width:22px;height:22px;vertical-align:-5px;margin-right:6px;fill:currentColor}
+.wiki .elements a .el-icon{display:block;width:30px;height:30px;margin:0 0 8px}
+.wiki .infobox .ib-title .el-icon{width:26px;height:26px;vertical-align:-6px}
+
+/* Path card: the trainer you go to first */
+.wiki .pathcard{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--pc,var(--accent-fill));
+  border-radius:12px;background:var(--card);padding:12px 16px;margin:0 0 18px;max-width:560px}
+.wiki .pathcard b{display:block;color:var(--text)}
+.wiki .pathcard span{color:var(--muted);font-size:.92rem}
+
+/* Tier ladder */
+.wiki .ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end;margin:16px 0 10px;max-width:760px}
+.wiki .ladder .rung{border-radius:12px 12px 4px 4px;padding:12px 12px 14px;background:var(--card);border:1px solid var(--line);position:relative}
+.wiki .ladder .rung:nth-child(1){min-height:120px}.wiki .ladder .rung:nth-child(2){min-height:150px}
+.wiki .ladder .rung:nth-child(3){min-height:180px}.wiki .ladder .rung:nth-child(4){min-height:210px;background:rgba(var(--accent-rgb),.35);border-color:rgba(var(--accent-rgb),.9)}
+.wiki .ladder .t{font-size:1.6rem;font-weight:900;line-height:1;color:var(--text)}
+.wiki .ladder .n{font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin:4px 0 8px}
+.wiki .ladder .qp{display:inline-block;background:var(--accent-fill);color:var(--on-accent);font-weight:800;font-size:.8rem;border-radius:999px;padding:2px 10px;margin-bottom:8px}
+.wiki .ladder ul{list-style:none;margin:0;padding:0;font-size:.82rem;color:var(--muted)}
+.wiki .ladder li{margin:2px 0}
+@media(max-width:640px){.wiki .ladder{grid-template-columns:1fr 1fr}.wiki .ladder .rung{min-height:0 !important}}
+
+/* City map with waypoint pins */
+.wiki .citymap{position:relative;max-width:560px;margin:12px 0 8px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.wiki .citymap img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.wiki .citymap .pin{position:absolute;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.wiki .citymap .pin b{background:#fff;color:#1b1f24;font-size:.7rem;font-weight:800;line-height:1.2;padding:2px 6px;border-radius:6px;
+  box-shadow:0 1px 3px rgba(0,0,0,.45);white-space:nowrap}
+.wiki .citymap .pin i{width:12px;height:12px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#d8402b;border:2px solid #fff;margin-top:3px;box-shadow:0 1px 3px rgba(0,0,0,.5)}
+.wiki .citymap .pin.l b{transform:translateX(-30%)}.wiki .citymap .pin.r b{transform:translateX(30%)}
+@media(max-width:520px){.wiki .citymap .pin b{font-size:.6rem;padding:1px 4px}}
+
+/* Order vs Chaos split */
+.wiki .split{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:14px;overflow:hidden;margin:14px 0 18px;border:1px solid var(--line)}
+.wiki .split>div{padding:16px 18px;color:#fff}
+.wiki .split .o{background:var(--blue)}.wiki .split .c{background:var(--red)}
+.wiki .split h3{color:#fff;font-size:1.25rem;margin:0 0 2px}
+.wiki .split .tag{font-size:.75rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;opacity:.85;margin-bottom:8px}
+.wiki .split ul{margin:0;padding-left:18px}.wiki .split li{color:#fff;margin:4px 0;font-size:.93rem}
+.wiki .split a{color:#fff;text-decoration:underline}
+@media(max-width:600px){.wiki .split{grid-template-columns:1fr}}
+
+/* First hour: numbered steps */
+.wiki .firsthour{list-style:none;counter-reset:fh;margin:12px 0 18px;padding:0;display:grid;gap:10px}
+.wiki .firsthour li{counter-increment:fh;position:relative;border:1px solid var(--line);border-radius:12px;background:var(--card);padding:12px 16px 12px 58px;color:var(--muted)}
+.wiki .firsthour li::before{content:counter(fh);position:absolute;left:14px;top:12px;width:30px;height:30px;border-radius:50%;background:var(--accent-fill);color:var(--on-accent);font-weight:800;display:flex;align-items:center;justify-content:center}
+.wiki .firsthour li b:first-child{display:block;color:var(--text)}
+
+/* Arc 1 part cards */
+.wiki .parts{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:12px 0 18px}
+.wiki .parts .pc{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.wiki .parts img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.wiki .parts .pb{padding:10px 14px 14px}
+.wiki .parts .pn{font-size:.72rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+.wiki .parts h3{margin:2px 0 4px;font-size:1.05rem}
+.wiki .parts p{font-size:.9rem;margin:0}
+.wiki .citymap .pin.b{transform:translate(-50%,-6px);flex-direction:column-reverse}
+.wiki .citymap .pin.b i{margin:0 0 3px}
+.wiki .firsthour li>.who{margin-bottom:2px}.wiki .firsthour li>.who b{color:var(--text)}
+.wiki td .who{display:inline-flex}
+.wiki .firsthour{margin-left:0 !important;padding-left:0 !important}
+.wiki .ladder .rung:nth-child(1){min-height:130px}.wiki .ladder .rung:nth-child(2){min-height:175px}
+.wiki .ladder .rung:nth-child(3){min-height:220px}.wiki .ladder .rung:nth-child(4){min-height:250px}

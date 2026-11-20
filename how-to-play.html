@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="assets/wiki.css">
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">  <symbol id="el-earth" viewBox="0 0 24 24"><path d="M2 21 8.5 8l4 7 3-5L22 21Z"/><path d="M8.5 8 10 11H7Z" fill="#fff" opacity=".35"/></symbol>  <symbol id="el-water" viewBox="0 0 24 24"><path d="M12 2.5S5 10.2 5 15a7 7 0 0 0 14 0c0-4.8-7-12.5-7-12.5Zm-3 13a3 3 0 0 0 3 3v2a5 5 0 0 1-5-5Z"/></symbol>  <symbol id="el-fire" viewBox="0 0 24 24"><path d="M12.5 2c.6 4 6.5 6.4 6.5 12.2A7 7 0 0 1 5 14.5c0-3.2 1.8-5.4 3.4-7 0 2.4 1 3.6 2.4 3.9C10.4 8 11 4.6 12.5 2Zm-.4 11.2c-1.6 1.6-2.6 2.7-2.6 4.3a2.6 2.6 0 0 0 5.2 0c0-1.7-1.3-2.8-2.6-4.3Z"/></symbol>  <symbol id="el-chi" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.6"/><circle cx="6" cy="16" r="2.6"/><circle cx="18" cy="16" r="2.6"/><path d="M12 7.6v4.6M7.9 14.2l2.6-1.6M16.1 14.2l-2.6-1.6" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="12" cy="13" r="1.8"/></symbol>  <symbol id="el-wm" viewBox="0 0 24 24"><path d="M20.5 2.5 21.5 3.5 9.8 15.2l-1-1Z"/><path d="M6.2 13.2l4.6 4.6-1.4 1.4-1.6-1.6-3.1 3.1a1 1 0 0 1-1.4-1.4l3.1-3.1-1.6-1.6Z"/><path d="M3.5 2.5 2.5 3.5l11.7 11.7 1-1Z"/><path d="M17.8 13.2l-4.6 4.6 1.4 1.4 1.6-1.6 3.1 3.1a1 1 0 0 0 1.4-1.4l-3.1-3.1 1.6-1.6Z"/></symbol></svg>
 <div class="rc wiki">
 <header class="topbar"><div class="in">
   <label for="sidetoggle" class="burger" aria-label="Menu">&#9776;</label>
@@ -60,7 +61,7 @@
 <main class="article">
 <div class="crumb">Start Here</div><h1>Getting Started</h1>
 <p class="lead">You start in front of Republic City Hall. Here's how to get in the game and find your feet.</p>
-<nav class="toc"><div class="th">Contents</div><ol><li><a href="#connect">Joining the Server</a></li><li><a href="#first-hour">Your First Steps</a></li><li><a href="#origins">Origins and Paths</a></li><li><a href="#finding-your-way">Finding Your Way</a></li><li><a href="#rules">Rules</a></li></ol></nav>
+<nav class="toc"><div class="th">Contents</div><ol><li><a href="#connect">Joining the Server</a></li><li><a href="#first-hour">Your First Hour</a></li><li><a href="#origins">Origins and Paths</a></li><li><a href="#finding-your-way">Finding Your Way</a></li><li><a href="#rules">Rules</a></li></ol></nav>
 
 <h2 id="connect">Joining the Server</h2>
 <div class="ipbox">
@@ -74,12 +75,14 @@
   <li><b>Can't connect?</b> Look your error up in <a href="https://www.gameserverkings.com/knowledge-base/minecraft/players-cant-connect/" target="_blank" rel="noopener">this guide</a>, or ask in the Discord with a screenshot.</li>
 </ul>
 
-<h2 id="first-hour">Your First Steps</h2>
-<ol>
-  <li><b>Create your character.</b> This opens as soon as you join. Pick your <b>Place of Origin</b> and your <b>bending</b>, then sign your papers. Choose carefully: changing your path later means <a href="economy.html#papers">forged papers</a> from Shady Zhen, and a name change costs 100 <span class="gl" tabindex="0" data-tip="The city&#x27;s money. Earned from quests and mobs, spent in shops.">Yuans</span> at City Hall.</li>
-  <li><b>Talk to Clerk Huan</b> inside City Hall to start Arc 1. He also hands you a starter kit: a training staff, Running Shoes (twice as fast while you wear them), cabbage cookies and the <i>Welcome to Republic City</i> pamphlet. Waterbenders also get water bottles. Lost the pamphlet, or want a guide on something else? Ask Huan: his pamphlets are free.</li>
-  <li><b>Check your abilities.</b> Your starting moves are already on your hotbar. <code>/b display</code> lists them; see <a href="commands.html">Commands</a> for the rest. Bend with an <b>empty hand</b> (put your compass in your off hand); from <span class="gl" tabindex="0" data-tip="Your bending rank: I to start, II at 50 QP, III at 250, star at 500. It goes up by itself.">Tier III</span> you can bend while holding things.</li>
-  <li><b>Follow your quest compass.</b> It tracks your current quest and points you to the next step (more under <a href="#finding-your-way">Finding Your Way</a>). The <a href="quests.html">Arc 1</a> page has walkthroughs if you get stuck.</li>
+<h2 id="first-hour">Your First Hour</h2>
+<ol class="firsthour">
+  <li><b>Create your character.</b> The screens open as soon as you join: pick your <b>Place of Origin</b> and your <b>bending</b>, then sign. Choose carefully: changing your path later means <a href="economy.html#papers">forged papers</a> from Shady Zhen.</li>
+  <li><span class="who"><i class="face el-plain" data-src="assets/npc/clerk_huan.png" title="Clerk Huan" aria-hidden="true">H</i><b>Talk to Clerk Huan</b></span> Inside City Hall. He starts Arc 1 and hands you a starter kit: a training staff, Running Shoes (twice as fast), cabbage cookies and the <i>Welcome to Republic City</i> pamphlet. Waterbenders also get water bottles.</li>
+  <li><b>Check your moves.</b> They're already on your hotbar; <code>/b display</code> lists them. Bend with an <b>empty hand</b> (compass in your off hand) until <span class="gl" tabindex="0" data-tip="Your bending rank: I to start, II at 50 QP, III at 250, star at 500. It goes up by itself.">Tier III</span>.</li>
+  <li><b>Follow your quest compass.</b> Hold it to see your task; it points along the streets. Stuck? The <a href="quests.html">Arc 1</a> page has walkthroughs.</li>
+  <li><b>Walk past landmarks.</b> Each one you pass becomes a fast-travel point on <code>/wp</code> (map below).</li>
+  <li><b>Open your <a href="registration.html">registration</a>.</b> <code>/reg</code> shows your tier, <span class="gl" tabindex="0" data-tip="Earned from quests. They raise your bending tier and are never spent.">Quest Points</span>, Yuans and quest log.</li>
 </ol>
 
 <h2 id="origins">Origins and Paths</h2>
@@ -96,8 +99,19 @@
   <li><b>Quest compass.</b> Hold it to see your current task above the hotbar. It points along the streets, not through walls.</li>
   <li><b>Markers.</b> A floating <b>!</b> over someone means they have a job for you; <b>?</b> means go back and report.</li>
   <li><b><span class="gl" tabindex="0" data-tip="Landmarks you&#x27;ve walked past. /wp takes you back to any of them.">Waypoints</span>.</b> Landmarks unlock as you walk past them. <code>/wp</code> takes you back to any you've found.</li>
-  <li><b>Objectives and rewards.</b> When you finish a step, it flashes on screen along with your next one. <span class="gl" tabindex="0" data-tip="Earned from quests. They raise your bending tier and are never spent.">Quest Points</span>, Yuans and <a href="alignment.html">Order or Chaos</a> show on screen when you earn them.</li>
+  <li><b>Objectives and rewards.</b> When you finish a step, it flashes on screen along with your next one. Quest Points, <span class="gl" tabindex="0" data-tip="The city&#x27;s money. Earned from quests and mobs, spent in shops.">Yuans</span> and <a href="alignment.html">Order or Chaos</a> show on screen when you earn them.</li>
 </ul>
+<div class="citymap"><img src="assets/img/city-map.png" alt="Map of the Civic District with its fast-travel points" width="736" height="736" loading="lazy">
+  <span class="pin r b" style="left:1.9%;top:2.7%"><b>Zhen's Alley</b><i></i></span>
+  <span class="pin " style="left:52.4%;top:11.4%"><b>Sparring Grounds</b><i></i></span>
+  <span class="pin l" style="left:89.1%;top:9.9%"><b><a href="housing.html">Unity Flats</a></b><i></i></span>
+  <span class="pin r" style="left:10.1%;top:25.6%"><b>Public Works</b><i></i></span>
+  <span class="pin " style="left:31.2%;top:27.3%"><b>Library</b><i></i></span>
+  <span class="pin " style="left:63.8%;top:51.5%"><b>City Hall</b><i></i></span>
+  <span class="pin " style="left:50.3%;top:62.2%"><b>Civic Records</b><i></i></span>
+  <span class="pin l" style="left:85.9%;top:77.9%"><b>Messenger Hawk Post</b><i></i></span>
+</div>
+<p class="hint">The Civic District, north up. Each pin is a fast-travel point you unlock by walking past it.</p>
 
 <h2 id="rules">Rules</h2>
 <ul>
