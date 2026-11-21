@@ -408,11 +408,15 @@ def scrolls_table():
         who = p["name"].replace("bending", "benders") if m["path"] in ("earth", "water", "fire") else p["name"]
         if m["path"] == "chi":
             who = "Chi blockers"
+        if m["path"] == "wm":
+            who = "Weapons Masters"
         if m["sub"]:
             who += f' with {BD.SUBS[m["sub"]]["name"]}'
         short = {BD.SCROLL_SELLER: "TenTen", BD.GING_SELLER: "Ging's Antiques (after Jax)"}
         where = (f'{short.get(sc["seller"], sc["seller"])}, {sc["price"]} Yuans' if sc.get("seller") else sc.get("from", "To be decided").capitalize())
         cb = ' <span class="cb">combo</span>' if m["combo"] else ""
+        if sc.get("kind"):
+            cb += f' <span class="cb">{sc["kind"].lower()}</span>'
         name = html.escape(m["name"]) if m["later"] else f'<a href="{move_url(m)}">{html.escape(m["name"])}</a>'
         rows.append(f'<tr><td data-l="Scroll">{name}{cb}</td><td data-l="For">{who}</td><td data-l="Where">{where}</td></tr>')
     rows.append('<tr><td data-l="Scroll"><a href="move-catapult.html">Catapult</a></td><td data-l="For">Earthbenders</td>'
@@ -492,7 +496,7 @@ def move_page(m):
     if m["sub"]:
         rows.append(f'<dt>Subelement</dt><dd><a class="schip s-{m["sub"]}" href="{sub_url(m["sub"])}">{BD.SUBS[m["sub"]]["name"]}</a></dd>')
     if m.get("scroll") is not None:
-        rows.append(f'<dt>Learned from</dt><dd><a href="economy.html#scrolls">Scroll: {html.escape(m["name"])}</a></dd>')
+        rows.append(f'<dt>Learned from</dt><dd><a href="economy.html#scrolls">{m["scroll"].get("kind", "Scroll")}: {html.escape(m["name"])}</a></dd>')
         if m["scroll"].get("price"):
             rows.append(f'<dt>Price</dt><dd>{m["scroll"]["price"]} Yuans, {m["scroll"].get("seller", BD.SCROLL_SELLER)}</dd>')
         rows.append('<dt>Tier</dt><dd>Any</dd>')
