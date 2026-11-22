@@ -309,6 +309,7 @@ MOVES = [
     M("Dart Whirl", "wm", "III", "Spin the rope dart in a ring around you, hitting everything that comes close.", [], later=True),
     M("Disarm", "wm", "III", "Knock the weapon out of an enemy's rhythm: weapon users can't swing for a few seconds, benders are staggered.", [], later=True),
     M("Reel and Cleave", "wm", "III", "Hook an enemy with the rope dart and pull them straight into a sweeping strike.", [], combo=True, later=True),
+    M("Knife Fan", "wm", "III", "Mai's throw: a fan of three knives at once.", [], later=True),
     M("Boomerang", "wm", "S", "Uncle Sokka's boomerang: it curves out and comes back, and can hit from behind on the return.", [], later=True),
     M("Called Shot", "wm", "S", "A charged throw aimed at a bender mid-move that cancels whatever they're charging.", [], later=True),
 ]
